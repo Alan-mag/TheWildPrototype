@@ -56,3 +56,6 @@
 *.wlt filter=lfs diff=lfs merge=lfs -text
 *.config filter=lfs diff=lfs merge=lfs -text
 *.xsd filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.shadergraph filter=lfs diff=lfs merge=lfs -text
