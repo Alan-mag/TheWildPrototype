@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cf5a1f9e4f5bf32c1fc26cf2900b6f09107029a88352fc74d8703f34d8e76eff
-size 248
+fileFormatVersion: 2
+guid: 6f0764197a37428ba5aa9658907d1b56
+labels:
+- gvh
+- gvh_version-10.5.0
+- gvhp_exportpath-Firebase/Editor/DatabaseDependencies.xml
+timeCreated: 1480838400
+DefaultImporter:
+  userData:
+  assetBundleName:
+  assetBundleVariant:

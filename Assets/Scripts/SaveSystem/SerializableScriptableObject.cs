@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:663269f48e242496820faafd4cca4360d32e7dc4aa9bed074529ffdfbe67be8e
-size 365
+using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+public class SerializableScriptableObject : ScriptableObject
+{
+    [SerializeField, HideInInspector] private string _guid;
+    public string Guid => _guid;
+
+#if UNITY_EDITOR
+	void OnValidate()
+	{
+		var path = AssetDatabase.GetAssetPath(this);
+		_guid = AssetDatabase.AssetPathToGUID(path);
+	}
+#endif
+}

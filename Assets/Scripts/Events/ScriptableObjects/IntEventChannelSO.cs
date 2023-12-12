@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:023424cfd55a83aa392f4361e16f8eadcf2c4cb1165fcb6dcf783a3e27014911
-size 329
+using UnityEngine;
+using UnityEngine.Events;
+
+[CreateAssetMenu(menuName = "Events/Int Event Channel")]
+public class IntEventChannelSO : DescriptionBaseSO
+{
+    public UnityAction<int> OnEventRaised;
+
+    public void RaiseEvent(int value)
+    {
+        if (OnEventRaised != null)
+            OnEventRaised.Invoke(value); 
+    }
+}

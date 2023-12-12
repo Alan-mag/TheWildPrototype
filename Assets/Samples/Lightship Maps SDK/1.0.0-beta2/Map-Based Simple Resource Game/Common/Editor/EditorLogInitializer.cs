@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f528d3925ee588af27f387d53edb26257de4a9407c9a0feed26d942a6689700c
-size 1027
+// Copyright 2022 Niantic, Inc. All Rights Reserved.
+
+using System;
+using Niantic.Platform.Debugging;
+using Niantic.Platform.Debugging.Unity;
+using UnityEditor;
+
+namespace Niantic.Lightship.Maps.Samples.Common.Editor
+{
+    /// <summary>
+    /// This class is used to initialize the Platform logging system before the
+    /// Unity Editor runs any Editor scripts, which sends logged events through
+    /// the Platform Logger in these cases. For more information, please see
+    /// <see href="https://docs.unity3d.com/Manual/RunningEditorCodeOnLaunch.html">
+    /// Unity's documentation on running editor script code on launch.</see>
+    /// </summary>
+    [InitializeOnLoad]
+    public class EditorLogInitializer
+    {
+        /// <summary>
+        /// Executed once at startup
+        /// </summary>
+        static EditorLogInitializer()
+        {
+            var logStream = new UnityLogStream();
+            LogService.RegisterLogStream(logStream);
+            LogService.MaxLogLevel = LogLevel.Verbose;
+        }
+    }
+}

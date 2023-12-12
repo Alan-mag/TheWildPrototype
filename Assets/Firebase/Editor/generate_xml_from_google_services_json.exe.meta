@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f400ce209ba74b6fa993d9c1ccae4f1de19322e804f3e3e4165573645b0a21d6
-size 266
+fileFormatVersion: 2
+guid: ae88c0972b7448b5b36def1716f1d711
+labels:
+- gvh
+- gvh_version-10.5.0
+- gvhp_exportpath-Firebase/Editor/generate_xml_from_google_services_json.exe
+timeCreated: 1480838400
+DefaultImporter:
+  userData:
+  assetBundleName:
+  assetBundleVariant:

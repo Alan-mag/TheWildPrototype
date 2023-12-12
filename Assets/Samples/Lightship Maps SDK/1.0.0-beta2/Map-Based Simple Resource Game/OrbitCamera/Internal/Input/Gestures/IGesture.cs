@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ea5f7af13f774462ae623faa6a24305eda8286fbbf5fbf117181818d8a69847
-size 385
+// Copyright 2019 Niantic, Inc. All Rights Reserved.
+namespace Niantic.Platform.Util.OrbitCameraInternal
+{
+    /// <summary>
+    /// Base interface for gestures.
+    /// </summary>
+    public interface IGesture
+    {
+        /// <summary>
+        /// Called after all input for this frame has been passed to this gesture
+        /// </summary>
+        void PostProcessInput();
+    }
+}

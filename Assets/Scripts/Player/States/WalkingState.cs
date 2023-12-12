@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:909cbde8b4d004887e32fe42e4f56f28fa5a356d363873dbaf3fbcb705cde4af
-size 843
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Player
+{
+    public class WalkingState : IState
+    {
+        private PlayerController player;
+        public WalkingState(PlayerController player)
+        {
+            this.player = player;
+        }
+
+        public void Enter()
+        {
+
+        }
+
+        public void Execute()
+        {
+            // walking animations here
+            if (player.Speed < 0.1)
+            {
+                player.PlayerStateMachine.TransistionTo(player.PlayerStateMachine.idleState);
+            }
+            else
+            {
+                //player.PlayerAnimator.Play("BasicMotions@Walk01 - Forwards");
+                player.PlayerAnimator.SetFloat("speed", player.Speed);
+            }
+        }
+
+        public void Exit()
+        {
+
+        }
+    }
+}

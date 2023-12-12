@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81624c573c9aef1d2714a4d0bcacd48fac1a23b0986700a247429b56c17d7d7f
-size 934
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a42bbf58dcefe4bb561865f005839c, type: 3}
+  m_Name: Expedition_HQ
+  m_EditorClassIdentifier: 
+  totalLevels: 5
+  currentLevel: 0
+  pathTaken: 0
+  audioLogMessage: Hello, you are about to embark on an expedition. On it, you will
+    discover the biology, history, and landscape of the area. You may also be challenged
+    with puzzles to solve and secrets to uncover. Best of luck!
+  scannerMessage: HQ Expedition scanning
+  historicalImageMessage: HQ Expedition Historical Image message
+  finalStepMessage: HQ Expedition FInal Step message
+  historicalImage: {fileID: 2800000, guid: f439a672e37652548ad2637d10cb70ad, type: 3}

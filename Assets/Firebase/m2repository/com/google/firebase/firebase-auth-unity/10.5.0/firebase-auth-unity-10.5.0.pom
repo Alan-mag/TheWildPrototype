@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd653c143671924d691d68efb40d284dd14ef1d7ab6a284565f5df83d04835c3
-size 485
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 \&#xD;&#xA;http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.firebase</groupId>
+  <artifactId>firebase-auth-unity</artifactId>
+  <version>10.5.0</version>
+  <packaging>srcaar</packaging>
+  <dependencies></dependencies>
+</project>

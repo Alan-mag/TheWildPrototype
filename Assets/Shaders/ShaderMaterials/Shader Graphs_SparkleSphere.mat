@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3bd27d3bdc68dd7997df571d048e3b0790fb820599fcfbfb416696721cd30b1f
-size 1311
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_SparkleSphere
+  m_Shader: {fileID: -6465566751694194690, guid: e1be9adc013a13941814b247647acaf2,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _FresnelPower: 6
+    - _NoiseScale: 4
+    - _ScrollSpeed: 0.02
+    m_Colors:
+    - _InnerColor: {r: 0, g: 22.211765, b: 23.968628, a: 0.5411765}
+    - _OuterColor: {r: 0, g: 4.0784316, b: 11.984314, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &7089161445606959006
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0

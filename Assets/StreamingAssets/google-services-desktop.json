@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:25c0d4b7fbcd8b4edcfd714cc59d681d136320ebc5d2da06895c01f5f67ca369
-size 914
+{
+  "project_info": {
+    "project_number": "717030189633",
+    "firebase_url": "https://thewild-3f4c7-default-rtdb.firebaseio.com",
+    "project_id": "thewild-3f4c7",
+    "storage_bucket": "thewild-3f4c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717030189633:ios:bb1cfb999bf43d9b36f4c0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.TheWildGame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717030189633-rm2qbhtug2am8529jghcrgs5f3cefvmk.apps.googleusercontent.com"
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEaHaPKSB1fmONozm4tqSgF8yNeHcvOMI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

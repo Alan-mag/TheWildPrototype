@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7a7b09c645d9dea19ff8f3103e7427ff571584ce1cc67bee0bb07fad310a25f2
-size 689
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5165b29be5f1ced448fbf5fb2b14ea77, type: 3}
+  m_Name: RoadBuilder
+  m_EditorClassIdentifier: 
+  _builderName: Road
+  _minLOD: 16
+  _maxLOD: 17
+  _mapLayer: 7
+  _features: 1c0000001e000000
+  _materials:
+  - {fileID: 2100000, guid: d9a099940ce6f42939d8888e735979dd, type: 2}
+  _zOffset: 0.0004
+  _roadThickness: 0.05
+  _endCapPointCount: 4
+  _bendThreshold: 0.85
+  _smoothFactor: 0.15

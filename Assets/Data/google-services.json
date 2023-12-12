@@ -1,3 +1,155 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cfc51c961327ad54e430fd5ba07f6410538524ef001da2ff1f1087a5776d4bfe
-size 4560
+{
+  "project_info": {
+    "project_number": "717030189633",
+    "firebase_url": "https://thewild-3f4c7-default-rtdb.firebaseio.com",
+    "project_id": "thewild-3f4c7",
+    "storage_bucket": "thewild-3f4c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717030189633:android:5a5bf9d92af3576b36f4c0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.NianticPlayground"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNi1QSSWHPYdFX81XNP7MkPu5-r3_A5fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "717030189633-93i1db76p12nno0ulrubafo4a5p1dafv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.TheWild"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717030189633:android:c06223e72a14fb5836f4c0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.TheWild"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNi1QSSWHPYdFX81XNP7MkPu5-r3_A5fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "717030189633-93i1db76p12nno0ulrubafo4a5p1dafv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.TheWild"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717030189633:android:70a52ab18ddf727236f4c0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.TheWildGame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNi1QSSWHPYdFX81XNP7MkPu5-r3_A5fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "717030189633-93i1db76p12nno0ulrubafo4a5p1dafv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.TheWild"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717030189633:android:7f9612307deedb8b36f4c0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.TheWildPrototype"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNi1QSSWHPYdFX81XNP7MkPu5-r3_A5fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "717030189633-93i1db76p12nno0ulrubafo4a5p1dafv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.TheWild"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

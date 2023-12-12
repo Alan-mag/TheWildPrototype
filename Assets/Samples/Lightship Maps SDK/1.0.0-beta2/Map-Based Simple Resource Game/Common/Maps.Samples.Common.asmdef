@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d47db331d80b2564438202a5ee609bac8481e48c6a92245b0deaf1ed430706a
-size 543
+{
+    "name": "Maps.Samples.Common",
+    "rootNamespace": "Niantic.Lightship.Maps.Samples.Common",
+    "references": [
+        "UnityDebugging",
+        "Niantic.Lightship.Maps.Unity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Niantic.Platform.Debugging.dll",
+        "Niantic.Lightship.Maps.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

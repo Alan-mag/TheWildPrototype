@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0caa2b78ffdd07e62b8ce0bc86957327ab25f3e60c393f80a98fdc1417192374
-size 639
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a27d85506e4de2498d267d226afe908, type: 3}
+  m_Name: WaterBuilder
+  m_EditorClassIdentifier: 
+  _builderName: Water
+  _minLOD: 0
+  _maxLOD: 17
+  _mapLayer: 9
+  _features: 4500000002000000010000001900000020000000530000003a000000
+  _materials:
+  - {fileID: 2100000, guid: 0f8f5387ee88a4fc9b5e4245574c24d7, type: 2}
+  _zOffset: 0.0002

@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c56ef9660232cbb54a9b55e7fd851b73087532d81048581f341f16911b810ee8
-size 648
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff17ddf91e2425997a7aeaa893be3ce, type: 3}
+  m_Name: TestFeatureSpawner_notused
+  m_EditorClassIdentifier: 
+  _builderName: TestSceneChangeCubeSpawner
+  _minLOD: 0
+  _maxLOD: 17
+  _mapLayer: 4
+  _features: 14000000
+  _materials: []
+  _prefab: {fileID: 4253519250462466218, guid: 83e288ca79f1e79419c2710fcf2a190f, type: 3}
+  _resourceType: 0

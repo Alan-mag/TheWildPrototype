@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:be7577fe63df48d893091a2820208cba7092f624915d8224b1ee919dd972e060
-size 450
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+[CreateAssetMenu(menuName = "Events/AR Interaction Event Channel")]
+public class ARInteractionEventChannelSO : DescriptionBaseSO
+{
+    public UnityAction<string, Vector3> OnEventRaised;
+
+    public void RaiseEvent(string name, Vector3 position)
+    {
+        if (OnEventRaised != null)
+            OnEventRaised.Invoke(name, position);
+    }
+}
