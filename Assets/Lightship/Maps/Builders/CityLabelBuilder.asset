@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e333d817c3876fd04f1e04395a1c5d2015dc1a477bc2be5be8b4c5691e408365
-size 612
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f0fc13feae4857b9c31b001762e50e, type: 3}
+  m_Name: CityLabelBuilder
+  m_EditorClassIdentifier: 
+  _builderName: City Label
+  _minLOD: 9
+  _maxLOD: 15
+  _mapLayer: 5
+  _features: 42000000
+  _materials: []
+  _labelPrefab: {fileID: 7893527779914761085, guid: f54c861a4199d45909912d5d443d5499,
+    type: 3}

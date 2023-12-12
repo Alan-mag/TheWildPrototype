@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45ee2e3b83fd0632b245847de7df42ed62fbee3c7d5f538f0ab0e24da94a8a94
-size 410
+// Copyright 2019 Niantic, Inc. All Rights Reserved.
+namespace Niantic.Platform.Util.OrbitCameraInternal
+{
+    public interface IZoomCurveEvaluator
+    {
+        float GetAngleFromDistance(float distance);
+        float GetElevationFromDistance(float distance);
+        float GetDistanceFromZoomFraction(float zoomFraction);
+
+        void SetCameraParameters(NianticCameraParameters cameraParameters);
+    }
+}

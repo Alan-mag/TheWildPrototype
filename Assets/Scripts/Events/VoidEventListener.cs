@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09ca560ee076b3056b467da6f403269e84ae4fa983b1a4732283f9b6cd86367d
-size 610
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class VoidEventListener : MonoBehaviour
+{
+    [SerializeField] private VoidEventChannelSO _channel = default;
+
+    public UnityEvent OnEventRaised;
+
+    private void OnEnable()
+    {
+        if (_channel != null)
+            _channel.OnEventRaised += Respond;
+    }
+
+    private void OnDisable()
+    {
+        if (_channel != null)
+            _channel.OnEventRaised -= Respond;
+    }
+
+    private void Respond()
+    {
+        if(OnEventRaised != null)
+            OnEventRaised.Invoke();
+    }
+}

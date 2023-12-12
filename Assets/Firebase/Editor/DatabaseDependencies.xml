@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:891379d51f1930956e7abc94d569c66f5239cd09e6be854ea11200db076ddc0b
-size 791
+<!-- Copyright (C) 2019 Google Inc. All Rights Reserved.
+
+FirebaseDatabase iOS and Android Dependencies.
+-->
+
+<dependencies>
+  <iosPods>
+    <iosPod name="Firebase/Database" version="10.5.0" minTargetSdk="8.0">
+    </iosPod>
+  </iosPods>
+  <androidPackages>
+    <androidPackage spec="com.google.firebase:firebase-database:20.1.0">
+    </androidPackage>
+    <androidPackage spec="com.google.firebase:firebase-analytics:21.2.0">
+    </androidPackage>
+    <androidPackage spec="com.google.android.gms:play-services-base:18.1.0">
+    </androidPackage>
+    <androidPackage spec="com.google.firebase:firebase-database-unity:10.5.0">
+      <repositories>
+        <repository>Assets/Firebase/m2repository</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+</dependencies>

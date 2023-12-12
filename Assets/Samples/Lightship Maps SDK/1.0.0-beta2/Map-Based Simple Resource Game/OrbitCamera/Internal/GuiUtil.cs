@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f6a3a4e62e8fea8dd528537c4771b4b6a0847feb5821ab3b833309b33bbdcfb
-size 917
+// Copyright 2019 Niantic, Inc. All Rights Reserved.
+using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
+namespace Niantic.Platform.Util.OrbitCameraInternal
+{
+    public static class GuiUtil
+    {
+        // This is similar to EventSystem.current.IsPointerOverGameObject()
+        // But it works properly on mobile
+        public static bool IsScreenPositionOverUi(Vector2 inputPos)
+        {
+            if (EventSystem.current != null)
+            {
+                var pointer = new PointerEventData(EventSystem.current);
+                pointer.position = inputPos;
+                var raycastResults = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointer, raycastResults);
+
+                if (raycastResults.Count > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+}

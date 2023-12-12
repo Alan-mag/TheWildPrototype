@@ -1,3 +1,95 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b9d0f6ef43ebbee8f087cc78f49d5a7411da0a94945b1b4e098c9d08a728fef5
-size 3893
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9d3adbc772998a44ebb94e2c24a8a179
+  - enabled: 1
+    path: Assets/Scenes/Map/MapTest.unity
+    guid: 2ca9043a61a168a4cbbdb019a5a18010
+  - enabled: 1
+    path: Assets/Scenes/PersistentScene.unity
+    guid: 25a5f82343e098641b57d62702e440f8
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/Signal_Scene_Test.unity
+    guid: 68122decb6010ed4c815488bee021f22
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/Puzzle_Solution_1.unity
+    guid: de559a4d51fcf6f47ac376eea7059be5
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/AudioLog_Test_1.unity
+    guid: 2ac77361c11d7d14cb83b7773df87679
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/Scanner_Test_1.unity
+    guid: 6db12d14440ee884fbe6506b77812188
+  - enabled: 1
+    path: Assets/Scenes/Menus/CharacterProgression.unity
+    guid: 00703740cf9cc5a46981eaf0aa6c5ea2
+  - enabled: 1
+    path: Assets/Scenes/CreatorTools/PuzzleCreation_Sphere.unity
+    guid: efde1b41a4785584abba8d9fa0ff3442
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/TutorialScene.unity
+    guid: a9ead3c7fbe658d4b892cbc7abcab93e
+  - enabled: 1
+    path: Assets/Scenes/CreatorTools/Location_Test_1.unity
+    guid: 014a5977f91237d4e94935d0ec289a08
+  - enabled: 1
+    path: Assets/Scenes/CreatorTools/PuzzleCreation_Signal.unity
+    guid: 8664d70d2cfe28242a029b38a4b4137e
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/AudioLog_Test_2.unity
+    guid: 214818deede4d624d8966c5abd01cf62
+  - enabled: 1
+    path: Assets/Scenes/Menus/AudioLog_Player.unity
+    guid: e97bc65fc612fb54ab3dbce275bf94c7
+  - enabled: 1
+    path: Assets/Scenes/Expedition/ExpeditionScene.unity
+    guid: 3df8ead3b91cc0a4dbcdb4c65fd34129
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expd_AudioLog.unity
+    guid: 54440d6f8d79ba74cade9517b3710e11
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expd_AudioLog_Player.unity
+    guid: 09b9f3176d4033b4f8b5703c94ceae7a
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expd_HistoricalImage.unity
+    guid: 82068a185a3250c47adcee909b6602a2
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expd_Scanner_3.0.unity
+    guid: 2fb5c9c7c679dea4a90a3ce546a523fe
+  - enabled: 0
+    path: Assets/Scenes/Expedition/Expd_Scanner.unity
+    guid: c0029bee8f70f7148842d125fa17d54b
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expd_Signal.unity
+    guid: bd08dd3a0b23239448061120d8b4a263
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expd_Empty_Stage.unity
+    guid: 5ef07821ff1869545b3e71d1fa076245
+  - enabled: 1
+    path: Assets/Scenes/Test/AR_Test_Playground.unity
+    guid: 3fada7ffe34900341a404081af2f709e
+  m_configObjects:
+    Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
+      type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: c5fb7a0a7a6f66a4ba2a64d1843a7445,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: fca7da21cf2b8d645979ed956d831fba,
+      type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: af1c81c73e2f62647a6cfb3726e86671,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 2b7d7d38c40cfee4aa9290c701807041, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 8a34b2afe2b890c4db45d7226ae2d8e2, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 5e4c1150dde1ef34d957bc1ca33460bc,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 75131dac11d93c348a931461381cbd0d,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 79445acb5e2b9f04b8ef0223dc3bed51,
+      type: 2}

@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:23b639c65ea47e93654549703afc41a12e088a518c415c81e56622513e23aa18
-size 766
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerControllerOnMap : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("OnCollisionEnter called");
+        GameObject otherGameObject = collision.gameObject;
+        if (otherGameObject.name.Contains("TestScene"))
+        {
+            otherGameObject.GetComponent<SceneChangeHandler>().RotateInteractiveObject();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        GameObject otherGameObject = collision.gameObject;
+        if (otherGameObject.name.Contains("TestScene"))
+        {
+            otherGameObject.GetComponent<SceneChangeHandler>().DisableRotationInteractiveObject();
+        }
+    }
+}

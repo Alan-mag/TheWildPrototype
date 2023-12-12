@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:33a6d063fe471850f1f234017cb6ba083ae8fcad0b6a553437662b2b26cd703c
-size 907
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class PlaygroundInteractiveObject : MonoBehaviour
+{
+    [SerializeField] ARInteractionEventChannelSO _arInteractionEventChannel = default;
+
+    public ARInteractionEvent OnEventRaised;
+
+    private void OnEnable()
+    {
+        if (_arInteractionEventChannel != null)
+        {
+            _arInteractionEventChannel.OnEventRaised += Respond;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_arInteractionEventChannel != null)
+        {
+            _arInteractionEventChannel.OnEventRaised -= Respond;
+        }
+    }
+
+    private void Respond(string name, Vector3 position)
+    {
+        if (OnEventRaised != null)
+        {
+            Debug.Log("ARInteractionEvent Raised: " + name);
+            OnEventRaised.Invoke(name, position);
+        }
+    }
+}

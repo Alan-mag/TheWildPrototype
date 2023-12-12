@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:250c79e04a01ff105647a897666ce6b18c8eb0b2b362a78a6525bd2363e06ec8
-size 570
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ImageOpacitySliderController : MonoBehaviour
+{
+    [SerializeField] Slider slider;
+    [SerializeField] SpriteRenderer historicalImage;
+
+    private void Start()
+    {
+        slider.onValueChanged.AddListener(delegate { SliderValueChange(slider.value); }); // might be old legacy functionality
+    }
+
+    private void SliderValueChange(float value)
+    {
+        historicalImage.color = new Color(1f, 1f, 1f, value);
+    }
+}

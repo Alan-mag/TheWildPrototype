@@ -1,3 +1,48 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5ebcb86f11f3a5b2c509e0d10518982eec8f3ab8c6415e3e3725b1f9d5e4c02a
-size 1091
+using Player;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Player
+{
+    public class PlayerStateMachine
+    {
+        public IState CurrentState { get; set; }
+
+        public IdleState idleState;
+        public WalkingState walkingState;
+
+        public event Action<IState> stateChanged;
+
+        public PlayerStateMachine(PlayerController player)
+        {
+            this.idleState = new IdleState(player);
+            this.walkingState = new WalkingState(player);
+        }
+
+        public void Initialize(IState state)
+        {
+            CurrentState = state;
+            state.Enter();
+            stateChanged?.Invoke(state);
+        }
+
+        public void TransistionTo(IState nextState)
+        {
+            CurrentState.Exit();
+            CurrentState = nextState;
+            nextState.Enter();
+            stateChanged?.Invoke(nextState);
+
+        }
+
+        public void Update()
+        {
+            if (CurrentState != null)
+            {
+                CurrentState.Execute();
+            }
+        }
+    }
+}

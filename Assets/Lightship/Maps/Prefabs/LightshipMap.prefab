@@ -1,3 +1,66 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e46af8dd2e9da5527628edd0601397b0fe0345327181c3f6ac4b0e5c1f5794a
-size 2296
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3853709283421937233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3419650579720128725}
+  - component: {fileID: 6934245164428273340}
+  m_Layer: 0
+  m_Name: LightshipMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3419650579720128725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3853709283421937233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6934245164428273340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3853709283421937233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0065c20f13fc326408fe756c97b2d701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _centerMapAtOrigin: 0
+  _maximumMapOffset: 1000
+  _builders:
+  - {fileID: 11400000, guid: c4b180acf3bc1fb4f89c8696e2334790, type: 2}
+  - {fileID: 11400000, guid: 297ba7c4739e1354b9bc23bebf2862bb, type: 2}
+  - {fileID: 11400000, guid: 053e005db47deef48833821fc0f3973a, type: 2}
+  - {fileID: 11400000, guid: 3d8c39baf3cea6e4d8d72afadbff7b7a, type: 2}
+  - {fileID: 11400000, guid: ddec06d92dd032846be3f8cb1464710c, type: 2}
+  - {fileID: 11400000, guid: de4b9db78e333e946a43adf0a02cdfb9, type: 2}
+  - {fileID: 11400000, guid: 5094d65ca0aa7d74e850916f37e822c1, type: 2}
+  - {fileID: 11400000, guid: 0f47c0246e9521d4f91d93f96918e8ef, type: 2}
+  - {fileID: 11400000, guid: 8158614c60bda164daeae52cdc8919e0, type: 2}
+  _mapGameplayBuilders: []
+  _mapTilePrefab: {fileID: 5117367085782940760, guid: 701631394b2203147a4ae08388ca5aa4,
+    type: 3}
+  _defaultLocation:
+    _latitude: 47.61989212036133
+    _longitude: -122.35340881347656
+    _mapRadius: 500
+  _mapLayers: []

@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:91c0c7dc66d5cbd4ddbaa5bb5cdaf4584f0492d9b3b0db5c372b2e68da089a50
-size 1358
+// Copyright 2019 Niantic, Inc. All Rights Reserved.
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Niantic.Platform.Util.OrbitCameraInternal
+{
+    public interface IScreenSpaceInputLayer : IInputLayer
+    {
+        void Register(IScreenInputGesture gesture);
+    }
+
+    public class ScreenSpaceInputLayer : IScreenSpaceInputLayer
+    {
+        private readonly List<IScreenInputGesture> gestures = new List<IScreenInputGesture>();
+
+        public InputLayerPriority Priority { get; private set; }
+
+        public ScreenSpaceInputLayer(InputLayerPriority priority)
+        {
+            Priority = priority;
+        }
+
+        public ScreenSpaceInputLayer() : this(InputLayerPriority.Screen) { }
+
+        public void ProcessEvents(List<InputEvent> events)
+        {
+            foreach (var gesture in gestures)
+            {
+                foreach (var inputEvent in events)
+                {
+                    if (inputEvent.ConsumedBy == null)
+                    {
+                        gesture.ProcessEvent(inputEvent);
+                    }
+                }
+                gesture.PostProcessInput();
+            }
+        }
+
+        public void Register(IScreenInputGesture gesture)
+        {
+            gestures.Add(gesture);
+        }
+
+        public void Removed()
+        {
+            gestures.Clear();
+        }
+    }
+}

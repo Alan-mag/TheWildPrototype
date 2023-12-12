@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0eeedba1df484dcdae889c46ab0fadd16140cfab721591d1bf9a3ee2fe1f791a
-size 466
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class UI_Map : MonoBehaviour
+{
+    [SerializeField] TMP_Text usernameDisplay;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (PlayerPrefs.GetString("user_id") != null)
+            usernameDisplay.text = PlayerPrefs.GetString("user_id");
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

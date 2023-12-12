@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eabfbd704f7d4c086740a3ad14ac7c380eb715a9fe1c4a4dae384158fef5368f
-size 697
+/******************************************************************
+ * Copyright (C) 2023 Alan Magelssen. All rights reserved.
+ * alanmagelssen@gmail.com
+ ******************************************************************/
+
+using UnityEngine;
+using UnityEditor;
+
+#ROOTNAMESPACEBEGIN#
+	[CanEditMultipleObjects]
+    [CustomEditor(typeof(#TARGETNAME#))]
+    public class #SCRIPTNAME# : Editor
+    {
+#PROPERTIES#
+        private void OnEnable()
+        {
+#PROPERTYINITIALIZERS#
+        }
+        
+        public override void OnInspectorGUI()
+        {
+            serializedObject.Update();
+#PROPERTYDRAWING#
+            serializedObject.ApplyModifiedProperties();
+        }
+    }
+#ROOTNAMESPACEEND#

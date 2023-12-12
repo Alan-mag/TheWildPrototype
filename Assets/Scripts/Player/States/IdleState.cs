@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac0b743b5ada2f207666d7d84cdc4b6fee651c90cecafc7d5d2ed80f32807101
-size 865
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Player
+{
+    public class IdleState : IState
+    {
+        private PlayerController player;
+
+        public IdleState(PlayerController player)
+        {
+            this.player = player;
+        }
+
+         public void Enter()
+        {
+
+        }
+
+        public void Execute()
+        {
+            // transisiton to walking
+            // idle pose
+            if (player.Speed < 0.1)
+            {
+                // player.PlayerAnimator.Play("BasicMotions@Idle01 - Idle02");
+                player.PlayerAnimator.SetFloat("speed", player.Speed);
+            }
+            else
+            {
+                player.PlayerStateMachine.TransistionTo(player.PlayerStateMachine.walkingState);
+            }
+        }
+
+        public void Exit()
+        {
+
+        }
+    }
+}

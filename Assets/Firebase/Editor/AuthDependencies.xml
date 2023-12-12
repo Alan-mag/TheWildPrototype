@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9adbebfbe73bf104af601ab717ba2fb284ca5ef0f16278ef1b85c92449ec8a5d
-size 676
+<!-- Copyright (C) 2019 Google Inc. All Rights Reserved.
+
+FirebaseAuth iOS and Android Dependencies.
+-->
+
+<dependencies>
+  <iosPods>
+    <iosPod name="Firebase/Auth" version="10.5.0" minTargetSdk="8.0">
+    </iosPod>
+  </iosPods>
+  <androidPackages>
+    <androidPackage spec="com.google.firebase:firebase-auth:21.1.0">
+    </androidPackage>
+    <androidPackage spec="com.google.firebase:firebase-analytics:21.2.0">
+    </androidPackage>
+    <androidPackage spec="com.google.firebase:firebase-auth-unity:10.5.0">
+      <repositories>
+        <repository>Assets/Firebase/m2repository</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+</dependencies>

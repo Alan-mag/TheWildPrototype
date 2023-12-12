@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c3843d6cb3306d494f62bd0b3b77b8f0b1eaa1034cf57ed23607f142019cb99
-size 522
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HideObjects : MonoBehaviour
+{
+    [SerializeField]
+    GameObject[] objectsToReveal;
+
+    [SerializeField]
+    private int secondsToWait = 3;
+
+    private void Start()
+    {
+        StartCoroutine(RevealObjects());
+    }
+
+    private IEnumerator RevealObjects()
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        foreach (var obj in objectsToReveal)
+        {
+            obj.SetActive(true);
+        }
+    }
+}

@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d2395fdf8104f33fe9142094b36d9bebc4c16c1d23d435109b4aeac697286b8
-size 1131
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[Serializable]
+public class CompanionStateMachine
+{
+    public IState CurrentState { get; set; }
+
+    public IdleState idleState;
+    public ScanState scanState;
+    public ReceiveState receiveState;
+    public PulseState pulseState;
+
+    public event Action<IState> stateChanged;
+
+    public CompanionStateMachine(CompanionController companion)
+    {
+        this.idleState = new IdleState(companion);
+        this.scanState = new ScanState(companion);
+        this.receiveState = new ReceiveState(companion);
+        this.pulseState = new PulseState(companion);
+    }
+
+    public void Initialize(IState state)
+    {
+        CurrentState = state;
+        state.Enter();
+
+        stateChanged?.Invoke(state);
+    }
+
+    public void TransitionTo(IState nextState)
+    {
+        CurrentState.Exit();
+        CurrentState = nextState;
+        nextState.Enter();
+
+        stateChanged?.Invoke(nextState);
+    }
+
+    public void Update()
+    {
+        if (CurrentState != null)
+        {
+            CurrentState.Execute();
+        }
+    }
+}

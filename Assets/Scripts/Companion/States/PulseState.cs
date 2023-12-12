@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c307262d773f8baf5dd535f17e233db29138051d2bf3ba1e2d4f0fc2514a7270
-size 1245
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PulseState : IState
+{
+    private CompanionController companion;
+
+    public PulseState(CompanionController companion)
+    {
+        this.companion = companion;
+    }
+
+    public void Enter()
+    {
+        Debug.Log("Enter Pulse State");
+        // Set Animation Trigger //
+        companion.CompanionAnimator.SetTrigger("StartPulse");
+    }
+
+    public void Execute()
+    {
+        if (companion.IsPulsing)
+        {
+            // Handle setup VFX //
+            companion.pulseOrb.SetActive(true);
+            // Other Behaviors //
+        }
+
+        // Transitions //
+        if (companion.IsScanning)
+        {
+            companion.CompanionStateMachine.TransitionTo(companion.CompanionStateMachine.scanState);
+        }
+
+        if (companion.IsReceiving)
+        {
+            companion.CompanionStateMachine.TransitionTo(companion.CompanionStateMachine.receiveState);
+        }
+
+        if (companion.IsIdle)
+        {
+            companion.CompanionStateMachine.TransitionTo(companion.CompanionStateMachine.idleState);
+        }
+    }
+
+    public void Exit()
+    {
+        // Clear VFX //
+        companion.pulseOrb.SetActive(false);
+    }
+}
