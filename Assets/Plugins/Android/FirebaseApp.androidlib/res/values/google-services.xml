@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96865c2cb944757bb6dbe27250df2c195ec851c8010a9856bb4315edd08e8017
-size 1180
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://thewild-3f4c7-default-rtdb.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">717030189633</string>
+  <string name="google_storage_bucket" translatable="false">thewild-3f4c7.appspot.com</string>
+  <string name="project_id" translatable="false">thewild-3f4c7</string>
+  <string name="google_api_key" translatable="false">AIzaSyBNi1QSSWHPYdFX81XNP7MkPu5-r3_A5fI</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBNi1QSSWHPYdFX81XNP7MkPu5-r3_A5fI</string>
+  <string name="google_app_id" translatable="false">1:717030189633:android:70a52ab18ddf727236f4c0</string>
+  <string name="default_web_client_id" translatable="false">717030189633-qv7j66d5t3evl2l8hq8lh1h8so5vc8uj.apps.googleusercontent.com</string>
+</resources>
