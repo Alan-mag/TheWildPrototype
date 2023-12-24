@@ -22,12 +22,14 @@ public class ARInteractiveObject : MonoBehaviour
 {
     [SerializeField] ARInteractionEventChannelSO _arInteractionEventChannel = default;
     [SerializeField] ARInteractionAudioLogEventChannelSO _arInteractionAudioLogEventChannel = default;
+    [SerializeField] ARInteractionCollectibleEventChannelSO _arInteractionCollectibleEventChannel = default;
     // [SerializeField] ARInteractionEventChannelSO _arInteractionHistoricalImageEventChannel = default; // todo
 
     // may be able to handle this better when you have interface?
     public double id;
     public ARInteractionEvent OnEventRaised;
     public ARInteractionAudioLogEvent OnEventRaisedAudioLog;
+    public ARInteractionCollectibleEvent OnEventRaisedCollectible;
     // public ARInteractionHistoricalImageEvent OnEventRaisedHistoricalImage; // todo
 
     private void OnEnable()
@@ -41,6 +43,11 @@ public class ARInteractiveObject : MonoBehaviour
         {
             _arInteractionAudioLogEventChannel.OnEventRaised += RespondAudioLog;
         }
+
+        if (_arInteractionCollectibleEventChannel != null)
+        {
+            _arInteractionCollectibleEventChannel.OnEventRaised += RespondCollectible;
+        }
     }
 
     private void OnDisable()
@@ -53,6 +60,11 @@ public class ARInteractiveObject : MonoBehaviour
         if (_arInteractionAudioLogEventChannel != null)
         {
             _arInteractionAudioLogEventChannel.OnEventRaised -= RespondAudioLog;
+        }
+
+        if (_arInteractionCollectibleEventChannel != null)
+        {
+            _arInteractionCollectibleEventChannel.OnEventRaised -= RespondCollectible;
         }
     }
 
@@ -77,6 +89,15 @@ public class ARInteractiveObject : MonoBehaviour
             Debug.Log("ARInteractionEvent Raised: " + " " + id + " " + name + " " + position.ToString());
             OnEventRaisedAudioLog.Invoke(id, name, position);
             SceneManager.LoadScene("Expd_AudioLog_Player");
+        }
+    }
+
+    private void RespondCollectible(GameObject gObject)
+    {
+        if (OnEventRaisedCollectible != null)
+        {
+            Debug.Log("Collected! Implement collection functionality here");
+            OnEventRaisedCollectible.Invoke(gObject);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ObjectDetectedEffectHandler : MonoBehaviour
@@ -9,7 +10,7 @@ public class ObjectDetectedEffectHandler : MonoBehaviour
     Material appearEffectMaterial;
 
     [SerializeField]
-    Material objectMaterial;
+    Material[] objectMaterialArray;
 
     [SerializeField]
     private CompanionStateView companionStateView;
@@ -42,18 +43,30 @@ public class ObjectDetectedEffectHandler : MonoBehaviour
         if (_counter >= 1) return;
 
         _counter++;
-        ChangeMaterial(appearEffectMaterial);
+        ApplyDetectedEffect(appearEffectMaterial);
         StartCoroutine(SetObjectMaterialNormal());
     }
 
     IEnumerator SetObjectMaterialNormal()
     {
         yield return new WaitForSeconds(4f);
-        ChangeMaterial(objectMaterial);
+        ApplyNewGameObjectMaterial(objectMaterialArray);
     }
 
-    private void ChangeMaterial(Material materialToChangeTo)
+    private void ApplyDetectedEffect(Material appearEffectMaterial)
     {
-        gameObject.GetComponent<Renderer>().material = materialToChangeTo;
+        /*Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.material = appearEffectMaterial;*/
+
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        int numOfObjectMaterials = objectMaterialArray.Length;
+        Material[] effectArray = Enumerable.Repeat(appearEffectMaterial, numOfObjectMaterials).ToArray();
+        renderer.materials = effectArray;
+    }
+
+    private void ApplyNewGameObjectMaterial(Material[] materialToChangeTo)
+    {
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.materials = objectMaterialArray;
     }
 }

@@ -39,6 +39,6 @@ public class WeaveManager : MonoBehaviour
     {
         var threadArray = threads.ToArray();
         for (int i = 0; i < threadArray.Length; i++)
-            Instantiate(threadArray[i], new Vector3(UnityEngine.Random.Range(-1.0f, 1.0f), -0.35f, UnityEngine.Random.Range(-1.0f, 1.0f)), Quaternion.identity);
+            Instantiate(threadArray[i], new Vector3(UnityEngine.Random.Range(-2.0f, 2.0f), -0.35f, UnityEngine.Random.Range(1.0f, 4.0f)), Quaternion.identity);
     }
 }

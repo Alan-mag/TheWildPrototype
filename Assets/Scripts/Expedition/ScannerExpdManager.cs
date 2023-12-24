@@ -12,6 +12,9 @@ public class ScannerExpdManager : MonoBehaviour
     [SerializeField]
     private Text _successText = null;
 
+    [SerializeField]
+    private GameObject _finishBtn;
+
     private Texture2D _semanticTexture;
     private bool _incrementedExp;
 
@@ -40,7 +43,7 @@ public class ScannerExpdManager : MonoBehaviour
 
     private void IncrementExp()
     {
-        if (!_incrementedExp)
+        if (!_incrementedExp && GameObject.Find("FirebaseSaveTest") != null)
         {
             GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, 1);
             GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f); // todo: clean up [progression manager, no need to ref twice, etc.]
@@ -57,7 +60,7 @@ public class ScannerExpdManager : MonoBehaviour
         {
             _successText.text = "Scanned: Japanese Maple";
             PlayScanningAudio();
-            StartCoroutine(PlaySuccessfulScanEffect(22f));
+            StartCoroutine(PlaySuccessfulScanEffect(3f));
         }
         else
         {
@@ -68,20 +71,21 @@ public class ScannerExpdManager : MonoBehaviour
 
     private void HandleSuccessSceneChange()
     {
-        if (expeditionSceneHandler != null)
+        /*if (expeditionSceneHandler != null)
         {
             expeditionSceneHandler.CompleteStage();
         }
         else
         {
             sceneChangeHandler.ChangeScene();
-        }
+        }*/
     }
 
     IEnumerator PlaySuccessfulScanEffect(float waitForSeconds)
     {
         yield return new WaitForSeconds(waitForSeconds);
-        HandleSuccessSceneChange();
+        _finishBtn.SetActive(true);
+        // HandleSuccessSceneChange();
     }
 
     private void PlayScanningAudio()

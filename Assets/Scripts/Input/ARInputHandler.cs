@@ -14,6 +14,8 @@ public class ARInputHandler : MonoBehaviour
     [SerializeField]
     private ARInteractionAudioLogEventChannelSO _arInteractionAudioLogEventChannel;
     [SerializeField]
+    private ARInteractionCollectibleEventChannelSO _arInteractionCollectibleEventChannel;
+    [SerializeField]
     private ARSemanticSegmentationManager segmentationManager;
     [SerializeField]
     private AROcclusionManager occlusionManager;
@@ -63,7 +65,12 @@ public class ARInputHandler : MonoBehaviour
         {
             _arInteractionAudioLogEventChannel.RaiseEvent(gObject.GetComponent<ARInteractiveObject>().id, gObject.name, hit.point);
         }
-        
+
+        if (gObject.name.Contains("Collectible"))
+        {
+            _arInteractionCollectibleEventChannel.RaiseEvent(gObject);
+        }
+
     }
 
     public void HandleSwitchToScanMode()
@@ -88,6 +95,6 @@ public class ARInputHandler : MonoBehaviour
     IEnumerator SwitchToOcclusion(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        segmentationManager.enabled = true;
+        // occlusionManager.enabled = true; dont' think I actually need this? todo check
     }
 }
