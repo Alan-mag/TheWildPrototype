@@ -18,7 +18,7 @@ MonoBehaviour:
   _mapLayer: 2
   _features: 
   _materials:
-  - {fileID: 2100000, guid: 797b63f9535d169429548d3973d8ba69, type: 2}
+  - {fileID: 2100000, guid: 5149cd222b7999b4c8d84616ab7b0a5f, type: 2}
   _zOffset: 0
   _minHeight: 0.01
   _maxHeight: 0.03
