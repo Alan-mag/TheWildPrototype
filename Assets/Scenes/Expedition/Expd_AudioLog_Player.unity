@@ -989,6 +989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008719833474589908, guid: fab9a077c4cec344fa6d9568dfaf75aa,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008719833474589908, guid: fab9a077c4cec344fa6d9568dfaf75aa,
+        type: 3}
       propertyPath: AudioLogUI
       value: 
       objectReference: {fileID: 485928475}
@@ -1005,6 +1010,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 741934757}
+    - targetCorrespondingSourceObject: {fileID: 4652407903162514383, guid: fab9a077c4cec344fa6d9568dfaf75aa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 741934760}
   m_SourcePrefab: {fileID: 100100000, guid: fab9a077c4cec344fa6d9568dfaf75aa, type: 3}
 --- !u!1 &741934755 stripped
 GameObject:
@@ -1019,7 +1028,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 741934754}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741934755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39799155539a49646a11bd0710415b26, type: 3}
   m_Name: 
@@ -1043,6 +1052,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 741934754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &741934760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741934755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a6a90dfa9cefa41ac7864763c08364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEventName: event:/VO/HQ Expedition Intro
 --- !u!1 &746854999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +1688,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 741934756}
+      objectReference: {fileID: 741934760}
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1675,12 +1697,12 @@ PrefabInstance:
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayAudioFromAudioLog
+      value: PlayFmodEvent
       objectReference: {fileID: 0}
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioLog, Assembly-CSharp
+      value: HandleFmodEvent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
