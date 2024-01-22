@@ -236,6 +236,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4038511471363120928, guid: cf2a66af77c61b24191ceb6d671dacc0,
+        type: 3}
+      propertyPath: m_text
+      value: Congratulations! You've completed the Geocaching HQ Expedition. Now,
+        check out the Visitors Center inside and have a look around!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038511471363120928, guid: cf2a66af77c61b24191ceb6d671dacc0,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5662157375375484068, guid: cf2a66af77c61b24191ceb6d671dacc0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
