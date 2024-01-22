@@ -74,6 +74,36 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/AR_Test_Playground.unity
     guid: 3fada7ffe34900341a404081af2f709e
+  - enabled: 1
+    path: Assets/Scenes/Menus/MapMenu.unity
+    guid: cbe3ec5402e315a44a9b97cb7ec2ffec
+  - enabled: 1
+    path: Assets/Scenes/Settings/SettingsMenu.unity
+    guid: 9d5bb069f6ec882489f0a81a91f4cad3
+  - enabled: 1
+    path: Assets/Scenes/Customization/CompanionCustomization.unity
+    guid: 61301801dee5ca34687fa3ec80acc64d
+  - enabled: 1
+    path: Assets/Scenes/Menus/SocialMenu.unity
+    guid: dfd9d230d4d643a46bc262b9182784d3
+  - enabled: 1
+    path: Assets/Scenes/Collection/AudioLogsCollection.unity
+    guid: 41d1f8188af7ebd48adf432691bdb869
+  - enabled: 1
+    path: Assets/Scenes/Collection/CollectionMenu.unity
+    guid: 2adadd10c907b0343a9a7b2ac46501b5
+  - enabled: 1
+    path: Assets/Scenes/Collection/SpherePuzzlesCollection.unity
+    guid: 29aee008249cdfb4e88e788075e4017d
+  - enabled: 1
+    path: Assets/Scenes/Collection/PhotosCollection.unity
+    guid: 4d27a3ae3a2393c45bae73ba31706749
+  - enabled: 1
+    path: Assets/Scenes/CreatorTools/CreatorToolsMenu.unity
+    guid: a212f967c6b4cda47a0a776be7d8cc1d
+  - enabled: 1
+    path: Assets/Scenes/Menus/IncomingMessage.unity
+    guid: f02afe420e460574d8acc5c4a0b96130
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}

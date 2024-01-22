@@ -1,6 +1,7 @@
 using Firebase.Database;
 using Firebase.Extensions;
 using Niantic.Lightship.Maps.Coordinates;
+using Niantic.Lightship.Maps.Unity.Builders.BaseTypes;
 using Niantic.Lightship.Maps.Unity.Core;
 using System;
 using System.Collections;
@@ -18,8 +19,18 @@ public class ExplorationMapManager : MonoBehaviour
 
     [SerializeField] LightshipMap lightshipMap;
 
+    // TODO: at some point hopefully this can be handled outside of the ligthshipmap file [where it is now]
+    /*[SerializeField]
+    private List<FeatureBuilderBase> arExperienceBuilders;*/
+
+    [SerializeField]
+    private GameObject _mapTilePrefab;
+
+    [SerializeField] Dictionary<string, int> mapExperiencesCollection;
+
     private string userId;
     private DatabaseReference userStatsDbReference;
+    private ObjectPool<MapTileObject> _mapTileObjectPool;
 
     private void Awake()
     {
@@ -54,6 +65,8 @@ public class ExplorationMapManager : MonoBehaviour
 
                     // test expedition stuff:
                     StartCoroutine(ExecuteAfterTime(3, TestSpawnExpedition));
+
+                    // StartCoroutine(ExecuteAfterTime(3, InitializeMapPOIExperiences));
                 }
             }
         });
@@ -75,6 +88,12 @@ public class ExplorationMapManager : MonoBehaviour
             // Debug.Log(log.message);
             GameObject audioObj = Instantiate(audioLogMapObject, lightshipMap.LatLngToScene(in latLng), Quaternion.identity);
             audioObj.GetComponent<AudioLogMapHandler>().SetObjectMessageLog(log.message);
+            // each experience just needs a unique id - and a completed and not completed state
+            // should update visual based on that
+            // maybe get it from firebase? idk
+            // then maybe use state machine or SO to maintain state of that experience for specific player
+            // have a way to just gather that info for experiences around player
+            // audioObj.GetComponent<MapObjectManager>().Id = log.longitude + log.latitude;
         }
     }
 
@@ -89,5 +108,22 @@ public class ExplorationMapManager : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         callback();
+    }
+
+    // TODO implement someday
+    /*private void InitializeMapPOIExperiences()
+    {
+        // Initialize maptile feature builders
+        arExperienceBuilders.ForEach(builder => builder.Initialize(lightshipMap));
+        _mapTileObjectPool = new ObjectPool<MapTileObject>(
+                _mapTilePrefab.GetComponent<MapTileObject>(),
+                mapTileObject => mapTileObject.Initialize(arExperienceBuilders),
+                mapTileObject => mapTileObject.Release()
+        );
+    }*/
+
+    public void AddMapExperienceToCollection(int id)
+    {
+        mapExperiencesCollection.Add("TestMapCompleteEvent", id);
     }
 }

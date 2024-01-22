@@ -17,6 +17,9 @@ public class AudioLog : MonoBehaviour
     [SerializeField] GameObject AudioLogUI;
     [SerializeField] private GameObject tutorialManager;
 
+    [SerializeField] private string accessKey;
+    [SerializeField] private string secretKey;
+
     SceneChangeHandler sceneChangeHandler;
 
     [SerializeField]
@@ -31,14 +34,13 @@ public class AudioLog : MonoBehaviour
 
     private void Start()
     {
-        /*var cred = new BasicAWSCredentials("AKIAQ344IYWB5HZ5WZFB", "oByvU5MsKk+uzcI1GXd1y7k3gyG6pAyiVVZh4rtM"); // TODO: update --> not to be used after test
-        var client = new AmazonPollyClient();*/
+
     }
 
     // AMAZON POLLY TEST
     private async void PlayMessageWithPolly(string message)
     {
-        var cred = new BasicAWSCredentials("AKIAQ344IYWB5HZ5WZFB", "oByvU5MsKk+uzcI1GXd1y7k3gyG6pAyiVVZh4rtM"); // TODO: update --> not to be used after test
+        var cred = new BasicAWSCredentials(accessKey, secretKey); // TODO: update --> not to be used after test
         var client = new AmazonPollyClient(cred, RegionEndpoint.EUCentral1);
 
         var request = new SynthesizeSpeechRequest()
@@ -106,7 +108,6 @@ public class AudioLog : MonoBehaviour
 
     public void FinishBtnSelect()
     {
-        // handle scene change to map
         sceneChangeHandler.ChangeScene();
     }
 }
