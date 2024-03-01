@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// SO Event channel 
+// SO Event channel
 // fire event when experience completed
-// 
+//
 
 public class MapObjectManager : MonoBehaviour
 {

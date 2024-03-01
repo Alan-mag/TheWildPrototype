@@ -104,6 +104,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/IncomingMessage.unity
     guid: f02afe420e460574d8acc5c4a0b96130
+  - enabled: 1
+    path: Assets/Scenes/Test/ARTestInteractions.unity
+    guid: 3046c2b7af293ab4bb7ac6c2413212f0
+  - enabled: 1
+    path: Assets/Scenes/Test/ARDK_Interaction_Toolkit.unity
+    guid: 6dd28ebac792f84458aa2c22bd569745
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}

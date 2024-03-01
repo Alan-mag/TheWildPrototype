@@ -4,6 +4,7 @@ using UnityEngine;
 using Niantic.Lightship.Utilities;
 using System;
 using UnityEditor;
+using UnityEngine.ProBuilder.Shapes;
 
 // Todo: this just handles input, might be fair to change script name at some point?
 public class PuzzleSphere : MonoBehaviour
@@ -52,49 +53,44 @@ public class PuzzleSphere : MonoBehaviour
         layerMask = ~layerMask;
     }
 
-    // todo this needs to be updated with new input for 3.0
-    void Update()
+    // for handling touch
+    // mouse input is handled in RotateObjectMouseController
+    // move this to new file
+    /*void Update()
     {
         Ray ray = new Ray();
         Touch theTouch = new Touch();
 
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
-        {
-            pos = Input.mousePosition;
-        }
-#else
         if (Input.touches.Length > 0)
         {
             pos = Input.touches[0].position;
         }
         theTouch = Input.touches[0];
-#endif
         if (pos != new Vector3(0, 0, 0))
 
             ray = Camera.main.ScreenPointToRay(pos);
-            // var GUIRayq = GUICamera.ScreenPointToRay(theTouch.position);
-
+            
             if (Physics.Raycast(ray, out hit, 50, layerMask))
             {
-
                 if (Input.touches.Length == 1)
                 {
-                if (theTouch.fingerId > 0)
-                {
-                    if (theTouch.phase == TouchPhase.Began)
+                    if (theTouch.fingerId > 0)
                     {
-                        wasRotating = false;
+                        if (theTouch.phase == TouchPhase.Began)
+                        {
+                            Debug.Log("input touch began");
+                            wasRotating = false;
+                        }
+
+                        if (theTouch.phase == TouchPhase.Moved)
+                        {
+                            Debug.Log("input touch moved");
+                            targetItem.transform.Rotate(theTouch.deltaPosition.y * rotationRate, -theTouch.deltaPosition.x * rotationRate, 0, Space.World);
+                            wasRotating = true;
+                        }
                     }
 
-                    if (theTouch.phase == TouchPhase.Moved)
-                    {
-
-                        targetItem.transform.Rotate(theTouch.deltaPosition.y * rotationRate, -theTouch.deltaPosition.x * rotationRate, 0, Space.World);
-                        wasRotating = true;
-                    }
-                }
             }
         }
-    }
+    }*/
 }
