@@ -5,14 +5,14 @@ using FMODUnity;
 
 public class HandleFmodEvent : MonoBehaviour
 {
-    [SerializeField]
-    private string fmodEventName;
+    // [SerializeField]
+    // private string fmodEventName; // VO/HQ Expedition Intro
 
-    public void PlayFmodEvent()
+    public void PlayFmodEvent(string fmodEventName)
     {
         if (fmodEventName != null)
         {
-            var audioEvent = RuntimeManager.CreateInstance(fmodEventName);
+            var audioEvent = RuntimeManager.CreateInstance("event:" + fmodEventName);
             audioEvent.start();
             audioEvent.release();
         }

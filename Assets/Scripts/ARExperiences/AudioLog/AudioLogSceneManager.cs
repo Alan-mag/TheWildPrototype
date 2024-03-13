@@ -13,4 +13,10 @@ public class AudioLogSceneManager : MonoBehaviour
     {
         _messageText.text = AudioLogInfo.Message;
     }
+
+    public void PlayAudioLogUI()
+    {
+        // whatever Audiologinfo.message is --> check null
+        // play (call fmod clip and play)
+    }
 }

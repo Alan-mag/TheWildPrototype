@@ -120,11 +120,11 @@ if (Input.touches.Length > 0)
                     audioScript.ToAudioPlayer();
                 }
 
-                if (g.name == "TutorialAudioLog") // todo: this isn't going to scale well!
+                /*if (g.name == "TutorialAudioLog") // todo: this isn't going to scale well!
                 {
                     var audioScript = g.GetComponent<AudioLog>();
                     audioScript.CollectTutorialAudioLog();
-                }
+                }*/
 
                 // handle thread
                 if (g.name.Contains("Thread")) // for now, just thread example update if need more

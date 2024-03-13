@@ -16,7 +16,7 @@ using UnityEngine.UI;
 /// </summary>
 public class TutorialManager : MonoBehaviour
 {
-    [Header("UI")]
+    /*[Header("UI")]
     [SerializeField] private GameObject tutorialCanvas; // audio log ui, signal scene ui, puzzle sphere help & scene dialogue
     [SerializeField] private GameObject completedCanvas;
     [SerializeField] private GameObject audioCanvas;
@@ -26,15 +26,22 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject signalGameObjectParent;
     [SerializeField] private GameObject audioLogObject;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private GameObject puzzleTutorialObject;
+    [SerializeField] private GameObject puzzleTutorialObject;*/
 
 
+    [SerializeField] private GameObject completeButton;
     [SerializeField] private FirebaseManager firebaseManager;
 
     public delegate void AudioCallback();
     private int numberOfSignals = 3;
 
-    private void Start()
+    public void HandleFinishedTutorial()
+    {
+        completeButton.SetActive(true);
+        firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Adventurer, 1);
+    }
+
+    /*private void Start()
     {
         narrativeText.text = "<<Emergency Impact::Detected>>"; // setup first text to screen
     }
@@ -123,5 +130,5 @@ public class TutorialManager : MonoBehaviour
         completedCanvas.SetActive(true);
         firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Adventurer, 1);
     }
-    #endregion
+    #endregion*/
 }

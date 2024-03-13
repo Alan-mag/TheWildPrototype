@@ -110,3 +110,35 @@ public class ExpeditionLocationData
         this.longitude = longitude;
     } 
 }
+
+[Serializable]
+public class HistoricalImageLocationData
+{
+    private double latitude;
+    public double Latitude
+    {
+        get { return latitude; }
+        set { latitude = value; }
+    }
+
+    private double longitude;
+    public double Longitude
+    {
+        get { return longitude; }
+        set { longitude = value; }
+    }
+
+    private string description;
+    public string Description
+    {
+        get { return description;  }
+        set { description = value; }
+    }
+
+    public HistoricalImageLocationData(double latitude, double longitude, string description)
+    {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.description = description;
+    }
+}

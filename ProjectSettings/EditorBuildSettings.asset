@@ -110,6 +110,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/ARDK_Interaction_Toolkit.unity
     guid: 6dd28ebac792f84458aa2c22bd569745
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_AudioLog.unity
+    guid: 0cb1e34fee9271a4692e3feb2ebc8d49
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_HistoricalImage.unity
+    guid: 4b79f8edffd7f0b4194b700ef4070504
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_Scanner.unity
+    guid: 0074fa222ecc2f64b80edf5addb099be
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_Signal.unity
+    guid: c8abef8516fb8774f92954b77234db74
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AudioLogPlayer.unity
+    guid: 6d55824b97446cb4ab35e8ba1be94fa9
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}

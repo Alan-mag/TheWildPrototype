@@ -85,10 +85,10 @@ public class AudioLog : MonoBehaviour
         // Destroy(logObject); // don't destroy it
     }
 
-    public void CollectTutorialAudioLog()
+    /*public void CollectTutorialAudioLog()
     {
         tutorialManager.GetComponent<TutorialManager>().OnSelectAudioLog();
-    }
+    }*/
 
     public void PlayAudioFromAudioLog()
     {
