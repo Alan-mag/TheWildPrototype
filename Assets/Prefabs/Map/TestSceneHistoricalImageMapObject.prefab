@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7921187188395250371}
   - component: {fileID: 3028251241918094301}
   - component: {fileID: 7820137900049448399}
+  - component: {fileID: 6067901609091878308}
   m_Layer: 6
   m_Name: TestSceneHistoricalImageMapObject
   m_TagString: MapSpawnObject
@@ -67,7 +68,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Signal_Scene_Test
+  sceneName: AR_HistoricalImage
+--- !u!114 &6067901609091878308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494973515111063870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55773a7c38e49bb4fa3b8609871b5970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageTitle: 
 --- !u!1 &2702273051961098638
 GameObject:
   m_ObjectHideFlags: 0

@@ -135,10 +135,18 @@ public class HistoricalImageLocationData
         set { description = value; }
     }
 
-    public HistoricalImageLocationData(double latitude, double longitude, string description)
+    private string imageTitle;
+    public string ImageTitle
+    {
+        get { return imageTitle; }
+        set { imageTitle = value; }
+    }
+
+    public HistoricalImageLocationData(double latitude, double longitude, string description, string imageTitle)
     {
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
+        this.imageTitle = imageTitle;
     }
 }

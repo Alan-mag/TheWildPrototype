@@ -62,6 +62,17 @@ if (Input.touches.Length > 0)
         sceneChangeScript.ChangeScene();
     }
 
+    // todo: would like to make generic
+    // This is not great!!!! needs updating
+    private void HandleHistoricalImageSetInfo(GameObject selectedGameObject)
+    {
+        if (selectedGameObject.GetComponent<HistoricalMapObject>() != null)
+        {
+            Debug.Log(selectedGameObject.GetComponent<HistoricalMapObject>().imageTitle);
+            HistoricalImageInfo.ImageTitle = selectedGameObject.GetComponent<HistoricalMapObject>().imageTitle;
+        }
+    }
+
     private void SelectPathOnMapObject(GameObject selectedGameObject)
     {
         var pathSelectionScript = selectedGameObject.GetComponent<PathSelectionHandler>();
@@ -89,6 +100,7 @@ if (Input.touches.Length > 0)
                     if (debugMode)
                     {
                         // no distance requirement from experience
+                        HandleHistoricalImageSetInfo(g);
                         var sceneChangeScript = g.GetComponent<SceneChangeHandler>();
                         sceneChangeScript.ChangeScene();
                     }
@@ -97,6 +109,8 @@ if (Input.touches.Length > 0)
                         float dist = Vector3.Distance(g.transform.position, playerTransform.position);
                         if (dist <= interactionDistance)
                         {
+                            // historical image data check:
+                            HandleHistoricalImageSetInfo(g);
                             ChangeSceneOnGameObject(g);
                         }
                         else
