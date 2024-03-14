@@ -68,8 +68,9 @@ if (Input.touches.Length > 0)
     {
         if (selectedGameObject.GetComponent<HistoricalMapObject>() != null)
         {
-            Debug.Log(selectedGameObject.GetComponent<HistoricalMapObject>().imageTitle);
             HistoricalImageInfo.ImageTitle = selectedGameObject.GetComponent<HistoricalMapObject>().imageTitle;
+            HistoricalImageInfo.ImageSourceTitle = selectedGameObject.GetComponent<HistoricalMapObject>().imageSourceTitle;
+            HistoricalImageInfo.Description = selectedGameObject.GetComponent<HistoricalMapObject>().imageDescription;
         }
     }
 

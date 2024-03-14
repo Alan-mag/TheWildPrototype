@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scanner_Test_1
+  sceneName: AR_Scanner
 --- !u!1 &8088450937347066655
 GameObject:
   m_ObjectHideFlags: 0

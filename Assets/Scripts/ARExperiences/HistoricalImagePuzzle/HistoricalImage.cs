@@ -11,12 +11,12 @@ public class HistoricalImage : MonoBehaviour
 
     private void Start()
     {
-        if (HistoricalImageInfo.ImageTitle != null)
+        if (HistoricalImageInfo.ImageSourceTitle != null)
         {
             historicalImageTitleText.text = HistoricalImageInfo.ImageTitle;
             foreach (Sprite sprite in historicalImageSprites)
             {
-                if (sprite.name == HistoricalImageInfo.ImageTitle)
+                if (sprite.name == HistoricalImageInfo.ImageSourceTitle)
                 {
                     imageSource.GetComponent<SpriteRenderer>().sprite = sprite;
                     imageSource.GetComponent<SpriteRenderer>().size = new Vector2(7.5f, 5f);

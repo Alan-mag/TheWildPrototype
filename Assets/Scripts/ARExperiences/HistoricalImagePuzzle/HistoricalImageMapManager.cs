@@ -32,6 +32,8 @@ public class HistoricalImageMapManager : MonoBehaviour
             GameObject histImageMapObj = Instantiate(historicalImageMapObject, lightshipMap.LatLngToScene(in latLng1), Quaternion.identity);
             // Instantiate(historicalImageMapObject, lightshipMap.LatLngToScene(in latLng1), Quaternion.identity);
             histImageMapObj.GetComponent<HistoricalMapObject>().imageTitle = item.ImageTitle;
+            histImageMapObj.GetComponent<HistoricalMapObject>().imageSourceTitle = item.ImageSourceTitle;
+            histImageMapObj.GetComponent<HistoricalMapObject>().imageDescription = "";
         }
     }
 }
