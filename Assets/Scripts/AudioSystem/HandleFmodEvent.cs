@@ -8,13 +8,20 @@ public class HandleFmodEvent : MonoBehaviour
     // [SerializeField]
     // private string fmodEventName; // VO/HQ Expedition Intro
 
-    public void PlayFmodEvent(string fmodEventName)
+    public void PlayFmodEvent()
     {
-        if (fmodEventName != null)
+        if (AudioLogInfo.FmodAudioSourceReference != null)
         {
-            var audioEvent = RuntimeManager.CreateInstance("event:" + fmodEventName);
+            var audioEvent = RuntimeManager.CreateInstance("event:" + AudioLogInfo.FmodAudioSourceReference);
             audioEvent.start();
             audioEvent.release();
         }
+    }
+
+    public void PlayFmodEventFromReference(string fmodEventName)
+    {
+        var audioEvent = RuntimeManager.CreateInstance("event:" + fmodEventName);
+        audioEvent.start();
+        audioEvent.release();
     }
 }

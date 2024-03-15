@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Signal_Scene_Test
+  sceneName: AR_Signal
 --- !u!1 &2702273051961098638
 GameObject:
   m_ObjectHideFlags: 0

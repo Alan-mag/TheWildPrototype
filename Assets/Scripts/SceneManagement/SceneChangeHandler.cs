@@ -13,7 +13,7 @@ public class SceneChangeHandler : MonoBehaviour
         Debug.Log(gameObject.name);
         if (gameObject.name == "TestSceneAudio_map(Clone)")
         {
-            AudioLogInfo.Message = gameObject.GetComponent<AudioLogMapHandler>().GetAudioLogMessage();
+            AudioLogInfo.Title = gameObject.GetComponent<AudioLogMapHandler>().GetAudioLogMessage();
         }
         // todo:
         // check if going to audio log scene

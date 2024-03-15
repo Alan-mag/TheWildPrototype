@@ -85,15 +85,11 @@ public class ExplorationMapManager : MonoBehaviour
         foreach (AudioLogData log in logs)
         {
             LatLng latLng = new LatLng(log.latitude, log.longitude);
-            // Debug.Log(log.message);
             GameObject audioObj = Instantiate(audioLogMapObject, lightshipMap.LatLngToScene(in latLng), Quaternion.identity);
-            audioObj.GetComponent<AudioLogMapHandler>().SetObjectMessageLog(log.message);
-            // each experience just needs a unique id - and a completed and not completed state
-            // should update visual based on that
-            // maybe get it from firebase? idk
-            // then maybe use state machine or SO to maintain state of that experience for specific player
-            // have a way to just gather that info for experiences around player
-            // audioObj.GetComponent<MapObjectManager>().Id = log.longitude + log.latitude;
+            audioObj.GetComponent<AudioLogMapObject>().title = "";
+            audioObj.GetComponent<AudioLogMapObject>().description = log.message;
+            audioObj.GetComponent<AudioLogMapObject>().fmodAudioSourceReference = log.fmodEventReference;
+            audioObj.GetComponent<AudioLogMapObject>().group = log.group;
         }
     }
 

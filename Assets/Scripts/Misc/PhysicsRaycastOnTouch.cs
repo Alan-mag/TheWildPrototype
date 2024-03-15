@@ -74,6 +74,18 @@ if (Input.touches.Length > 0)
         }
     }
 
+    // todo: would like to make generic
+    // This is not great!!!! needs updating
+    private void HandleAudioLogSetInfo(GameObject selectedGameObject)
+    {
+        if (selectedGameObject.GetComponent<AudioLogMapObject>() != null)
+        {
+            AudioLogInfo.Title = selectedGameObject.GetComponent<AudioLogMapObject>().title;
+            AudioLogInfo.Description = selectedGameObject.GetComponent<AudioLogMapObject>().description;
+            AudioLogInfo.FmodAudioSourceReference = selectedGameObject.GetComponent<AudioLogMapObject>().fmodAudioSourceReference;
+        }
+    }
+
     private void SelectPathOnMapObject(GameObject selectedGameObject)
     {
         var pathSelectionScript = selectedGameObject.GetComponent<PathSelectionHandler>();
@@ -102,6 +114,7 @@ if (Input.touches.Length > 0)
                     {
                         // no distance requirement from experience
                         HandleHistoricalImageSetInfo(g);
+                        HandleAudioLogSetInfo(g);
                         var sceneChangeScript = g.GetComponent<SceneChangeHandler>();
                         sceneChangeScript.ChangeScene();
                     }
@@ -112,6 +125,7 @@ if (Input.touches.Length > 0)
                         {
                             // historical image data check:
                             HandleHistoricalImageSetInfo(g);
+                            HandleAudioLogSetInfo(g);
                             ChangeSceneOnGameObject(g);
                         }
                         else

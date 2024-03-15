@@ -1139,7 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a6a90dfa9cefa41ac7864763c08364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fmodEventName: event:/VO/HQ Expedition Intro
 --- !u!1 &746854999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,7 +1832,7 @@ PrefabInstance:
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
@@ -1848,12 +1847,17 @@ PrefabInstance:
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayFmodEvent
+      value: PlayFmodEventFromReference
       objectReference: {fileID: 0}
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: HandleFmodEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: /VO/HQ Expedition Japanese Maple
       objectReference: {fileID: 0}
     - target: {fileID: 2450813006660354249, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}

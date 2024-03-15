@@ -21,7 +21,7 @@ public class HistoricalImageMapManager : MonoBehaviour
 
     void Start()
     {
-        CreateHistoricalImageLocationOnMap();
+        StartCoroutine(ExecuteAfterTime(3, CreateHistoricalImageLocationOnMap));
     }
 
     private void CreateHistoricalImageLocationOnMap()
@@ -35,5 +35,13 @@ public class HistoricalImageMapManager : MonoBehaviour
             histImageMapObj.GetComponent<HistoricalMapObject>().imageSourceTitle = item.ImageSourceTitle;
             histImageMapObj.GetComponent<HistoricalMapObject>().imageDescription = "";
         }
+    }
+
+    // todo: could put this in utilities - it's also in ExplorationMapManager
+    IEnumerator ExecuteAfterTime(float time, Action callback)
+    {
+        yield return new WaitForSeconds(time);
+
+        callback();
     }
 }

@@ -95,7 +95,7 @@ public class ScannerExpdManager : MonoBehaviour
     {
         // AmazonPollyUtil pollyUtil = this.GetComponent<AmazonPollyUtil>();
         // pollyUtil.PlayMessageWithPolly("Japanese maple has long been cultivated in Japan and was introduced into cultivation in Europe in the early 1800s. It is one of the most versatile small trees for use in the landscape. It exists in a multitude of forms that provide a wide range of sizes, shapes, and colors.");
-        handleFmodEvent.PlayFmodEvent("/VO/HQ Expedition Japanese Maple");
+        handleFmodEvent.PlayFmodEventFromReference("/VO/HQ Expedition Japanese Maple");
     }
 
     private void OnDestroy()

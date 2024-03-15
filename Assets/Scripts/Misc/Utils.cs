@@ -1,3 +1,4 @@
+using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -46,22 +47,25 @@ public class AudioLogData
     public double latitude;
     public double longitude;
     public string message;
+    public string fmodEventReference;
     public int group;
 
-    public AudioLogData(double lat, double lng, string msg, int grp = 0)
+    public AudioLogData(double lat, double lng, string msg, string fmodE, int grp = 0)
     {
         this.latitude = lat;
         this.longitude = lng;
         this.message = msg;
+        this.fmodEventReference = fmodE;
         this.group = grp;
     }
 
-    public AudioLogData(string lat, string lng, string msg, string grp = "0")
+    public AudioLogData(string lat, string lng, string msg, string fmodE, string grp = "0")
     {
         this.latitude = Convert.ToDouble(lat);
         this.longitude = Convert.ToDouble(lng);
         this.message = msg;
-        this.group = Convert.ToInt32(grp); ;
+        this.fmodEventReference = fmodE;
+        this.group = Convert.ToInt32(grp);
     }
 
     public string ToJson()
