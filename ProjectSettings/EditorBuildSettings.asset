@@ -125,6 +125,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARExperiences/NewForMap/AudioLogPlayer.unity
     guid: 6d55824b97446cb4ab35e8ba1be94fa9
+  - enabled: 1
+    path: Assets/Scenes/Map/IntroMap.unity
+    guid: 193f5a516b9d85f4a83dadda19edbbc6
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}

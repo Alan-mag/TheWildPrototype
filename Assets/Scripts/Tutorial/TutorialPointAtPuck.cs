@@ -58,6 +58,6 @@ public class TutorialPointAtPuck : MonoBehaviour
         companionFire.Stop();
         companionAnimator.SetTrigger("TrRepairCompanion");
         _isSolved = true;
-        tutorialManager.HandleFinishedTutorial();
+        // tutorialManager.HandleFinishedTutorial();
     }
 }

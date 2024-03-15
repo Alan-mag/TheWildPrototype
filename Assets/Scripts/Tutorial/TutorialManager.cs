@@ -35,9 +35,9 @@ public class TutorialManager : MonoBehaviour
     public delegate void AudioCallback();
     private int numberOfSignals = 3;
 
-    public void HandleFinishedTutorial()
+    public void HandleAddingTutorialExperience()
     {
-        completeButton.SetActive(true);
+        // completeButton.SetActive(true);
         firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Adventurer, 1);
     }
 
