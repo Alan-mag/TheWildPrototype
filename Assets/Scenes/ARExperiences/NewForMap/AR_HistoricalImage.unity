@@ -175,6 +175,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: image-source
       objectReference: {fileID: 0}
+    - target: {fileID: 28667269738827789, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 57349672141589890, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -295,6 +300,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4841418887900798746, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6252744713374841573, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -314,21 +324,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1293947577}
     - target: {fileID: 6436901257528449976, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CompleteStage
+      value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 6436901257528449976, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ExpeditionLevelHandler, Assembly-CSharp
+      value: SceneChangeHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6436901257528449976, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748434935786261107, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_text
+      value: Survey the area, grab the historical image - and view your location
+        through history.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210180986223941263, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_text
+      value: Historical Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210180986223941263, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 30.5
       objectReference: {fileID: 0}
     - target: {fileID: 7704776388555079153, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
@@ -379,6 +405,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963711433538833415, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963711433538833415, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963711433538833415, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963711433538833415, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

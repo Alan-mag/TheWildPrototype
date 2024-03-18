@@ -421,7 +421,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 14cd303a110b80645afc3ff01f12cbe5, type: 3}
   audioManager: {fileID: 402992133}
   weaveManager: {fileID: 1528846018}
-  expeditionSceneHandler: {fileID: 2004786027}
+  expeditionSceneHandler: {fileID: 0}
 --- !u!114 &273401029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1858,6 +1858,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1218068302}
     m_Modifications:
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1393583729}
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChangeHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208117146756563162, guid: cca2125fa661fa244bd47ab4d6abb3ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3431893496696603623, guid: cca2125fa661fa244bd47ab4d6abb3ce,
         type: 3}
       propertyPath: m_Name
@@ -1877,7 +1912,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2004786027}
+      objectReference: {fileID: 0}
     - target: {fileID: 5725219197782037349, guid: cca2125fa661fa244bd47ab4d6abb3ce,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2228,7 +2263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2004786027}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ExpeditionLevelHandler, Assembly-CSharp
         m_MethodName: CompleteStage
         m_Mode: 1
@@ -2631,54 +2666,6 @@ Transform:
   - {fileID: 1132551137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1332109771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332109773}
-  - component: {fileID: 1332109772}
-  m_Layer: 0
-  m_Name: ExpeditionInputHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1332109772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332109771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab5798ef7b42c074aa14d1a128595be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 653541850}
-  playerTransform: {fileID: 0}
-  interactionDistanceExpedition: 15
-  debugMode: 0
---- !u!4 &1332109773
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332109771}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 540, y: 1080, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1461223693}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342336083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +2816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1393583729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2892,8 +2879,6 @@ Transform:
   - {fileID: 402992132}
   - {fileID: 1972651475}
   - {fileID: 1393583730}
-  - {fileID: 2004786028}
-  - {fileID: 1332109773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528846016
@@ -3101,51 +3086,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 872.85175, y: 2278.328, z: -5.7060547}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1461223693}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2004786026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2004786028}
-  - component: {fileID: 2004786027}
-  m_Layer: 0
-  m_Name: ExpeditionLevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2004786027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004786026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28eab0acd5fcb8a40acaf85756da83f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  expeditionData: {fileID: 11400000, guid: fa6f5271870f6884fa7e9fad349862d8, type: 2}
---- !u!4 &2004786028
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004786026}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.907227, y: 898.0125, z: -535.69446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -905,7 +905,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 504cc51cdf6133541a92b179e831eec0,
+        type: 3}
     - target: {fileID: 593410212256940943, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_Color.a
@@ -930,8 +931,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: -876546973899608171, guid: c94342bdd97cfa146b7fc95d6002661f,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 672873943251073211, guid: 363d3b6f0f3f0d34abd749bf1fc814c0,
         type: 3}
       propertyPath: m_RenderMode
@@ -1348,7 +1348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1712555834
 MonoBehaviour:
   m_ObjectHideFlags: 0
