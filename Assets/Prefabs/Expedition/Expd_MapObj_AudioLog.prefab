@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Expd_AudioLog
+  sceneName: Expd_AudioLog_Player
 --- !u!1 &8005001651343015537
 GameObject:
   m_ObjectHideFlags: 0

@@ -190,6 +190,41 @@ PrefabInstance:
       propertyPath: _arInteractionEventChannel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2138582721}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChangeHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558753355690357565, guid: dfce8c5170baea24592045e2ac63ee3f,
+        type: 3}
+      propertyPath: OnEventRaisedAudioLog.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8676054072918109546, guid: dfce8c5170baea24592045e2ac63ee3f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,9 +359,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6868887738b73741a0d6f457bbd79de, type: 3}
+--- !u!1 &2138582720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138582722}
+  - component: {fileID: 2138582721}
+  m_Layer: 0
+  m_Name: AudioPlayerSceneChange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2138582721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138582720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Expd_AudioLog_Player
+--- !u!4 &2138582722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138582720}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2589, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 378598537}
   - {fileID: 1597559785}
+  - {fileID: 2138582722}
