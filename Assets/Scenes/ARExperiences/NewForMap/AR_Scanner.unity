@@ -206,6 +206,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3823751186582779856, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4764794591187440975, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -287,6 +292,16 @@ PrefabInstance:
       value: Scan the environment using your companion, then select overlay to complete
         scan.
       objectReference: {fileID: 0}
+    - target: {fileID: 6748434935786261107, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748434935786261107, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 7210180986223941263, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_text
@@ -296,6 +311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AR_Interactive_Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634857542761322602, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 720
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

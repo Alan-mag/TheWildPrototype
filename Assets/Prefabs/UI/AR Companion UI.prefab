@@ -66,7 +66,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &756344932243264966
 MonoBehaviour:
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -333,12 +333,12 @@ PrefabInstance:
     - target: {fileID: 4332217102554034912, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -185
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 4332217102554034912, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 166
+      value: 109
       objectReference: {fileID: 0}
     - target: {fileID: 4332217102554034912, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
         type: 3}

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: AR_AudioLog
+  sceneName: AudioLogPlayer
 --- !u!114 &4290872840675257184
 MonoBehaviour:
   m_ObjectHideFlags: 0
