@@ -2169,6 +2169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleSphere: {fileID: 9857787}
+  puzzleTargetObject: {fileID: 0}
+  sphereMapExperiencesManagerSO: {fileID: 11400000, guid: 530d01073ae661049971412d57c26f43,
+    type: 2}
+  creatorNameText: {fileID: 0}
   xRotationText: {fileID: 1154230461}
   yRotationText: {fileID: 348844242}
   zRotationText: {fileID: 1224953354}

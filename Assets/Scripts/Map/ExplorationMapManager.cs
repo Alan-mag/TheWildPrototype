@@ -99,6 +99,7 @@ public class ExplorationMapManager : MonoBehaviour
         Instantiate(expeditionMapObject, lightshipMap.LatLngToScene(in latLng1), Quaternion.identity);
     }
 
+    // todo: make this public in util file
     IEnumerator ExecuteAfterTime(float time, Action callback)
     {
         yield return new WaitForSeconds(time);

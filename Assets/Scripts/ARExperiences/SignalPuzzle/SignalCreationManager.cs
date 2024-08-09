@@ -35,7 +35,7 @@ public class SignalCreationManager : MonoBehaviour
 
     public void SpawnSignal(int signalVal) // todo not using int yet
     {
-        Vector3 posToSpawn = new Vector3(2.25f, 0.0f, 10f);
+        Vector3 posToSpawn = new Vector3(0.15f, 0.0f, 1f);
 
         if (spawnedSignals.Count >= 1)
         {
@@ -55,7 +55,7 @@ public class SignalCreationManager : MonoBehaviour
     IEnumerator MoveFunction(GameObject signalObj)
     {
         var newPosition = signalObj.transform.position;
-        newPosition.x = newPosition.x  - 1.5f;
+        newPosition.x = newPosition.x  - .1f;
         Debug.Log(newPosition);
         float timeSinceStarted = 0f;
         while (true)
@@ -87,11 +87,12 @@ public class SignalCreationManager : MonoBehaviour
         spawnedSignals.Clear();
     }
 
+    // Todo:  add current player username
     public void SaveSignalSequenceToDatabase()
     {
-        SignalData data = new SignalData(signalSequenceValues);
-
         FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
+        SignalData data = new SignalData(signalSequenceValues, PlayerPrefs.GetString("user_id")); // todo: need usernames - arent being saved in db at moment
+
         firebaseManager.AddSignalSequenceToDatabase(data.ToJson());
     }
 

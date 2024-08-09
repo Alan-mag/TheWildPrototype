@@ -1,4 +1,5 @@
 using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -23,15 +24,56 @@ public class PlayerStatistics
 [Serializable]
 public class PuzzleSphereTarget
 {
-    public float x;
-    public float y;
-    public float z;
+    [SerializeField]
+    public Nullable<float> x;
+    [SerializeField]
+    public Nullable<float> y;
+    [SerializeField]
+    public Nullable<float> z;
 
+    public PuzzleSphereTarget()
+    {
+        this.x = null;
+        this.y = null;
+        this.z = null;
+    }
     public PuzzleSphereTarget(float xParam, float yParam, float zParam)
     {
         this.x = xParam;
         this.y = yParam;
         this.z = zParam;
+    }
+
+    public string ToJson()
+    {
+        return JsonUtility.ToJson(this);
+    }
+
+}
+
+[Serializable]
+public class JSONArray<T>
+{
+    public T[] array;
+}
+
+[Serializable]
+public class PuzzleSphereInformation
+{
+    [SerializeField]
+    public string creatorName { get; set; }
+    [SerializeField]
+    public List<PuzzleSphereTarget> puzzleSphereTarget { get; set; }
+
+    public PuzzleSphereInformation()
+    {
+        this.creatorName = null;
+        this.puzzleSphereTarget = new List<PuzzleSphereTarget>();
+    }
+    public PuzzleSphereInformation(string creatorName, List<PuzzleSphereTarget> puzzleSphereTarget)
+    {
+        this.creatorName = creatorName;
+        this.puzzleSphereTarget = puzzleSphereTarget;
     }
 
     public string ToJson()
@@ -79,10 +121,18 @@ public class AudioLogData
 public class SignalData
 {
     public List<int> sequence;
+    public string creatorName;
 
-    public SignalData(List<int> seq)
+    public SignalData()
+    {
+        this.sequence = new List<int>();
+        this.creatorName = null;
+    }
+
+    public SignalData(List<int> seq, string creatorName = null)
     {
         this.sequence = seq;
+        this.creatorName = creatorName;
     }
 
     public string ToJson()
