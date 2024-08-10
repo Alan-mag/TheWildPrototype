@@ -3,6 +3,10 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using TMPro;
+using Firebase.Database;
+using Niantic.Lightship.SharedAR.Networking;
+using Firebase.Extensions;
+using UnityEngine.SceneManagement;
 
 public class Firebase_AuthManager : MonoBehaviour
 {
@@ -26,6 +30,8 @@ public class Firebase_AuthManager : MonoBehaviour
     public TMP_InputField passwordRegisterField;
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
+    private string userId;
+    private DatabaseReference userStatsDbReference;
 
     void Awake()
     {
@@ -115,8 +121,37 @@ public class Firebase_AuthManager : MonoBehaviour
             confirmLoginText.text = "Logged In";
             Debug.Log(User.UserId);
             PlayerPrefs.SetString("user_id", User.UserId);
-            gameObject.GetComponent<SceneChangeHandler>().ChangeScene();
+            // gameObject.GetComponent<SceneChangeHandler>().ChangeScene();
+            // handle map change
+            HandleMapLoad(User.UserId);
         }
+    }
+
+    private void HandleMapLoad(string userId)
+    {
+        userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/");
+
+        userStatsDbReference.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Could not get db reference for player
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Value == null)
+                {
+                    // go to intro map
+                    SceneManager.LoadScene("IntroMap");
+                }
+                else
+                {
+                    // go to normal map
+                    SceneManager.LoadScene("MapTest");
+                }
+            }
+        });
     }
 
     private IEnumerator Register(string _email, string _password, string _username)

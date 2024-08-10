@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map/MapTest.unity
     guid: 2ca9043a61a168a4cbbdb019a5a18010
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PersistentScene.unity
     guid: 25a5f82343e098641b57d62702e440f8
   - enabled: 1
@@ -20,13 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARExperiences/Puzzle_Solution_1.unity
     guid: de559a4d51fcf6f47ac376eea7059be5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARExperiences/AudioLog_Test_1.unity
     guid: 2ac77361c11d7d14cb83b7773df87679
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARExperiences/Scanner_Test_1.unity
     guid: 6db12d14440ee884fbe6506b77812188
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menus/CharacterProgression.unity
     guid: 00703740cf9cc5a46981eaf0aa6c5ea2
   - enabled: 1
@@ -35,13 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARExperiences/TutorialScene.unity
     guid: a9ead3c7fbe658d4b892cbc7abcab93e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreatorTools/Location_Test_1.unity
     guid: 014a5977f91237d4e94935d0ec289a08
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreatorTools/PuzzleCreation_Signal.unity
     guid: 8664d70d2cfe28242a029b38a4b4137e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARExperiences/AudioLog_Test_2.unity
     guid: 214818deede4d624d8966c5abd01cf62
   - enabled: 1
@@ -80,25 +80,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings/SettingsMenu.unity
     guid: 9d5bb069f6ec882489f0a81a91f4cad3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Customization/CompanionCustomization.unity
     guid: 61301801dee5ca34687fa3ec80acc64d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menus/SocialMenu.unity
     guid: dfd9d230d4d643a46bc262b9182784d3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Collection/AudioLogsCollection.unity
     guid: 41d1f8188af7ebd48adf432691bdb869
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Collection/CollectionMenu.unity
     guid: 2adadd10c907b0343a9a7b2ac46501b5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Collection/SpherePuzzlesCollection.unity
     guid: 29aee008249cdfb4e88e788075e4017d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Collection/PhotosCollection.unity
     guid: 4d27a3ae3a2393c45bae73ba31706749
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreatorTools/CreatorToolsMenu.unity
     guid: a212f967c6b4cda47a0a776be7d8cc1d
   - enabled: 1
@@ -110,6 +110,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/ARDK_Interaction_Toolkit.unity
     guid: 6dd28ebac792f84458aa2c22bd569745
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_AudioLog.unity
+    guid: 0cb1e34fee9271a4692e3feb2ebc8d49
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_HistoricalImage.unity
+    guid: 4b79f8edffd7f0b4194b700ef4070504
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_Scanner.unity
+    guid: 0074fa222ecc2f64b80edf5addb099be
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_Signal.unity
+    guid: c8abef8516fb8774f92954b77234db74
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AudioLogPlayer.unity
+    guid: 6d55824b97446cb4ab35e8ba1be94fa9
+  - enabled: 1
+    path: Assets/Scenes/Map/IntroMap.unity
+    guid: 193f5a516b9d85f4a83dadda19edbbc6
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/AR_PuzzleSphere.unity
+    guid: 36b4d1760fea61e448e4303b149def1a
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/PuzzleSphere.unity
+    guid: aa4c355c7f52c5341a85174849cfd600
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}

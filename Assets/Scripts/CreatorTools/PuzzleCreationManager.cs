@@ -119,6 +119,9 @@ public class PuzzleCreationManager : MonoBehaviour
     {
         float t = 0f;
         Quaternion start = puzzleSphere.transform.rotation;
+        List<PuzzleSphereTarget> puzzleTargets = new List<PuzzleSphereTarget>();
+        string creatorName = "test user"; // todo pull from PlayerPrefs.GetString("username")
+
         while (t < 1f)
         {
             puzzleSphere.transform.rotation = Quaternion.Slerp(start, Quaternion.identity, t / 1f);
@@ -133,11 +136,13 @@ public class PuzzleCreationManager : MonoBehaviour
             targ.GetComponent<RandomPuckPosition>().SetYPosition(targ.transform.position.y);
             targ.GetComponent<RandomPuckPosition>().SetZPosition(targ.transform.position.z);
 
-            PuzzleSphereTarget data = new PuzzleSphereTarget(targ.transform.position.x, targ.transform.position.y, targ.transform.position.z);
-            string jsonData = JsonConvert.SerializeObject(data); // todo: can clean up with just data.ToJson() works now that public members are accessible
-            Debug.Log(jsonData);
-            targetData.Add(jsonData);
+            PuzzleSphereTarget targetLocationData = new PuzzleSphereTarget(targ.transform.position.x, targ.transform.position.y, targ.transform.position.z);
+            puzzleTargets.Add(targetLocationData);
         }
+        PuzzleSphereInformation puzzleInfo = new PuzzleSphereInformation(creatorName, puzzleTargets);
+        string jsonData = JsonConvert.SerializeObject(puzzleInfo); // todo: can clean up with just data.ToJson() works now that public members are accessible
+        Debug.Log(jsonData);
+        targetData.Add(jsonData);
 
         Debug.Log(JsonConvert.SerializeObject(targetData));
         // call to save:

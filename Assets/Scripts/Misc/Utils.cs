@@ -1,3 +1,5 @@
+using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -22,10 +24,19 @@ public class PlayerStatistics
 [Serializable]
 public class PuzzleSphereTarget
 {
-    public float x;
-    public float y;
-    public float z;
+    [SerializeField]
+    public Nullable<float> x;
+    [SerializeField]
+    public Nullable<float> y;
+    [SerializeField]
+    public Nullable<float> z;
 
+    public PuzzleSphereTarget()
+    {
+        this.x = null;
+        this.y = null;
+        this.z = null;
+    }
     public PuzzleSphereTarget(float xParam, float yParam, float zParam)
     {
         this.x = xParam;
@@ -41,27 +52,62 @@ public class PuzzleSphereTarget
 }
 
 [Serializable]
+public class JSONArray<T>
+{
+    public T[] array;
+}
+
+[Serializable]
+public class PuzzleSphereInformation
+{
+    [SerializeField]
+    public string creatorName { get; set; }
+    [SerializeField]
+    public List<PuzzleSphereTarget> puzzleSphereTarget { get; set; }
+
+    public PuzzleSphereInformation()
+    {
+        this.creatorName = null;
+        this.puzzleSphereTarget = new List<PuzzleSphereTarget>();
+    }
+    public PuzzleSphereInformation(string creatorName, List<PuzzleSphereTarget> puzzleSphereTarget)
+    {
+        this.creatorName = creatorName;
+        this.puzzleSphereTarget = puzzleSphereTarget;
+    }
+
+    public string ToJson()
+    {
+        return JsonUtility.ToJson(this);
+    }
+
+}
+
+[Serializable]
 public class AudioLogData
 {
     public double latitude;
     public double longitude;
     public string message;
+    public string fmodEventReference;
     public int group;
 
-    public AudioLogData(double lat, double lng, string msg, int grp = 0)
+    public AudioLogData(double lat, double lng, string msg, string fmodE, int grp = 0)
     {
         this.latitude = lat;
         this.longitude = lng;
         this.message = msg;
+        this.fmodEventReference = fmodE;
         this.group = grp;
     }
 
-    public AudioLogData(string lat, string lng, string msg, string grp = "0")
+    public AudioLogData(string lat, string lng, string msg, string fmodE, string grp = "0")
     {
         this.latitude = Convert.ToDouble(lat);
         this.longitude = Convert.ToDouble(lng);
         this.message = msg;
-        this.group = Convert.ToInt32(grp); ;
+        this.fmodEventReference = fmodE;
+        this.group = Convert.ToInt32(grp);
     }
 
     public string ToJson()
@@ -75,10 +121,18 @@ public class AudioLogData
 public class SignalData
 {
     public List<int> sequence;
+    public string creatorName;
 
-    public SignalData(List<int> seq)
+    public SignalData()
+    {
+        this.sequence = new List<int>();
+        this.creatorName = null;
+    }
+
+    public SignalData(List<int> seq, string creatorName = null)
     {
         this.sequence = seq;
+        this.creatorName = creatorName;
     }
 
     public string ToJson()
@@ -109,4 +163,44 @@ public class ExpeditionLocationData
         this.latitude = latitude;
         this.longitude = longitude;
     } 
+}
+
+[Serializable]
+public class HistoricalImageLocationData
+{
+    private double latitude;
+    public double Latitude
+    {
+        get { return latitude; }
+        set { latitude = value; }
+    }
+
+    private double longitude;
+    public double Longitude
+    {
+        get { return longitude; }
+        set { longitude = value; }
+    }
+
+    private string imageSourceTitle;
+    public string ImageSourceTitle
+    {
+        get { return imageSourceTitle;  }
+        set { imageSourceTitle = value; }
+    }
+
+    private string imageTitle;
+    public string ImageTitle
+    {
+        get { return imageTitle; }
+        set { imageTitle = value; }
+    }
+
+    public HistoricalImageLocationData(double latitude, double longitude, string imageTitle, string imageSourceTitle)
+    {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.imageSourceTitle = imageSourceTitle;
+        this.imageTitle = imageTitle;
+    }
 }

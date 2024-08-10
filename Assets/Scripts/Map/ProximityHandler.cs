@@ -37,7 +37,7 @@ public class ProximityHandler : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.GetComponent<SphereCollider>().bounds.center, radiusOfDetectionSphere); // todo: fix
             foreach (var hitCollider in hitColliders)
             {
-                Debug.Log("hitCollider tag: " + hitCollider.tag);
+                // Debug.Log("hitCollider tag: " + hitCollider.tag);
                 if (hitCollider.tag == "MapSpawnObject")
                 {
                     totalCurrentProximityObjects++;

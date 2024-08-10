@@ -256,6 +256,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4841418887900798746, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6436901257528449976, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -275,6 +280,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748434935786261107, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_text
+      value: Scan the environment using your companion, then select overlay to complete
+        scan.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210180986223941263, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_text
+      value: Scan
       objectReference: {fileID: 0}
     - target: {fileID: 7842730108007742297, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}

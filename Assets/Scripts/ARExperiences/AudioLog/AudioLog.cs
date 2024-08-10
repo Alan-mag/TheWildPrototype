@@ -37,8 +37,34 @@ public class AudioLog : MonoBehaviour
 
     }
 
+    public void CollectAudioLog()
+    {
+        AudioLogUI.SetActive(true);
+    }
+
+    public void AddPlayerExpFromAudioLog()
+    {
+        // todo:
+        // get AudioLogInfo fmod ref
+        // handlefmodAudioEVent(sourceRef)
+
+        FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
+        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, 1f);
+        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f);
+    }
+
+    public void StopAudioFromAudioLog()
+    {
+        audioSource.Stop();
+    }
+
+    public void FinishBtnSelect()
+    {
+        sceneChangeHandler.ChangeScene();
+    }
+
     // AMAZON POLLY TEST
-    private async void PlayMessageWithPolly(string message)
+    /*private async void PlayMessageWithPolly(string message)
     {
         var cred = new BasicAWSCredentials(accessKey, secretKey); // TODO: update --> not to be used after test
         var client = new AmazonPollyClient(cred, RegionEndpoint.EUCentral1);
@@ -63,9 +89,9 @@ public class AudioLog : MonoBehaviour
             audioSource.clip = clip;
             audioSource.Play();
         }
-    }
+    }*/
 
-    private void WriteSpeechToFile(Stream stream)
+    /*private void WriteSpeechToFile(Stream stream)
     {
         using (var fileStream = new FileStream($"{Application.persistentDataPath}/speech_audio.mp3", FileMode.Create))
         {
@@ -77,37 +103,5 @@ public class AudioLog : MonoBehaviour
                 fileStream.Write(buffer, 0, bytesRead);
             }
         }
-    }
-
-    public void CollectAudioLog()
-    {
-        AudioLogUI.SetActive(true);
-        // Destroy(logObject); // don't destroy it
-    }
-
-    public void CollectTutorialAudioLog()
-    {
-        tutorialManager.GetComponent<TutorialManager>().OnSelectAudioLog();
-    }
-
-    public void PlayAudioFromAudioLog()
-    {
-        if (_messageText.text != null) // todo: update handling here when there is no message text pane
-            PlayMessageWithPolly(_messageText.text);
-
-        // audioSource.Play();
-        FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
-        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, 1f);
-        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f);
-    }
-
-    public void StopAudioFromAudioLog()
-    {
-        audioSource.Stop();
-    }
-
-    public void FinishBtnSelect()
-    {
-        sceneChangeHandler.ChangeScene();
-    }
+    }*/
 }

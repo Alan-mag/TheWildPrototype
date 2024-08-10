@@ -4,5 +4,7 @@ using UnityEngine;
 
 public static class AudioLogInfo
 {
-    public static string Message { get; set; }
+    public static string Title { get; set; }
+    public static string FmodAudioSourceReference { get; set; }
+    public static string Description { get; set; }
 }

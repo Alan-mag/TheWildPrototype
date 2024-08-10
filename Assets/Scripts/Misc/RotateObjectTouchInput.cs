@@ -6,11 +6,8 @@ public class RotateObjectTouchInput : MonoBehaviour
 {
     /********Rotation Variables*********/
     [SerializeField] float rotationRate = 0.1f;
-    [SerializeField] GameObject targetItem;
+    [SerializeField] GameObject objectToRotate;
 
-    private Vector3 pos = new Vector3();
-    private bool wasRotating;
-    private RaycastHit hit;
     private int layerMask = (1 << 8) | (1 << 2);
 
     void Start()
@@ -18,39 +15,28 @@ public class RotateObjectTouchInput : MonoBehaviour
         layerMask = ~layerMask;
     }
 
-    void Update()
+    private void Update()
     {
-        Ray ray = new Ray();
-        Touch theTouch = new Touch();
-
-        if (Input.touches.Length > 0)
+        if (Input.touchCount > 0)
         {
-            pos = Input.touches[0].position;
-            theTouch = Input.touches[0];
-        }
-        if (pos != new Vector3(0, 0, 0))
-            ray = Camera.main.ScreenPointToRay(pos);
-
-        if (Physics.Raycast(ray, out hit, 50, layerMask))
-        {
-            if (Input.touches.Length == 1)
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
             {
-                if (theTouch.fingerId > 0)
-                {
-                    if (theTouch.phase == TouchPhase.Began)
-                    {
-                        Debug.Log("input touch began");
-                        wasRotating = false;
-                    }
-
-                    if (theTouch.phase == TouchPhase.Moved)
-                    {
-                        Debug.Log("input touch moved");
-                        targetItem.transform.Rotate(theTouch.deltaPosition.y * rotationRate, -theTouch.deltaPosition.x * rotationRate, 0, Space.World);
-                        wasRotating = true;
-                    }
-                }
-
+                case TouchPhase.Began:
+                    Debug.Log("touch phase began");
+                    break;
+                case TouchPhase.Moved:
+                    Debug.Log("touch phase moved");
+                    objectToRotate.transform.Rotate(
+                        touch.deltaPosition.y * rotationRate,
+                        -touch.deltaPosition.x * rotationRate,
+                        0,
+                        Space.World
+                    );
+                    break;
+                case TouchPhase.Ended:
+                    Debug.Log("Touch end");
+                    break;
             }
         }
     }

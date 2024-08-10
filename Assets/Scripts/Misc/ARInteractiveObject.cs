@@ -88,7 +88,7 @@ public class ARInteractiveObject : MonoBehaviour
         {
             Debug.Log("ARInteractionEvent Raised: " + " " + id + " " + name + " " + position.ToString());
             OnEventRaisedAudioLog.Invoke(id, name, position);
-            SceneManager.LoadScene("Expd_AudioLog_Player");
+            // SceneManager.LoadScene("Expd_AudioLog_Player");
         }
     }
 

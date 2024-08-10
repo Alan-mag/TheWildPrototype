@@ -62,6 +62,30 @@ if (Input.touches.Length > 0)
         sceneChangeScript.ChangeScene();
     }
 
+    // todo: would like to make generic
+    // This is not great!!!! needs updating
+    private void HandleHistoricalImageSetInfo(GameObject selectedGameObject)
+    {
+        if (selectedGameObject.GetComponent<HistoricalMapObject>() != null)
+        {
+            HistoricalImageInfo.ImageTitle = selectedGameObject.GetComponent<HistoricalMapObject>().imageTitle;
+            HistoricalImageInfo.ImageSourceTitle = selectedGameObject.GetComponent<HistoricalMapObject>().imageSourceTitle;
+            HistoricalImageInfo.Description = selectedGameObject.GetComponent<HistoricalMapObject>().imageDescription;
+        }
+    }
+
+    // todo: would like to make generic
+    // This is not great!!!! needs updating
+    private void HandleAudioLogSetInfo(GameObject selectedGameObject)
+    {
+        if (selectedGameObject.GetComponent<AudioLogMapObject>() != null)
+        {
+            AudioLogInfo.Title = selectedGameObject.GetComponent<AudioLogMapObject>().title;
+            AudioLogInfo.Description = selectedGameObject.GetComponent<AudioLogMapObject>().description;
+            AudioLogInfo.FmodAudioSourceReference = selectedGameObject.GetComponent<AudioLogMapObject>().fmodAudioSourceReference;
+        }
+    }
+
     private void SelectPathOnMapObject(GameObject selectedGameObject)
     {
         var pathSelectionScript = selectedGameObject.GetComponent<PathSelectionHandler>();
@@ -89,6 +113,8 @@ if (Input.touches.Length > 0)
                     if (debugMode)
                     {
                         // no distance requirement from experience
+                        HandleHistoricalImageSetInfo(g);
+                        HandleAudioLogSetInfo(g);
                         var sceneChangeScript = g.GetComponent<SceneChangeHandler>();
                         sceneChangeScript.ChangeScene();
                     }
@@ -97,6 +123,9 @@ if (Input.touches.Length > 0)
                         float dist = Vector3.Distance(g.transform.position, playerTransform.position);
                         if (dist <= interactionDistance)
                         {
+                            // historical image data check:
+                            HandleHistoricalImageSetInfo(g);
+                            HandleAudioLogSetInfo(g);
                             ChangeSceneOnGameObject(g);
                         }
                         else
@@ -120,11 +149,11 @@ if (Input.touches.Length > 0)
                     audioScript.ToAudioPlayer();
                 }
 
-                if (g.name == "TutorialAudioLog") // todo: this isn't going to scale well!
+                /*if (g.name == "TutorialAudioLog") // todo: this isn't going to scale well!
                 {
                     var audioScript = g.GetComponent<AudioLog>();
                     audioScript.CollectTutorialAudioLog();
-                }
+                }*/
 
                 // handle thread
                 if (g.name.Contains("Thread")) // for now, just thread example update if need more

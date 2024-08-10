@@ -2026,6 +2026,16 @@ PrefabInstance:
       propertyPath: m_CameraYOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 613802127951382535, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1982847431}
+    - target: {fileID: 613802127951382535, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4764794591187440975, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2116,6 +2126,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6868887738b73741a0d6f457bbd79de, type: 3}
+--- !u!114 &1982847431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 917388027077970583, guid: c6868887738b73741a0d6f457bbd79de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1982847430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee65a31dbef4a6547bdccd878a69f8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2097928122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleSphere: {fileID: 9857787}
+  puzzleTargetObject: {fileID: 0}
+  sphereMapExperiencesManagerSO: {fileID: 11400000, guid: 530d01073ae661049971412d57c26f43,
+    type: 2}
+  creatorNameText: {fileID: 0}
   xRotationText: {fileID: 1154230461}
   yRotationText: {fileID: 348844242}
   zRotationText: {fileID: 1224953354}

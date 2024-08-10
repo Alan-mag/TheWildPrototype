@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,11 @@ public class SignalSceneManager : MonoBehaviour
 {
     [Header("Canvas References")]
     [SerializeField] GameObject gameplayCanvas;
+    [SerializeField] TextMeshProUGUI creatorNameText;
 
     [Header("Sequence information")]
     [SerializeField] List<int> guessedTones;
-    [SerializeField] List<int> signalSequence = new List<int> { };
+    [SerializeField] List<int> signalSequence = new List<int> (3);
     [SerializeField] List<int> visualSignalSequence = new List<int> { };
 
     [Header("Guess Indicator Objects")]
@@ -31,6 +33,8 @@ public class SignalSceneManager : MonoBehaviour
     // todo refactor with delegates actions -- don't need these refs
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private WeaveManager weaveManager;
+
+    [SerializeField] SignalMapExperiencesManagerSO signalMapExperienceSO;
 
     // scene handlers
     SceneChangeHandler sceneChangeHandler;
@@ -53,9 +57,36 @@ public class SignalSceneManager : MonoBehaviour
         }
     }
 
+    // TODO: create something similar for Puzzle Sphere 
     private void Start()
     {
-        GenerateSequence();
+        if (signalMapExperienceSO.signalCollection.Count > 0)
+        {
+            // use signal sequence from SO todo: randomize which gets picked
+            System.Random rand = new System.Random();
+            int index = rand.Next(signalMapExperienceSO.signalCollection.Count);
+            var signalCollectionArray = signalMapExperienceSO.signalCollection.ToArray();
+            for (int i = 0; i <= index; i++)
+            {
+                if (i != index)
+                {
+
+                }
+                else
+                {
+                    signalSequence.AddRange(signalMapExperienceSO.signalCollection[i].sequence);
+                    creatorNameText.text = signalMapExperienceSO.signalCollection[i].creatorName;
+                }
+            }
+            UpdateGuessIndicatorsActive();
+            audioManager.PopulateAudioClips();
+            weaveManager.PopulateThreads();
+        }
+        else
+        {
+            // generate random sequence
+            GenerateRandomSequence();
+        }
     }
 
     private void CheckIfCorrectSequence()
@@ -68,7 +99,7 @@ public class SignalSceneManager : MonoBehaviour
         } 
     }
 
-    private void GenerateSequence()
+    private void GenerateRandomSequence()
     {
         var numOfTones = UnityEngine.Random.Range(2, 5);
         for (int i = 0; i < numOfTones; i++)
