@@ -155,7 +155,7 @@ public class LocationCreationManager : MonoBehaviour
         AudioLogData data = new AudioLogData(_latitude, _longitude, _audioLogTextField.text);
 
         FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
-        firebaseManager.AddAudioLogToDatabase(data.ToJson());
+        firebaseManager.AddPlayerCreatedAudioLogToDatabase(data.ToJson());
     }*/
 }
 

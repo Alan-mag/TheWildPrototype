@@ -64,6 +64,13 @@ public class FirebaseManager : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference($"/community_audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // community audio logs
     }
 
+    public void AddPlayerCreatedAudioLogToDatabase(string audioLogData)
+    {
+        Debug.Log("AddAudioLogToDatabase");
+        FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // player audio logs stored in user info
+        FirebaseDatabase.DefaultInstance.GetReference($"/community_created_audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // community audio logs
+    }
+
     public void AddSignalSequenceToDatabase(string signalSeqData)
     {
         Debug.Log("AddSignalSequenceToDatabase");
