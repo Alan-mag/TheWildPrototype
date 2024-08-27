@@ -119,7 +119,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARExperiences/NewForMap/AR_Scanner.unity
     guid: 0074fa222ecc2f64b80edf5addb099be
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARExperiences/NewForMap/AR_Signal.unity
     guid: c8abef8516fb8774f92954b77234db74
   - enabled: 1
@@ -137,6 +137,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreatorTools/AudioLogCreator.unity
     guid: 028c10b127aee3543ad9e24ccde0fa5e
+  - enabled: 1
+    path: Assets/Scenes/ARExperiences/NewForMap/Signal_Solving.unity
+    guid: 269050e410604824483e0484b900dc8b
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}
