@@ -118,6 +118,26 @@ public class AudioLogData
 }
 
 [Serializable]
+public class PlayerAudioLogData
+{
+    public double latitude;
+    public double longitude;
+    public Byte[] audioByteArray;
+
+    public PlayerAudioLogData(string lat, string lng, Byte[] byteArray)
+    {
+        this.latitude = Convert.ToDouble(lat);
+        this.longitude = Convert.ToDouble(lng);
+        this.audioByteArray = byteArray;
+    }
+
+    public string ToJson()
+    {
+        return JsonUtility.ToJson(this); // todo: doesn't seem to be working?
+    }
+}
+
+[Serializable]
 public class SignalData
 {
     public List<int> sequence;

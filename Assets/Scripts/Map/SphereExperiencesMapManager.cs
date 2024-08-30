@@ -31,20 +31,21 @@ public class SphereExperiencesMapManager : MonoBehaviour
 
     private void Start()
     {
-        PuzzleSphereTarget t = new PuzzleSphereTarget(-0.07125645f, 0.253887653f, 1.11454189f);
+        //add test 
+        /*PuzzleSphereTarget t = new PuzzleSphereTarget(-0.07125645f, 0.253887653f, 1.11454189f);
         PuzzleSphereTarget u = new PuzzleSphereTarget(-0.241122082f, -0.0874981359f, 1.129848f);
         PuzzleSphereTarget v = new PuzzleSphereTarget(-0.201063752f, -0.03456563f, 0.7974294f);
         _sphereInformationTest = new PuzzleSphereInformation("Alan", new List<PuzzleSphereTarget>() { t,u,v });
         if (sphereMapExperiencesManagerSO.sphereInformationCollection.Count < 1)
         {
             sphereMapExperiencesManagerSO.sphereInformationCollection.Add(_sphereInformationTest);
-        }
+        }*/
         // declaration
 
         // todo: add check if collection is not empty, then run fb call
         // execution block (can have multiple)
         Debug.Log("SphereExperiencesMapManager Start");
-        /*_databaseReference.GetValueAsync().ContinueWithOnMainThread(task =>
+        _databaseReference.GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
@@ -77,7 +78,7 @@ public class SphereExperiencesMapManager : MonoBehaviour
                     }
                 }
             }
-        });*/
+        });
         
         // return block (spaces in between each)
     }
