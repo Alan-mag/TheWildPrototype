@@ -187,4 +187,48 @@ public class FirebaseManager : MonoBehaviour
                }
            });
     }
+
+    public void GetPlayerList(Action<List<string>> callback)
+    {
+        List<string> playerList = new List<string>();
+
+        FirebaseDatabase.DefaultInstance.GetReference($"players/")
+            .GetValueAsync().ContinueWithOnMainThread(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Error getting players from db");
+                    // return playerList;
+                }
+                else if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    Debug.Log(snapshot);
+                    if (snapshot.Value != null)
+                    {
+                        foreach (var child in snapshot.Children)
+                        {
+                            foreach (var i in child.Children)
+                            {
+                                //Debug.Log(i.Value);
+                                // playerList.Add(i.Value.ToString());
+                                if (i.Key == "username")
+                                {
+                                    Debug.Log(i.Value);
+                                    playerList.Add(i.Value.ToString());
+                                }
+                            }
+                            callback(playerList);
+                        }
+                    }
+                    else
+                    {
+                        // no players in db
+                        // return playerList;
+                    }
+                }
+                // return playerList;
+            });
+        // return playerList;
+    }
 }
