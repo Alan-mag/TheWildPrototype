@@ -56,8 +56,8 @@ public class FirebaseProgressionHandler : MonoBehaviour
         if (PlayerPrefs.GetString("user_id") != null)
         {
             userId = PlayerPrefs.GetString("user_id");
-            userRootDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/");
-            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/");
+            userRootDbReference = FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/");
+            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/");
         }
     }
 
@@ -183,7 +183,7 @@ public class FirebaseProgressionHandler : MonoBehaviour
 
     private void GetPlayerStats(Action<string> callback)
     {
-       FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/")
+       FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/")
             .GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsFaulted)

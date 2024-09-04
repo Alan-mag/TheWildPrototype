@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,9 +64,11 @@ public class AudioLogVoiceRecord : MonoBehaviour
         _audioClipBytes = ConvertAudioClipToByteArray(audioSource.clip);
         PlayerAudioLogData logData = new PlayerAudioLogData(
             _latitude.ToString(),
-            _longitude.ToString(), _audioClipBytes
+            _longitude.ToString(),
+            _audioClipBytes
         );
         Debug.Log(logData);
+        // firebaseManager.AddPlayerCreatedAudioLogToDatabase("[\r\n  0,\r\n  1,\r\n  2\r\n]");
         firebaseManager.AddPlayerCreatedAudioLogToDatabase(logData.ToJson());
         // todo: save to firebase
         // convert clip to byte array

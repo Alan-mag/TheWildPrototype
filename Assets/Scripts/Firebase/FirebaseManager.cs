@@ -1,10 +1,11 @@
 using Firebase.Database;
-using Firebase.Firestore;
+using Firebase.Storage;
 using Firebase.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 // create firebase utility file?
 
@@ -34,8 +35,8 @@ public class FirebaseManager : MonoBehaviour
         if (PlayerPrefs.GetString("user_id") != null)
         {
             userId = PlayerPrefs.GetString("user_id");
-            userRootDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/");
-            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/");
+            userRootDbReference = FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/");
+            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/");
         }
     }
 
@@ -52,7 +53,7 @@ public class FirebaseManager : MonoBehaviour
     public void AddPlayerCreatedPuzzle(string puzzleData)
     {
         Debug.Log("AddPlayerCreatedPuzzle");
-        FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/puzzles/").Push().SetRawJsonValueAsync(puzzleData); // todo: clean up
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/puzzles/").Push().SetRawJsonValueAsync(puzzleData); // todo: clean up
 
         // pool of puzzles in db
         FirebaseDatabase.DefaultInstance.GetReference($"/community_puzzles/").Push().SetRawJsonValueAsync(puzzleData);
@@ -61,7 +62,7 @@ public class FirebaseManager : MonoBehaviour
     public void AddAudioLogToDatabase(string audioLogData)
     {
         Debug.Log("AddAudioLogToDatabase");
-        FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // player audio logs stored in user info
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // player audio logs stored in user info
         FirebaseDatabase.DefaultInstance.GetReference($"/community_audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // community audio logs
     }
 
@@ -69,15 +70,49 @@ public class FirebaseManager : MonoBehaviour
     {
         Debug.Log("AddAudioLogToDatabase");
         Debug.Log(audioLogData);
+
+        // Get a reference to the storage service, using the default Firebase App
+        /*FirebaseStorage storage = FirebaseStorage.DefaultInstance;
+
+        // Create a storage reference from our storage service
+        StorageReference storageRef =
+            storage.GetReferenceFromUrl("gs://thewild-3f4c7.appspot.com");
+
+        // Create a child reference
+        // imagesRef now points to "images"
+        StorageReference playerAudioLogsRef = storageRef.Child("player-audio-logs");
+
+        // Create a reference to the file you want to upload
+        StorageReference audioLogTestRef = storageRef.Child("player-audio-logs/playerAudioLog1.txt"); // TODO: update test
+
+
+        audioLogTestRef.PutBytesAsync(audioLogData)
+            .ContinueWith((Task<StorageMetadata> task) => {
+                if (task.IsFaulted || task.IsCanceled)
+                {
+                    Debug.Log(task.Exception.ToString());
+                    // Uh-oh, an error occurred!
+                }
+                else
+                {
+                    // Metadata contains file metadata such as size, content-type, and md5hash.
+                    StorageMetadata metadata = task.Result;
+                    string md5Hash = metadata.Md5Hash;
+                    Debug.Log("Finished uploading...");
+                    Debug.Log("md5 hash = " + md5Hash);
+                }
+            });*/
+
+
         // Todo: this needs firebase datastorage, not firebase realtime db, probably need to create another file
-        // FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // player audio logs stored in user info
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // player audio logs stored in user info
         // FirebaseDatabase.DefaultInstance.GetReference($"/community_created_audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // community audio logs
     }
 
     public void AddSignalSequenceToDatabase(string signalSeqData)
     {
         Debug.Log("AddSignalSequenceToDatabase");
-        FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/signals/").Push().SetRawJsonValueAsync(signalSeqData);
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/signals/").Push().SetRawJsonValueAsync(signalSeqData);
         FirebaseDatabase.DefaultInstance.GetReference($"/community_signals/").Push().SetRawJsonValueAsync(signalSeqData);
     }
 
@@ -121,12 +156,12 @@ public class FirebaseManager : MonoBehaviour
     public void AddFirstExperience(EXPERIENCE_TYPE expType, float intValue)
     {
         Debug.Log("AddFirstExperience");
-        FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/{expType.ToString()}/").SetValueAsync(intValue);
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/{expType.ToString()}/").SetValueAsync(intValue);
     }
 
     public void GetPlayerExperienceForStat(EXPERIENCE_TYPE expType, float intValue, Action<EXPERIENCE_TYPE, float> callback)
     {
-        FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/{expType.ToString()}")
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/{expType.ToString()}")
             .GetValueAsync().ContinueWithOnMainThread(task =>
            {
                if (task.IsFaulted)
