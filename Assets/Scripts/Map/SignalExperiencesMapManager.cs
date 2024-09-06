@@ -28,26 +28,25 @@ public class SignalExperiencesMapManager : MonoBehaviour
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                Debug.Log("SignalExperiencesMapManager:: " + snapshot.GetRawJsonValue());
                 if (snapshot.Value == null)
                 {
                     Debug.Log("SignalExperiencesMapManager:: Warning: no community_signal db objects to pull");
                 }
                 else
                 {
-                    foreach (DataSnapshot communitySnapshot in snapshot.Children)
+                    foreach (DataSnapshot signalFirebaseObject in snapshot.Children)
                     {
-                        Debug.Log("SignalExperiencesMapManager:: " + communitySnapshot.GetRawJsonValue());
-                        SignalData signalData = JsonConvert.DeserializeObject<SignalData>(communitySnapshot.GetRawJsonValue());
+                        Debug.Log("SignalExperiencesMapManager:: " + signalFirebaseObject.GetRawJsonValue());
+                        // PuzzleSphereInformation puzzleInformation = JsonConvert.DeserializeObject<PuzzleSphereInformation>(targetInfo.Value.ToString());
+                        /*foreach(DataSnapshot signalSnapshot in signalFirebaseObject.Children) // todo: need to map datasnapshot to signalData
+                        {
+                            SignalData signalData = JsonConvert.DeserializeObject<SignalData>(signalFirebaseObject.Value.ToString());
+                            var sequenceInt = Int32.Parse(signalData.sequence.Value.ToString());
+                            signalData.sequence.Add(sequenceInt); // sequence 
+                        }*/
+                        SignalData signalData = JsonConvert.DeserializeObject<SignalData>(signalFirebaseObject.GetRawJsonValue());
                         signalCollection.Add(signalData);
                         signalMapExperienceSO.signalCollection.Add(signalData);
-                        /*foreach (DataSnapshot signalSnapshot in communitySnapshot.Children) // todo: need to map datasnapshot to signalData
-                        {
-                            Debug.Log("SignalExperiencesMapManager:: " + signalSnapshot.GetRawJsonValue());
-                            SignalData signalData = JsonConvert.DeserializeObject<SignalData>(signalSnapshot.Value.ToString());
-                            signalCollection.Add(signalData);
-                            signalMapExperienceSO.signalCollection.Add(signalData);
-                        }*/
                     }
                 }
             };

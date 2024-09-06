@@ -19,6 +19,9 @@ public class CollectionScreenManager : MonoBehaviour
     [SerializeField]
     private CollectionPuzzleType collectionPuzzleType = CollectionPuzzleType.Signal;
 
+    [Header("Chosen puzzle Scriptable Objects")]
+    [SerializeField] ChosenSignalExperienceSO chosenSignalExperienceSO;
+
     private void Start()
     {
         // List<string> playerList = firebaseManager.GetPlayerList();
@@ -32,7 +35,7 @@ public class CollectionScreenManager : MonoBehaviour
                 // Todo: generic firebase method for grabbing player puzzle
                 // pass a string value for specific puzzle type
                 // return and call DisplayListToScreen as callback
-                firebaseManager.GetPlayerPuzzleData("signals", GetStuff);
+                firebaseManager.GetPlayerSignals(HandleSignalsReturn);
                 break;
                 
             case CollectionPuzzleType.Sphere:
@@ -43,7 +46,7 @@ public class CollectionScreenManager : MonoBehaviour
         }
     }
 
-    private void DisplayListToScreen(List<string> itemNames)
+    /*private void DisplayListToScreen(List<string> itemNames)
     {
         Debug.Log("DisplayPlayerList " + itemNames.ToArray().ToString());
         Vector2 canvasPos = screenCanvas.GetComponent<RectTransform>().anchoredPosition;
@@ -60,10 +63,27 @@ public class CollectionScreenManager : MonoBehaviour
             collectionItemObject.GetComponentInChildren<TMP_Text>().text = itemNames.ToArray()[i];
         }
 
-    }
+    }*/
 
-    private void GetStuff(string valueFromDb)
+    private void HandleSignalsReturn(List<SignalData> signalDataList)
     {
-        Debug.Log("GetStuff: " + valueFromDb);
+        // todo:
+        // first, test and see if ui displays object for each item
+        // each object should have signal data assoc w/it
+        // when selected, it should then select that as chosenSignalSO
+        // then change scene
+        Vector2 canvasPos = screenCanvas.GetComponent<RectTransform>().anchoredPosition;
+
+        for (int i = 0; i < signalDataList.Count; i++)
+        {
+            GameObject collectionItemObject = Instantiate(collectionUiListItem);
+            collectionItemObject.transform.SetParent(screenCanvas.transform);
+            collectionItemObject.GetComponent<RectTransform>().anchoredPosition = canvasPos;
+            collectionItemObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(
+                (collectionItemObject.GetComponent<RectTransform>().anchoredPosition.x + i * 250) - 400,
+                collectionItemObject.GetComponent<RectTransform>().anchoredPosition.y + 700 // todo: update after first row
+            );
+            // collectionItemObject.GetComponentInChildren<TMP_Text>().text = i.ToString();
+        }
     }
 }

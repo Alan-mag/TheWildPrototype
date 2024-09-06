@@ -505,11 +505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdff3d641ebea904cb7c1cf7e4739729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectionUiListItem: {fileID: 2910617097785110879, guid: 8cb05ffbc0ed2744f970dd88170afb80,
+  collectionUiListItem: {fileID: 2910617097785110879, guid: 08b729379dd9d674eb39b137796cf180,
     type: 3}
   firebaseManager: {fileID: 592591550}
   screenCanvas: {fileID: 115207955}
   collectionPuzzleType: 0
+  chosenSignalExperienceSO: {fileID: 0}
 --- !u!4 &1025232401
 Transform:
   m_ObjectHideFlags: 0

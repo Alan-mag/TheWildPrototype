@@ -427,6 +427,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 14cd303a110b80645afc3ff01f12cbe5, type: 3}
   audioManager: {fileID: 402992133}
   weaveManager: {fileID: 1528846018}
+  chosenSignalExperienceSO: {fileID: 11400000, guid: 750b37135a1600c4781548374870c3e3,
+    type: 2}
   signalMapExperienceSO: {fileID: 11400000, guid: 03aeb2e126e35e24db920034f9aceffa,
     type: 2}
   expeditionSceneHandler: {fileID: 0}

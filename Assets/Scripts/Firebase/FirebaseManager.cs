@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using Niantic.Lightship.SharedAR.Networking;
+using Newtonsoft.Json;
 
 // create firebase utility file?
 
@@ -235,30 +236,35 @@ public class FirebaseManager : MonoBehaviour
 
 
     ////////////////////////////// COLLECTIONS METHODS ////////////////////////////////////////////////
-    public void GetPlayerPuzzleData(string puzzleType, Action<string> callback)
+    public void GetPlayerSignals(Action<List<SignalData>> callback)
     {
-        Debug.Log("GetPlayerPuzzleData");
-
         // what we return might change depending on type, since we're not just returning a string? or I guess we could parse
         // a json string in switch case and go from there?
+        List<SignalData> playerSignals = new List<SignalData>();
 
-        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/{puzzleType}/").GetValueAsync().ContinueWithOnMainThread(task =>
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/signals/").GetValueAsync().ContinueWithOnMainThread(task =>
         {
-            if (task.IsFaulted) { Debug.Log("Unable to get player data at puzzle reference"); } // todo: how to handle empty use case?
-            else
+            if (task.IsFaulted)
             {
-                if (task.IsCompleted)
-                {
-                    DataSnapshot snapshot = task.Result;
-                    Debug.Log(snapshot.GetRawJsonValue());
-                    callback(snapshot.GetRawJsonValue());
-
-                    // could foreach child in snapshot --> map to signal object
-                    // then return list of signal objects, handle those with 
-                    // ui rendering, and use SO to select correct signal depending on which is selected and pass to 
-                    // signal scene
-                }
+                Debug.Log("FirebaseManager:: Error: unable to access player/signals db reference");
             }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Value == null)
+                {
+                    Debug.Log("SignalExperiencesMapManager:: Warning: no player/signals db objects to pull");
+                }
+                else
+                {
+                    foreach (DataSnapshot playerSignalSnapshot in snapshot.Children)
+                    {
+                        SignalData signalData = JsonConvert.DeserializeObject<SignalData>(playerSignalSnapshot.GetRawJsonValue());
+                        playerSignals.Add(signalData);
+                    }
+                    callback(playerSignals);
+                }
+            };
         });
     }
 

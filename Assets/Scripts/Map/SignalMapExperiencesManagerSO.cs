@@ -6,9 +6,4 @@ using UnityEngine;
 public class SignalMapExperiencesManagerSO : ScriptableObject
 {
     [SerializeField] public List<SignalData> signalCollection;
-
-    /*public SignalData SignalCollection {
-        get { return signalCollection.; }
-        set { SignalCollection = value; }
-    }*/
 }
