@@ -121,6 +121,7 @@ public class Firebase_AuthManager : MonoBehaviour
             confirmLoginText.text = "Logged In";
             Debug.Log(User.UserId);
             PlayerPrefs.SetString("user_id", User.UserId);
+            PlayerPrefs.SetString("username", User.DisplayName);
             // gameObject.GetComponent<SceneChangeHandler>().ChangeScene();
             // handle map change
             HandleMapLoad(User.UserId);

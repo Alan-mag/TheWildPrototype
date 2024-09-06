@@ -18,19 +18,23 @@ public class SocialScreenManager : MonoBehaviour
 
     private void DisplayPlayerList(List<string> playerNames)
     {
-        Debug.Log("DisplayPlayerList " + playerNames.Count.ToString());
+        Debug.Log("DisplayPlayerList " + playerNames.ToArray().ToString());
+        Vector2 canvasPos = screenCanvas.GetComponent<RectTransform>().anchoredPosition;
+
         for (int i = 0; i < playerNames.Count; i++) 
         {
             GameObject friendItemObject = Instantiate(friendListItem);
             friendItemObject.transform.SetParent(screenCanvas.transform);
+            friendItemObject.GetComponent<RectTransform>().anchoredPosition = canvasPos;
+
             // todo: figure out position
             // RectTransform uitransform = friendItemObject.GetComponent<RectTransform>();
-            friendItemObject.transform.position = new Vector3(
-                friendItemObject.transform.position.x,
-                i + 80,
-                friendItemObject.transform.position.z
+            friendItemObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(
+                friendItemObject.GetComponent<RectTransform>().anchoredPosition.x,
+                i * 160 + 1600 // todo: actually figure out this spacing
             );
             friendItemObject.GetComponentInChildren<TMP_Text>().text = playerNames.ToArray()[i];
         }
+
     }
 }

@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using Niantic.Lightship.SharedAR.Networking;
 
 // create firebase utility file?
 
@@ -53,7 +54,7 @@ public class FirebaseManager : MonoBehaviour
     public void AddPlayerCreatedPuzzle(string puzzleData)
     {
         Debug.Log("AddPlayerCreatedPuzzle");
-        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/puzzles/").Push().SetRawJsonValueAsync(puzzleData); // todo: clean up
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/sphere_puzzles/").Push().SetRawJsonValueAsync(puzzleData); // todo: clean up
 
         // pool of puzzles in db
         FirebaseDatabase.DefaultInstance.GetReference($"/community_puzzles/").Push().SetRawJsonValueAsync(puzzleData);
@@ -231,4 +232,30 @@ public class FirebaseManager : MonoBehaviour
             });
         // return playerList;
     }
+
+
+    ////////////////////////////// COLLECTIONS METHODS ////////////////////////////////////////////////
+    public void GetPlayerPuzzleData(string puzzleType, Action<string> callback)
+    {
+        Debug.Log("GetPlayerPuzzleData");
+
+        // what we return might change depending on type, since we're not just returning a string? or I guess we could parse
+        // a json string in switch case and go from there?
+
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/{puzzleType}/").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted) { Debug.Log("Unable to get player data at puzzle reference"); } // todo: how to handle empty use case?
+            else
+            {
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    Debug.Log(snapshot.GetRawJsonValue());
+                    callback(snapshot.GetRawJsonValue());
+                }
+            }
+        });
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 }

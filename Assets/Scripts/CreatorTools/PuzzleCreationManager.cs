@@ -120,7 +120,15 @@ public class PuzzleCreationManager : MonoBehaviour
         float t = 0f;
         Quaternion start = puzzleSphere.transform.rotation;
         List<PuzzleSphereTarget> puzzleTargets = new List<PuzzleSphereTarget>();
-        string creatorName = "test user"; // todo pull from PlayerPrefs.GetString("username")
+        string creatorName;
+        if (PlayerPrefs.GetString("username") != null)
+        {
+            creatorName = PlayerPrefs.GetString("username");
+        } 
+        else
+        {
+            creatorName = "default";
+        }
 
         while (t < 1f)
         {
