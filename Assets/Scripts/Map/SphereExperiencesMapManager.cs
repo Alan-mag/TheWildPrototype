@@ -54,7 +54,6 @@ public class SphereExperiencesMapManager : MonoBehaviour
                 {
                     foreach (DataSnapshot targetSnapshot in snapshot.Children)
                     {
-                        string targetSnapshotJson = targetSnapshot.GetRawJsonValue();
                         foreach (DataSnapshot targetInfo in targetSnapshot.Children)
                         {
                             PuzzleSphereInformation puzzleInformation = JsonConvert.DeserializeObject<PuzzleSphereInformation>(targetInfo.Value.ToString());

@@ -149,15 +149,15 @@ public class SignalData
         this.creatorName = null;
     }
 
-    public SignalData(List<int> seq, string creatorName = null)
+    public SignalData(List<int> sequence, string creatorName = null)
     {
-        this.sequence = seq;
+        this.sequence = sequence;
         this.creatorName = creatorName;
     }
 
     public string ToJson()
     {
-        return JsonConvert.SerializeObject(this.sequence); // only serializing sequence
+        return JsonConvert.SerializeObject(this);
     }
 }
 

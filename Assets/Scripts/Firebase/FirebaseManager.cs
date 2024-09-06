@@ -252,6 +252,11 @@ public class FirebaseManager : MonoBehaviour
                     DataSnapshot snapshot = task.Result;
                     Debug.Log(snapshot.GetRawJsonValue());
                     callback(snapshot.GetRawJsonValue());
+
+                    // could foreach child in snapshot --> map to signal object
+                    // then return list of signal objects, handle those with 
+                    // ui rendering, and use SO to select correct signal depending on which is selected and pass to 
+                    // signal scene
                 }
             }
         });
