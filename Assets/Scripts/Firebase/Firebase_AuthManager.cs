@@ -121,6 +121,7 @@ public class Firebase_AuthManager : MonoBehaviour
             confirmLoginText.text = "Logged In";
             Debug.Log(User.UserId);
             PlayerPrefs.SetString("user_id", User.UserId);
+            PlayerPrefs.SetString("username", User.DisplayName);
             // gameObject.GetComponent<SceneChangeHandler>().ChangeScene();
             // handle map change
             HandleMapLoad(User.UserId);
@@ -129,7 +130,7 @@ public class Firebase_AuthManager : MonoBehaviour
 
     private void HandleMapLoad(string userId)
     {
-        userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/");
+        userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/");
 
         userStatsDbReference.GetValueAsync().ContinueWithOnMainThread(task =>
         {
@@ -225,6 +226,8 @@ public class Firebase_AuthManager : MonoBehaviour
                     else
                     {
                         //Username is now set
+                        FirebaseDatabase.DefaultInstance.GetReference($"players/{User.UserId}/registered").SetValueAsync(true);
+                        FirebaseDatabase.DefaultInstance.GetReference($"players/{User.UserId}/username").SetValueAsync(_username);
                         //Now return to login screen
                         MainMenu_UIManager.instance.LoginScreen();
                         warningRegisterText.text = "";

@@ -37,7 +37,7 @@ public class ExplorationMapManager : MonoBehaviour
         if (PlayerPrefs.GetString("user_id") != null)
         {
             userId = PlayerPrefs.GetString("user_id");
-            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/{userId}/stats/");
+            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/");
         }
     }
 

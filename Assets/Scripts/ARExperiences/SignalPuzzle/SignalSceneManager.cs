@@ -1,3 +1,4 @@
+using Niantic.Lightship.Maps.Unity.ExtensionMethods;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ public class SignalSceneManager : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private WeaveManager weaveManager;
 
+    [SerializeField] ChosenSignalExperienceSO chosenSignalExperienceSO;
     [SerializeField] SignalMapExperiencesManagerSO signalMapExperienceSO;
 
     // scene handlers
@@ -60,7 +62,21 @@ public class SignalSceneManager : MonoBehaviour
     // TODO: create something similar for Puzzle Sphere 
     private void Start()
     {
-        if (signalMapExperienceSO.signalCollection.Count > 0)
+        // Todo: add a 'chosen signal puzzle' SO
+        // that will bypass this signal Collection check here
+        // that way it can be set from inventory or tosolve, and 
+        // if will be easy to select a specific puzzle vs general community puzzles
+        if (!chosenSignalExperienceSO.chosenSignal.sequence.IsEmpty())
+        {
+            signalSequence.AddRange(chosenSignalExperienceSO.chosenSignal.sequence);
+            creatorNameText.text = chosenSignalExperienceSO.chosenSignal.creatorName;
+
+            UpdateGuessIndicatorsActive();
+            audioManager.PopulateAudioClips();
+            weaveManager.PopulateThreads();
+            chosenSignalExperienceSO.chosenSignal = null;
+        } 
+        else if (signalMapExperienceSO.signalCollection.Count > 0)
         {
             // use signal sequence from SO todo: randomize which gets picked
             System.Random rand = new System.Random();

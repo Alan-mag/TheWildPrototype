@@ -1,5 +1,6 @@
 using Firebase.Database;
 using Firebase.Extensions;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,65 +8,35 @@ using UnityEngine;
 
 public class SignalExperiencesMapManager : MonoBehaviour
 {
-    // check db,if there are signals in /community_signals 
-    // add to some persistent collection on script
-    // [create model for object, including creator and puzzle data]
-    // when spawning a signal on map, first check if that collection
-    // has any values in it - use that to spawn signal on map
-    // that signalmapobject should have persistent data for puzzle value
-    // when opening puzzle solution scene, use persistent data on current
-    // signal puzzle info to populate puzzle,
-    // also have space for player name who created that puzzle
-
-    // once finished, create another script and repeat steps for 3d puzzle sphere
-
-    // once finished repeat steps for audio log, although that will need lat lng and
-    // some type of audio recording (will need to figure out how that is done)
-    private string userId;
-    private DatabaseReference userStatsDbReference;
-
+    private DatabaseReference communitySignalDatabaseReference;
     [SerializeField] List<SignalData> signalCollection;
-
     [SerializeField] SignalMapExperiencesManagerSO signalMapExperienceSO;
 
     private void Awake()
     {
-        if (PlayerPrefs.GetString("user_id") != null)
-        {
-            userId = PlayerPrefs.GetString("user_id");
-            userStatsDbReference = FirebaseDatabase.DefaultInstance.GetReference($"/community_signals/");
-        }
+        communitySignalDatabaseReference = FirebaseDatabase.DefaultInstance.GetReference($"/community_signals/");
     }
 
     private void Start()
     {
-        Debug.Log("SignalExperiencesMapManager Start");
-        userStatsDbReference.GetValueAsync().ContinueWithOnMainThread(task =>
+        communitySignalDatabaseReference.GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
             {
-
+                Debug.Log("SignalExperiencesMapManager:: Error: unable to access community_signals db reference");
             }
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
                 if (snapshot.Value == null)
                 {
-
+                    Debug.Log("SignalExperiencesMapManager:: Warning: no community_signal db objects to pull");
                 }
                 else
                 {
-                    // add each signal to collection
                     foreach (DataSnapshot signalFirebaseObject in snapshot.Children)
                     {
-                        SignalData signalData = new SignalData(); // isn't doing anything
-                        // need to add sequence to signalData.sequence
-                        foreach(DataSnapshot sequenceUnit in signalFirebaseObject.Children)
-                        {
-                            var sequenceInt = Int32.Parse(sequenceUnit.Value.ToString());
-                            signalData.sequence.Add(sequenceInt); // sequence 
-                        }
-                        // signalData.creatorName = PlayerPrefs.GetString("user_id");
+                        SignalData signalData = JsonConvert.DeserializeObject<SignalData>(signalFirebaseObject.GetRawJsonValue());
                         signalCollection.Add(signalData);
                         signalMapExperienceSO.signalCollection.Add(signalData);
                     }

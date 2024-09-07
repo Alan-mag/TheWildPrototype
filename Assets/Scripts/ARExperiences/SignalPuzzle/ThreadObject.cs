@@ -18,8 +18,11 @@ public class ThreadObject : MonoBehaviour
 
     private void Start()
     {
-        this.gameObject.transform.LookAt(GameObject.Find("Companion").transform);
-        gameObject.transform.rotation = Quaternion.identity; // object will face companion, but rotate up and down won't happen
+        if (GameObject.Find("Companion") != null)
+        {
+            this.gameObject.transform.LookAt(GameObject.Find("Companion").transform);
+            gameObject.transform.rotation = Quaternion.identity; // object will face companion, but rotate up and down won't happen
+        }
     }
 
     public void CollectThread()

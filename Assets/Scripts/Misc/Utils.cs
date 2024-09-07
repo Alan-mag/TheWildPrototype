@@ -118,6 +118,26 @@ public class AudioLogData
 }
 
 [Serializable]
+public class PlayerAudioLogData
+{
+    public double latitude;
+    public double longitude;
+    public Byte[] audioByteArray;
+
+    public PlayerAudioLogData(string lat, string lng, Byte[] byteArray)
+    {
+        this.latitude = Convert.ToDouble(lat);
+        this.longitude = Convert.ToDouble(lng);
+        this.audioByteArray = byteArray;
+    }
+
+    public string ToJson()
+    {
+        return JsonUtility.ToJson(this); // todo: doesn't seem to be working?
+    }
+}
+
+[Serializable]
 public class SignalData
 {
     public List<int> sequence;
@@ -129,15 +149,15 @@ public class SignalData
         this.creatorName = null;
     }
 
-    public SignalData(List<int> seq, string creatorName = null)
+    public SignalData(List<int> sequence, string creatorName = null)
     {
-        this.sequence = seq;
+        this.sequence = sequence;
         this.creatorName = creatorName;
     }
 
     public string ToJson()
     {
-        return JsonConvert.SerializeObject(this.sequence); // only serializing sequence
+        return JsonConvert.SerializeObject(this);
     }
 }
 

@@ -91,7 +91,7 @@ public class SignalCreationManager : MonoBehaviour
     public void SaveSignalSequenceToDatabase()
     {
         FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
-        SignalData data = new SignalData(signalSequenceValues, PlayerPrefs.GetString("user_id")); // todo: need usernames - arent being saved in db at moment
+        SignalData data = new SignalData(signalSequenceValues, PlayerPrefs.GetString("username"));
 
         firebaseManager.AddSignalSequenceToDatabase(data.ToJson());
     }
