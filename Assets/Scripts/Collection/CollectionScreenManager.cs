@@ -83,7 +83,7 @@ public class CollectionScreenManager : MonoBehaviour
                 (collectionItemObject.GetComponent<RectTransform>().anchoredPosition.x + i * 250) - 400,
                 collectionItemObject.GetComponent<RectTransform>().anchoredPosition.y + 700 // todo: update after first row
             );
-            // collectionItemObject.GetComponentInChildren<TMP_Text>().text = i.ToString();
+            collectionItemObject.GetComponentInChildren<SignalCollectionItem>().itemSignalData = signalDataList[i];
         }
     }
 }

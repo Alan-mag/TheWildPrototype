@@ -36,14 +36,6 @@ public class SignalExperiencesMapManager : MonoBehaviour
                 {
                     foreach (DataSnapshot signalFirebaseObject in snapshot.Children)
                     {
-                        Debug.Log("SignalExperiencesMapManager:: " + signalFirebaseObject.GetRawJsonValue());
-                        // PuzzleSphereInformation puzzleInformation = JsonConvert.DeserializeObject<PuzzleSphereInformation>(targetInfo.Value.ToString());
-                        /*foreach(DataSnapshot signalSnapshot in signalFirebaseObject.Children) // todo: need to map datasnapshot to signalData
-                        {
-                            SignalData signalData = JsonConvert.DeserializeObject<SignalData>(signalFirebaseObject.Value.ToString());
-                            var sequenceInt = Int32.Parse(signalData.sequence.Value.ToString());
-                            signalData.sequence.Add(sequenceInt); // sequence 
-                        }*/
                         SignalData signalData = JsonConvert.DeserializeObject<SignalData>(signalFirebaseObject.GetRawJsonValue());
                         signalCollection.Add(signalData);
                         signalMapExperienceSO.signalCollection.Add(signalData);
