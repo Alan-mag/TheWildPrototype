@@ -122,13 +122,13 @@ public class PlayerAudioLogData
 {
     public double latitude;
     public double longitude;
-    public Byte[] audioByteArray;
+    public string filename;
 
-    public PlayerAudioLogData(string lat, string lng, Byte[] byteArray)
+    public PlayerAudioLogData(string lat, string lng, string filename)
     {
         this.latitude = Convert.ToDouble(lat);
         this.longitude = Convert.ToDouble(lng);
-        this.audioByteArray = byteArray;
+        this.filename = filename;
     }
 
     public string ToJson()

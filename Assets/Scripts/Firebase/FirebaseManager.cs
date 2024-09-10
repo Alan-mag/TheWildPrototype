@@ -8,6 +8,10 @@ using UnityEngine;
 using System.Threading.Tasks;
 using Niantic.Lightship.SharedAR.Networking;
 using Newtonsoft.Json;
+using System.Threading;
+using Unity.VisualScripting;
+using UnityEditor;
+using System.IO;
 
 // create firebase utility file?
 
@@ -31,6 +35,9 @@ public class FirebaseManager : MonoBehaviour
     [SerializeField] string userId;
     [SerializeField] DatabaseReference userRootDbReference;
     [SerializeField] DatabaseReference userStatsDbReference;
+
+    private static string UriFileScheme = Uri.UriSchemeFile + "://";
+    protected CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
     private void Awake()
     {
@@ -68,13 +75,12 @@ public class FirebaseManager : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference($"/community_audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // community audio logs
     }
 
-    public void AddPlayerCreatedAudioLogToDatabase(string audioLogData)
+    public void AddPlayerCreatedAudioLogToDatabase(PlayerAudioLogData playerAudioLog)
     {
-        Debug.Log("AddAudioLogToDatabase");
-        Debug.Log(audioLogData);
+        Debug.Log("AddAudioLogToDatabase:: " + playerAudioLog.filename);
 
         // Get a reference to the storage service, using the default Firebase App
-        /*FirebaseStorage storage = FirebaseStorage.DefaultInstance;
+        FirebaseStorage storage = FirebaseStorage.DefaultInstance;
 
         // Create a storage reference from our storage service
         StorageReference storageRef =
@@ -85,10 +91,13 @@ public class FirebaseManager : MonoBehaviour
         StorageReference playerAudioLogsRef = storageRef.Child("player-audio-logs");
 
         // Create a reference to the file you want to upload
-        StorageReference audioLogTestRef = storageRef.Child("player-audio-logs/playerAudioLog1.txt"); // TODO: update test
+        StorageReference audioLogDbRef = storageRef.Child($"player-audio-logs/{playerAudioLog.filename}.wav"); // TODO: update test
 
+        var metaData = new MetadataChange();
+        metaData.ContentType = "audio/wav";
+        string localFilePath = "file://" + Application.persistentDataPath + "/" + playerAudioLog.filename + ".wav";
 
-        audioLogTestRef.PutBytesAsync(audioLogData)
+        audioLogDbRef.PutFileAsync(localFilePath, metaData)
             .ContinueWith((Task<StorageMetadata> task) => {
                 if (task.IsFaulted || task.IsCanceled)
                 {
@@ -97,17 +106,20 @@ public class FirebaseManager : MonoBehaviour
                 }
                 else
                 {
-                    // Metadata contains file metadata such as size, content-type, and md5hash.
+                    // Metadata contains file metadata such as size, content-type, and download URL.
                     StorageMetadata metadata = task.Result;
                     string md5Hash = metadata.Md5Hash;
                     Debug.Log("Finished uploading...");
                     Debug.Log("md5 hash = " + md5Hash);
-                }
-            });*/
+                    FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").Push().SetRawJsonValueAsync(playerAudioLog.ToJson());
+                    File.Delete(localFilePath);
 
+                }
+            });
 
         // Todo: this needs firebase datastorage, not firebase realtime db, probably need to create another file
-        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // player audio logs stored in user info
+        // need a query for 'friends' audio logs
+        // FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").Push().SetRawJsonValueAsync(playerAudioLog.ToJson()); // player audio logs stored in user info
         // FirebaseDatabase.DefaultInstance.GetReference($"/community_created_audio_logs/").Push().SetRawJsonValueAsync(audioLogData); // community audio logs
     }
 
@@ -259,10 +271,52 @@ public class FirebaseManager : MonoBehaviour
                 {
                     foreach (DataSnapshot playerSignalSnapshot in snapshot.Children)
                     {
+                        Debug.Log("FirebaseManager:: " + playerSignalSnapshot.GetRawJsonValue());
                         SignalData signalData = JsonConvert.DeserializeObject<SignalData>(playerSignalSnapshot.GetRawJsonValue());
                         playerSignals.Add(signalData);
                     }
                     callback(playerSignals);
+                }
+            };
+        });
+    }
+
+    public void GetPlayerSpheres(Action<List<PuzzleSphereInformation>> callback)
+    {
+        Debug.Log("FirebaseManager:: " + "GetPlayerSpheres");
+        // what we return might change depending on type, since we're not just returning a string? or I guess we could parse
+        // a json string in switch case and go from there?
+        List<PuzzleSphereInformation> playerSpheres = new List<PuzzleSphereInformation>();
+
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/sphere_puzzles/").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("FirebaseManager:: Error: unable to access player/signals db reference");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                Debug.Log("FirebaseManager:: " + snapshot.Value);
+                if (snapshot.Value == null)
+                {
+                    Debug.Log("SignalExperiencesMapManager:: Warning: no player/signals db objects to pull");
+                }
+                else
+                {
+                    foreach (DataSnapshot playerSphereSnapshot in snapshot.Children)
+                    {
+                        foreach (DataSnapshot sphereObject in playerSphereSnapshot.Children)
+                        {
+                            Debug.Log("FirebaseManager:: " + sphereObject.Value);
+                            PuzzleSphereInformation puzzleData = JsonConvert.DeserializeObject<PuzzleSphereInformation>(sphereObject.Value.ToString());
+                            Debug.Log("FirebaseManager:: " + puzzleData);
+                            playerSpheres.Add(puzzleData);
+
+                        }
+
+                    }
+                    callback(playerSpheres);
                 }
             };
         });

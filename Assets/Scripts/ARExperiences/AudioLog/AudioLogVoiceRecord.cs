@@ -61,15 +61,17 @@ public class AudioLogVoiceRecord : MonoBehaviour
         Debug.Log("latitude: " + _latitude);
         Debug.Log("longitude: " + _longitude);
         Debug.Log("Audio clip exists: " + audioSource.clip != null);
-        _audioClipBytes = ConvertAudioClipToByteArray(audioSource.clip);
+        // _audioClipBytes = ConvertAudioClipToByteArray(audioSource.clip);
+        string audioLogFilename = "audioLogWavTest";
+        SavWav.Save(audioLogFilename, audioSource.clip);
         PlayerAudioLogData logData = new PlayerAudioLogData(
             _latitude.ToString(),
             _longitude.ToString(),
-            _audioClipBytes
+            audioLogFilename
         );
         Debug.Log(logData);
         // firebaseManager.AddPlayerCreatedAudioLogToDatabase("[\r\n  0,\r\n  1,\r\n  2\r\n]");
-        firebaseManager.AddPlayerCreatedAudioLogToDatabase(logData.ToJson());
+        firebaseManager.AddPlayerCreatedAudioLogToDatabase(logData);
         // todo: save to firebase
         // convert clip to byte array
         // add data to PlayerAudioLog object

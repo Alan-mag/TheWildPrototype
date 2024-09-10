@@ -1149,6 +1149,8 @@ MonoBehaviour:
     type: 3}
   sphereMapExperiencesManagerSO: {fileID: 11400000, guid: 2c293a6266abefc41be3fa6bf787aa28,
     type: 2}
+  chosenSphereExperienceSO: {fileID: 11400000, guid: ad4f606311085554da3ed900d3b0828f,
+    type: 2}
   creatorNameText: {fileID: 993398997}
   xRotationText: {fileID: 0}
   yRotationText: {fileID: 0}

@@ -3770,7 +3770,7 @@ MonoBehaviour:
   _maximumPitchDegrees: 60
   _verticalFocusOffset: 10
   _gestureSettings:
-    DefaultZoom: 0.75
+    DefaultZoom: 0.3
     MouseScrollZoomSpeed: 1.5
     TouchPinchZoomSpeed: 2
     DoubleTapZoomEnabled: 0

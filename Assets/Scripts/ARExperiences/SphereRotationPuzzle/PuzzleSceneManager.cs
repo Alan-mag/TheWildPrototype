@@ -10,6 +10,7 @@ public class PuzzleSceneManager : MonoBehaviour
     [SerializeField] GameObject puzzleTargetObject;
     [SerializeField] GameObject puzzleTunnelObject;
     [SerializeField] SphereMapExperiencesManagerSO sphereMapExperiencesManagerSO;
+    [SerializeField] ChosenSphereExperienceSO chosenSphereExperienceSO;
 
     [Header("Canvas References")]
     [SerializeField] TextMeshProUGUI creatorNameText;
@@ -27,8 +28,35 @@ public class PuzzleSceneManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("PuzzleSceneManager:: " + chosenSphereExperienceSO.chosenSpherePuzzle);
+        if (chosenSphereExperienceSO.chosenSpherePuzzle != null)
+        {
+            HandleChosenSphereExperience();
+            return;
+        }
 #if UNITY_IPHONE
     Debug.Log("Running on Apple Device.");
+            Debug.Log("Running on iOS Device.");
+        if (sphereMapExperiencesManagerSO.sphereInformationCollection.Count > 0)
+        {
+            var s = Resources.Load<SphereMapExperiencesManagerSO>("ScriptableObjects/Sphere Map Experiences Manager SO");
+            creatorNameText.text = s.sphereInformationCollection.First().creatorName.ToString();
+            PuzzleSphereInformation chosenPuzzle = s.sphereInformationCollection.First();
+            foreach (PuzzleSphereTarget target in chosenPuzzle.puzzleSphereTarget) // Todo: get random puzzleinfo
+            {
+                CreateTargetObject
+                    (
+                        target.x,
+                        target.y,
+                        target.z
+                    );
+            }
+        }
+        else
+        {
+            CreateTargetObject(null, null, null);
+        }
+        SetInitialPuzzleSphereRotation();
 #elif UNITY_ANDROID
         Debug.Log("Running on Android Device.");
         if (sphereMapExperiencesManagerSO.sphereInformationCollection.Count > 0)
@@ -78,40 +106,26 @@ public class PuzzleSceneManager : MonoBehaviour
         }
         SetInitialPuzzleSphereRotation();
 #endif
-
-        /*if (sphereMapExperiencesManagerSO.sphereInformationCollection.Count > 0)
-        {
-            creatorNameText.text = sphereMapExperiencesManagerSO.sphereInformationCollection.First().creatorName.ToString();
-            // use signal sequence from SO todo: randomize which gets picked
-            System.Random rand = new System.Random();
-            int index = rand.Next(sphereMapExperiencesManagerSO.sphereInformationCollection.Count);
-            var sphereTargetCollectionArray = sphereMapExperiencesManagerSO.sphereInformationCollection.ToArray();
-            PuzzleSphereInformation chosenPuzzle = sphereTargetCollectionArray[index];
-            foreach (PuzzleSphereTarget target in chosenPuzzle.puzzleSphereTarget) // Todo: get random puzzleinfo
-            {
-                CreateTargetObject
-                    (
-                        target.x,
-                        target.y,
-                        target.z
-                    );
-            }
-        }
-        else
-        {
-            CreateTargetObject(null, null, null);
-        }
-        SetInitialPuzzleSphereRotation();*/
     }
 
-    // Todo:
-    // Need figure out how many targets to use
+    private void HandleChosenSphereExperience()
+    {
+        PuzzleSphereInformation chosenPuzzle = chosenSphereExperienceSO.chosenSpherePuzzle;
+        creatorNameText.text = chosenPuzzle.creatorName;
+        foreach (PuzzleSphereTarget target in chosenPuzzle.puzzleSphereTarget) // Todo: get random puzzleinfo
+        {
+            CreateTargetObject
+                (
+                    target.x,
+                    target.y,
+                    target.z
+                );
+        }
+        
+        SetInitialPuzzleSphereRotation();
+        chosenSphereExperienceSO.chosenSpherePuzzle = null;
+    }
 
-    // Todo:
-    // need function to spawn tunnels and rotate them
-    // in position other than solution
-
-    // TODO: need puck prefab variant reference
     private void CreateTargetObject(float? x, float? y, float? z)
     {
         var targetObj = Instantiate(puzzleTargetObject);
@@ -130,6 +144,7 @@ public class PuzzleSceneManager : MonoBehaviour
             Vector3 posRevised = new Vector3((float)x, (float)y, (float)z);
             targetObj.transform.position = posRevised;
             targetObj.transform.LookAt(puzzleSphere.transform.position);
+            CreateTunnelObject(new Vector3(0f, 0f, 1f), targetObj.transform.position);
         }
     }
 
