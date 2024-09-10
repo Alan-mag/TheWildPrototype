@@ -292,7 +292,7 @@ public class FirebaseManager : MonoBehaviour
         {
             if (task.IsFaulted)
             {
-                Debug.Log("FirebaseManager:: Error: unable to access player/signals db reference");
+                Debug.Log("FirebaseManager:: Error: unable to access player/spheres db reference");
             }
             else if (task.IsCompleted)
             {
@@ -300,7 +300,7 @@ public class FirebaseManager : MonoBehaviour
                 Debug.Log("FirebaseManager:: " + snapshot.Value);
                 if (snapshot.Value == null)
                 {
-                    Debug.Log("SignalExperiencesMapManager:: Warning: no player/signals db objects to pull");
+                    Debug.Log("SignalExperiencesMapManager:: Warning: no player/spheres db objects to pull");
                 }
                 else
                 {
@@ -317,6 +317,39 @@ public class FirebaseManager : MonoBehaviour
 
                     }
                     callback(playerSpheres);
+                }
+            };
+        });
+    }
+
+    public void GetPlayerAudioLogs(Action<List<PlayerAudioLogData>> callback)
+    {
+        // what we return might change depending on type, since we're not just returning a string? or I guess we could parse
+        // a json string in switch case and go from there?
+        List<PlayerAudioLogData> playerAudioLogs = new List<PlayerAudioLogData>();
+
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("FirebaseManager:: Error: unable to access player/audio_logs db reference");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Value == null)
+                {
+                    Debug.Log("SignalExperiencesMapManager:: Warning: no player/audio_logs db objects to pull");
+                }
+                else
+                {
+                    foreach (DataSnapshot playerAudioLogSnapshot in snapshot.Children)
+                    {
+                        Debug.Log("FirebaseManager:: " + playerAudioLogSnapshot.GetRawJsonValue());
+                        PlayerAudioLogData audioLogData = JsonConvert.DeserializeObject<PlayerAudioLogData>(playerAudioLogSnapshot.GetRawJsonValue());
+                        playerAudioLogs.Add(audioLogData);
+                    }
+                    callback(playerAudioLogs);
                 }
             };
         });
