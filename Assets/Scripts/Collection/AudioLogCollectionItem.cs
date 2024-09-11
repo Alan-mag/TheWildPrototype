@@ -13,12 +13,21 @@ public class AudioLogCollectionItem : MonoBehaviour
     {
         if (itemAudioLogData != null && chosenAudioLogExperienceSO != null)
         {
-            chosenAudioLogExperienceSO.chosenAudioLog = itemAudioLogData;
-            SceneManager.LoadScene(sceneToLoad);
+            chosenAudioLogExperienceSO.chosenAudioLog.latitude = itemAudioLogData.latitude;
+            chosenAudioLogExperienceSO.chosenAudioLog.longitude = itemAudioLogData.longitude;
+            chosenAudioLogExperienceSO.chosenAudioLog.filename = itemAudioLogData.filename;
+
+            StartCoroutine(ChangeScene());
         }
         else
         {
             Debug.Log("AudioLogCollectionItem:: " + "itemAudioLogData or chosenAudioLogExperienceSO was null");
         }
+    }
+
+    private IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

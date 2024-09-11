@@ -25,7 +25,6 @@ public class AudioLog : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _messageText = null;
 
-
     private void Awake()
     {
         if (sceneChangeHandler == null)

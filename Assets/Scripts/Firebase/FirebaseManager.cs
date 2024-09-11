@@ -26,7 +26,7 @@ public enum EXPERIENCE_TYPE
 // This file is a mess, need to clean
 // should have persistent firebase api
 // call api with type and value to increment, and have it save to db
-// should have local saved db in PlayerPrefs 
+// should have local saved db in PlayerPrefs
 // and firebase db updates
 // when pulling for stats page, eventually pull from PlayerPrefs (not necessary for prototype but it would limit db calls)
 
@@ -112,8 +112,8 @@ public class FirebaseManager : MonoBehaviour
                     Debug.Log("Finished uploading...");
                     Debug.Log("md5 hash = " + md5Hash);
                     FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/audio_logs/").Push().SetRawJsonValueAsync(playerAudioLog.ToJson());
+                    FirebaseDatabase.DefaultInstance.GetReference($"/player_created_audio_logs/").Push().SetRawJsonValueAsync(playerAudioLog.ToJson());
                     File.Delete(localFilePath);
-
                 }
             });
 
@@ -147,6 +147,30 @@ public class FirebaseManager : MonoBehaviour
                     foreach (DataSnapshot logObject in snapshot.Children)
                     {
                         AudioLogData log = JsonUtility.FromJson<AudioLogData>(logObject.GetRawJsonValue()); // this is how you do the mapping !!
+                        audioLogsList.Add(log);
+                    }
+                    callback(audioLogsList);
+                }
+            });
+    }
+
+    public void GetPlayerCreatedAudioLogs(Action<List<PlayerAudioLogData>> callback) // eventually add param for current location, then filter by that
+    {
+        List<PlayerAudioLogData> audioLogsList = new List<PlayerAudioLogData>();
+
+        FirebaseDatabase.DefaultInstance.GetReference("/player_created_audio_logs/")
+            .GetValueAsync().ContinueWithOnMainThread(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Error getting audio logs from db");
+                }
+                else if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    foreach (DataSnapshot logObject in snapshot.Children)
+                    {
+                        PlayerAudioLogData log = JsonUtility.FromJson<PlayerAudioLogData>(logObject.GetRawJsonValue()); // this is how you do the mapping !!
                         audioLogsList.Add(log);
                     }
                     callback(audioLogsList);
