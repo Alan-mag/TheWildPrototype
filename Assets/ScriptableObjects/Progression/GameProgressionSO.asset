@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa67d1520d85d394c88afdaabd0c9272, type: 3}
+  m_Name: GameProgressionSO
+  m_EditorClassIdentifier: 
+  explorerExperienceSmall: 1
+  explorerExperienceMedium: 5
+  explorerExperienceLarge: 10
+  explorerFirstTier: 5
+  explorerSecondTier: 25
+  explorerThirdTier: 100
+  adventurerExperienceSmall: 1
+  adventurerExperienceMedium: 5
+  adventurerExperienceLarge: 10
+  adventurerFirstTier: 5
+  adventurerSecondTier: 25
+  adventurerThirdTier: 100
+  creatorExperienceSmall: 1
+  creatorExperienceMedium: 5
+  creatorExperienceLarge: 10
+  creatorFirstTier: 5
+  creatorSecondTier: 25
+  creatorThirdTier: 100
+  creatorFourthTier: 150
