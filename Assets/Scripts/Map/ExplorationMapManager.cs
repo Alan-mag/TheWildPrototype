@@ -14,6 +14,7 @@ public class ExplorationMapManager : MonoBehaviour
     [SerializeField] private GameObject playerObject;
     [SerializeField] private GameObject tutorialMapSpawner;
     [SerializeField] private GameObject audioLogMapObject;
+    [SerializeField] private GameObject playerCreatedAudioLogMapObject;
 
     [SerializeField] private GameObject expeditionMapObject;
 
@@ -59,9 +60,11 @@ public class ExplorationMapManager : MonoBehaviour
                 }
                 else
                 {
-                    // render map stuff
-                    // lightshipMap.SpawnGameplayFeatures();
+                    // Get community audio logs (curated)
                     StartCoroutine(ExecuteAfterTime(3, RetrieveAudioLogs)); // delaying to account for map reposition // todo: fix map reposition
+
+                    // Get player created audio logs
+                    StartCoroutine(ExecuteAfterTime(3, RetrievePlayerCreatedAudioLogs));
 
                     // test expedition stuff:
                     StartCoroutine(ExecuteAfterTime(3, TestSpawnExpedition));
@@ -78,8 +81,12 @@ public class ExplorationMapManager : MonoBehaviour
         firebaseManager.GetAudioLogs(SpawnAudioLogs);
     }
 
-    // todo: does this spawn only items on current map? 
-    // or every log that will be in database -- might be issue
+    private void RetrievePlayerCreatedAudioLogs()
+    {
+        FirebaseManager firebaseManager = FindObjectOfType<FirebaseManager>();
+        firebaseManager.GetPlayerCreatedAudioLogs(SpawnPlayerCreatedAudioLogs);
+    }
+
     private void SpawnAudioLogs(List<AudioLogData> logs)
     {
         foreach (AudioLogData log in logs)
@@ -90,6 +97,25 @@ public class ExplorationMapManager : MonoBehaviour
             audioObj.GetComponent<AudioLogMapObject>().description = log.message;
             audioObj.GetComponent<AudioLogMapObject>().fmodAudioSourceReference = log.fmodEventReference;
             audioObj.GetComponent<AudioLogMapObject>().group = log.group;
+        }
+    }
+
+    private void SpawnPlayerCreatedAudioLogs(List<PlayerAudioLogData> logs)
+    {
+        foreach (PlayerAudioLogData log in logs)
+        {
+            LatLng latLng = new LatLng(log.latitude, log.longitude);
+            GameObject audioMapObj = Instantiate(
+                playerCreatedAudioLogMapObject,
+                lightshipMap.LatLngToScene(in latLng),
+                Quaternion.identity
+            );
+            PlayerAudioLogMapObject playerAudioLog = audioMapObj.GetComponent<PlayerAudioLogMapObject>();
+            playerAudioLog.latitude = log.latitude.ToString();
+            playerAudioLog.longitude = log.longitude.ToString();
+            playerAudioLog.filename = log.filename;
+            playerAudioLog.username = log.username;
+            playerAudioLog.HandleSetup();
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,6 +23,7 @@ public class CollectionScreenManager : MonoBehaviour
     [Header("Chosen puzzle Scriptable Objects")]
     [SerializeField] ChosenSignalExperienceSO chosenSignalExperienceSO;
     [SerializeField] ChosenSphereExperienceSO chosenSphereExperienceSO;
+    [SerializeField] ChosenAudioLogExperienceSO chosenAudioLogExperienceSO;
 
     private void Start()
     {
@@ -36,9 +38,11 @@ public class CollectionScreenManager : MonoBehaviour
                 break;
                 
             case CollectionPuzzleType.AudioLog:
+                firebaseManager.GetPlayerAudioLogs(HandlePlayerAudioLogsReturn);
                 break;
         }
     }
+
     private void HandleSignalsReturn(List<SignalData> signalDataList)
     {
         Vector2 canvasPos = screenCanvas.GetComponent<RectTransform>().anchoredPosition;
@@ -58,7 +62,6 @@ public class CollectionScreenManager : MonoBehaviour
 
     private void HandleSpherePuzzlesReturn(List<PuzzleSphereInformation> sphereDataList)
     {
-        Debug.Log("HandleSpherePuzzlesReturn");
         Vector2 canvasPos = screenCanvas.GetComponent<RectTransform>().anchoredPosition;
 
         for (int i = 0; i < sphereDataList.Count; i++)
@@ -71,6 +74,23 @@ public class CollectionScreenManager : MonoBehaviour
                 collectionItemObject.GetComponent<RectTransform>().anchoredPosition.y + 700 // todo: update after first row
             );
             collectionItemObject.GetComponentInChildren<SphereCollectionItem>().itemPuzzleData = sphereDataList[i];
+        }
+    }
+
+    private void HandlePlayerAudioLogsReturn(List<PlayerAudioLogData> audioLogDataList)
+    {
+        Vector2 canvasPos = screenCanvas.GetComponent<RectTransform>().anchoredPosition;
+
+        for (int i = 0; i < audioLogDataList.Count; i++)
+        {
+            GameObject collectionItemObject = Instantiate(collectionUiListItem);
+            collectionItemObject.transform.SetParent(screenCanvas.transform);
+            collectionItemObject.GetComponent<RectTransform>().anchoredPosition = canvasPos;
+            collectionItemObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(
+                (collectionItemObject.GetComponent<RectTransform>().anchoredPosition.x + i * 250) - 400,
+                collectionItemObject.GetComponent<RectTransform>().anchoredPosition.y + 700 // todo: update after first row
+            );
+            collectionItemObject.GetComponentInChildren<AudioLogCollectionItem>().itemAudioLogData = audioLogDataList[i];
         }
     }
 }

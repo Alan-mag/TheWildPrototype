@@ -13,6 +13,8 @@ public class PhysicsRaycastOnTouch : MonoBehaviour
     [SerializeField]
     TMP_Text debugButtonText;
 
+    [SerializeField] private ChosenAudioLogExperienceSO chosenAudioLogExperienceSO;
+
     public float interactionDistance = 50.0f;
     public float interactionDistanceExpedition = 15.0f;
     public bool debugMode;
@@ -86,6 +88,20 @@ if (Input.touches.Length > 0)
         }
     }
 
+    private void HandlePlayerCreatedAudioLogSelect(GameObject selectedGameObject)
+    {
+        if (selectedGameObject.GetComponent<PlayerAudioLogMapObject>() != null)
+        {
+            PlayerAudioLogMapObject playerLog = selectedGameObject.GetComponent<PlayerAudioLogMapObject>();
+            chosenAudioLogExperienceSO.chosenAudioLog = new PlayerAudioLogData(
+                playerLog.latitude,
+                playerLog.longitude,
+                playerLog.filename,
+                playerLog.username
+            );
+        }
+    }
+
     private void SelectPathOnMapObject(GameObject selectedGameObject)
     {
         var pathSelectionScript = selectedGameObject.GetComponent<PathSelectionHandler>();
@@ -115,6 +131,7 @@ if (Input.touches.Length > 0)
                         // no distance requirement from experience
                         HandleHistoricalImageSetInfo(g);
                         HandleAudioLogSetInfo(g);
+                        HandlePlayerCreatedAudioLogSelect(g);
                         var sceneChangeScript = g.GetComponent<SceneChangeHandler>();
                         sceneChangeScript.ChangeScene();
                     }
@@ -126,6 +143,7 @@ if (Input.touches.Length > 0)
                             // historical image data check:
                             HandleHistoricalImageSetInfo(g);
                             HandleAudioLogSetInfo(g);
+                            HandlePlayerCreatedAudioLogSelect(g);
                             ChangeSceneOnGameObject(g);
                         }
                         else

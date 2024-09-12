@@ -2340,6 +2340,8 @@ MonoBehaviour:
     type: 3}
   audioLogMapObject: {fileID: 4646611583305749298, guid: 6206449be605e494c967cabf2f1cefff,
     type: 3}
+  playerCreatedAudioLogMapObject: {fileID: 4646611583305749298, guid: d6ba9a16ba0e1c84485228dc00e13e12,
+    type: 3}
   expeditionMapObject: {fileID: 3150222279886366711, guid: 37842532159133f43bce0749a6a061f6,
     type: 3}
   lightshipMap: {fileID: 1478799756}
@@ -4066,6 +4068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1736672386901606270}
   debugButtonText: {fileID: 472176477}
+  chosenAudioLogExperienceSO: {fileID: 11400000, guid: 0227886a5978b08428011b6ef8ca5bb2,
+    type: 2}
   interactionDistance: 50
   interactionDistanceExpedition: 15
   debugMode: 0

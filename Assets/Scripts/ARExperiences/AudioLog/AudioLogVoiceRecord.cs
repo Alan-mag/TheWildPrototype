@@ -57,50 +57,22 @@ public class AudioLogVoiceRecord : MonoBehaviour
 
     public void SaveAudioLog()
     {
-        Debug.Log("Save audio clip!");
+        /*Debug.Log("Save audio clip!");
         Debug.Log("latitude: " + _latitude);
         Debug.Log("longitude: " + _longitude);
-        Debug.Log("Audio clip exists: " + audioSource.clip != null);
-        // _audioClipBytes = ConvertAudioClipToByteArray(audioSource.clip);
-        string audioLogFilename = "audioLogWavTest";
+        Debug.Log("username: " + PlayerPrefs.GetString("username"));
+        Debug.Log("Audio clip exists: " + audioSource.clip != null);*/
+        string uniqueKey = Utils.UniqueKeyGenerator(7);
+        string audioLogFilename = "audio-log-" + uniqueKey; // Todo: make this random generated key
         SavWav.Save(audioLogFilename, audioSource.clip);
         PlayerAudioLogData logData = new PlayerAudioLogData(
             _latitude.ToString(),
             _longitude.ToString(),
-            audioLogFilename
+            audioLogFilename,
+            PlayerPrefs.GetString("username")
         );
         Debug.Log(logData);
-        // firebaseManager.AddPlayerCreatedAudioLogToDatabase("[\r\n  0,\r\n  1,\r\n  2\r\n]");
         firebaseManager.AddPlayerCreatedAudioLogToDatabase(logData);
-        // todo: save to firebase
-        // convert clip to byte array
-        // add data to PlayerAudioLog object
-        // turn that object into string
-        // call firebase to save that data
-    }
-
-    private byte[] ConvertAudioClipToByteArray(AudioClip audioClip)
-    {
-        var samples = new float[audioClip.samples];
-
-        audioClip.GetData(samples, 0);
-
-        Int16[] intData = new Int16[samples.Length];
-
-        Byte[] bytesData = new Byte[samples.Length * 2];
-
-        int rescaleFactor = 32767;
-
-        for (int i = 0; i < samples.Length; i++)
-        {
-            intData[i] = (short)(samples[i] * rescaleFactor);
-            Byte[] byteArr = new Byte[2];
-            byteArr = BitConverter.GetBytes(intData[i]);
-            byteArr.CopyTo(bytesData, i * 2);
-        }
-
-        return bytesData;
-
     }
 
     public void StartGetLocation()

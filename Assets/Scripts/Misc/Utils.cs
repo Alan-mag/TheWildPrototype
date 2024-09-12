@@ -4,12 +4,26 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class Utils
 {
-    
+    public static string UniqueKeyGenerator(int characters)
+    {
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        int len = characters;
+
+        System.Random rnd = new System.Random();
+        StringBuilder b = new StringBuilder(len);
+        for (int i = 0; i < len; i++)
+        {
+            b.Append(chars[rnd.Next(chars.Length)]);
+        }
+        return b.ToString();
+    }
 }
+
 
 /// <summary>
 /// Data Models
@@ -123,12 +137,14 @@ public class PlayerAudioLogData
     public double latitude;
     public double longitude;
     public string filename;
+    public string username = null;
 
-    public PlayerAudioLogData(string lat, string lng, string filename)
+    public PlayerAudioLogData(string lat, string lng, string filename, string username = null)
     {
         this.latitude = Convert.ToDouble(lat);
         this.longitude = Convert.ToDouble(lng);
         this.filename = filename;
+        this.username = username;
     }
 
     public string ToJson()
