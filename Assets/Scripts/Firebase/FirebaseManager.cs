@@ -35,6 +35,7 @@ public class FirebaseManager : MonoBehaviour
     [SerializeField] string userId;
     [SerializeField] DatabaseReference userRootDbReference;
     [SerializeField] DatabaseReference userStatsDbReference;
+    [SerializeField] GameProgressionSO gameProgressionSO;
 
     private static string UriFileScheme = Uri.UriSchemeFile + "://";
     protected CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
@@ -152,54 +153,6 @@ public class FirebaseManager : MonoBehaviour
                     callback(audioLogsList);
                 }
             });
-    }
-
-    // TODO:
-    // clean up this delegate nested mess
-    public void UpdatePlayerExperience(EXPERIENCE_TYPE expType, float incrementValue)
-    {
-        GetPlayerExperienceForStat(expType, incrementValue, AddPlayerExperience);
-    }
-
-    public void AddPlayerExperience(EXPERIENCE_TYPE expType, float incrementValue) // test method, should return success or failure
-    {
-
-        userStatsDbReference.Child(expType.ToString()).SetValueAsync(incrementValue);
-    }
-
-    public void AddFirstExperience(EXPERIENCE_TYPE expType, float intValue)
-    {
-        Debug.Log("AddFirstExperience");
-        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/{expType.ToString()}/").SetValueAsync(intValue);
-    }
-
-    public void GetPlayerExperienceForStat(EXPERIENCE_TYPE expType, float intValue, Action<EXPERIENCE_TYPE, float> callback)
-    {
-        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/{expType.ToString()}")
-            .GetValueAsync().ContinueWithOnMainThread(task =>
-           {
-               if (task.IsFaulted)
-               {
-                   Debug.LogError("Error getting player exp from db");
-                   AddFirstExperience(expType, intValue);
-               }
-               else if (task.IsCompleted)
-               {
-                   DataSnapshot snapshot = task.Result;
-                   Debug.Log(snapshot);
-                   float newValue;
-                   if (snapshot.Value != null)
-                   {
-                       newValue = intValue + float.Parse(snapshot.Value.ToString());
-                   }
-                   else
-                   {
-                       newValue = intValue;
-                   }
-                   Debug.Log(snapshot.Value);
-                   callback(expType, newValue);
-               }
-           });
     }
 
     public void GetPlayerList(Action<List<string>> callback)
@@ -323,4 +276,54 @@ public class FirebaseManager : MonoBehaviour
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////// MANAGE STATS SECTION ////////////////////////////////////////////////
+    public void UpdatePlayerExperience(EXPERIENCE_TYPE expType, float incrementValue)
+    {
+        GetPlayerExperienceForStat(expType, incrementValue, AddPlayerExperience);
+    }
+
+    public void AddPlayerExperience(EXPERIENCE_TYPE expType, float incrementValue) // test method, should return success or failure
+    {
+
+        userStatsDbReference.Child(expType.ToString()).SetValueAsync(incrementValue);
+    }
+
+    public void AddFirstExperience(EXPERIENCE_TYPE expType, float intValue)
+    {
+        Debug.Log("AddFirstExperience");
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/{expType.ToString()}/").SetValueAsync(intValue);
+    }
+
+    public void GetPlayerExperienceForStat(EXPERIENCE_TYPE expType, float intValue, Action<EXPERIENCE_TYPE, float> callback)
+    {
+        FirebaseDatabase.DefaultInstance.GetReference($"players/{userId}/stats/{expType.ToString()}")
+            .GetValueAsync().ContinueWithOnMainThread(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Error getting player exp from db");
+                    AddFirstExperience(expType, intValue);
+                }
+                else if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    Debug.Log(snapshot);
+                    float newValue;
+                    if (snapshot.Value != null)
+                    {
+                        newValue = intValue + float.Parse(snapshot.Value.ToString());
+                    }
+                    else
+                    {
+                        newValue = intValue;
+                    }
+                    Debug.Log(snapshot.Value);
+                    callback(expType, newValue);
+                }
+            });
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 }
+
+

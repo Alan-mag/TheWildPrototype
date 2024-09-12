@@ -19,7 +19,10 @@ public class FirebaseProgressionHandler : MonoBehaviour
     [SerializeField] DatabaseReference userRootDbReference;
     [SerializeField] DatabaseReference userStatsDbReference;
 
-    // Player stats
+    // Game Progression SO
+    [SerializeField] private GameProgressionSO gameProgressionSO;
+
+    [Header("Player stats")]
     [SerializeField] float adventureExperience;
     [SerializeField] float creatorExperience;
     [SerializeField] float explorerExperience;
@@ -53,6 +56,7 @@ public class FirebaseProgressionHandler : MonoBehaviour
 
     private void Awake()
     {
+        // todo: this should all pull down at beginning for player stats
         if (PlayerPrefs.GetString("user_id") != null)
         {
             userId = PlayerPrefs.GetString("user_id");
@@ -78,9 +82,12 @@ public class FirebaseProgressionHandler : MonoBehaviour
 
     private void PopulateProgressionUi(string statSnapshot)
     {
-        Debug.Log(statSnapshot);
         PlayerStatistics playerStats = JsonUtility.FromJson<PlayerStatistics>(statSnapshot);
         Debug.Log($"Player stats:\nAdventure Stats: ${playerStats.Adventurer}\nCreator Stats: ${playerStats.Creator}\nExplorer Stats: ${playerStats.Explorer}");
+
+        gameProgressionSO.PlayerExplorerExperience = playerStats.Explorer;
+        gameProgressionSO.PlayerAdventurerExperience = playerStats.Adventurer;
+        gameProgressionSO.PlayerCreatorExperience = playerStats.Creator;
 
         adventureExperience = playerStats.Adventurer;
         creatorExperience = playerStats.Creator;
@@ -93,15 +100,21 @@ public class FirebaseProgressionHandler : MonoBehaviour
     private void UpdateSliderValue()
     {
         // first icon showing
-        if (adventureExperience > 0.0f) { adventureToolOneIcon.GetComponent<Image>().fillCenter = true; }
-        if (creatorExperience > 0.0f) { creatorToolOneIcon.GetComponent<Image>().fillCenter = true; }
-        if (explorerExperience > 0.0f) { explorerToolOneIcon.GetComponent<Image>().fillCenter = true; }
+        if (adventureExperience > 0.0f) {
+            UpdateIconAlphaToOne(adventureToolOneIcon.GetComponent<Image>());
+        }
+        if (creatorExperience > 0.0f) {
+            UpdateIconAlphaToOne(creatorToolOneIcon.GetComponent<Image>());
+        }
+        if (explorerExperience > 0.0f) {
+            UpdateIconAlphaToOne(explorerToolOneIcon.GetComponent<Image>());
+        }
 
 
         if (adventureExperience >= maxSliderValue)
         {
             adventureSlideOne.GetComponent<Slider>().value = maxSliderValue;
-            adventureToolTwoIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(adventureToolTwoIcon.GetComponent<Image>());
         }
         else if (adventureExperience > 0 && adventureExperience < maxSliderValue)
         {
@@ -111,7 +124,7 @@ public class FirebaseProgressionHandler : MonoBehaviour
         if (creatorExperience >= maxSliderValue)
         {
             creatorSlideOne.GetComponent<Slider>().value = maxSliderValue;
-            creatorToolTwoIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(creatorToolTwoIcon.GetComponent<Image>());
         }
         else if (creatorExperience > 0 && creatorExperience < maxSliderValue)
         {
@@ -121,7 +134,7 @@ public class FirebaseProgressionHandler : MonoBehaviour
         if (explorerExperience >= maxSliderValue)
         {
             explorerSlideOne.GetComponent<Slider>().value = maxSliderValue;
-            explorerToolTwoIcon.GetComponent<Image>().fillCenter = true; // ? this mehtod is dumb, sry 1am work
+            UpdateIconAlphaToOne(explorerToolTwoIcon.GetComponent<Image>());
         }
         else if (explorerExperience > 0 && explorerExperience < maxSliderValue)
         {
@@ -132,53 +145,60 @@ public class FirebaseProgressionHandler : MonoBehaviour
         if (adventureExperience > maxSliderValue && adventureExperience < maxSliderValue * 2)
         {
             adventureSlideTwo.GetComponent<Slider>().value = (adventureExperience - maxSliderValue) % maxSliderValue;
-            adventureToolTwoIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(adventureToolTwoIcon.GetComponent<Image>());
         }
         else if (adventureExperience >= maxSliderValue * 2)
         {
             adventureSlideTwo.GetComponent<Slider>().value = maxSliderValue;
-            adventureToolThreeIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(adventureToolThreeIcon.GetComponent<Image>());
         }
 
         if (creatorExperience > maxSliderValue && creatorExperience < maxSliderValue * 2)
         {
             creatorSlideTwo.GetComponent<Slider>().value = (creatorExperience - maxSliderValue) % maxSliderValue;
-            creatorToolTwoIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(creatorToolTwoIcon.GetComponent<Image>());
         }
         else if (creatorExperience >= maxSliderValue * 2)
         {
             creatorSlideTwo.GetComponent<Slider>().value = maxSliderValue;
-            creatorToolThreeIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(creatorToolThreeIcon.GetComponent<Image>());
         }
 
         if (explorerExperience > maxSliderValue && explorerExperience < maxSliderValue * 2)
         {
             explorerSlideTwo.GetComponent<Slider>().value = (explorerExperience - maxSliderValue) % maxSliderValue;
-            explorerToolTwoIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(explorerToolTwoIcon.GetComponent<Image>());
         }
         else if (explorerExperience >= maxSliderValue * 2)
         {
             explorerSlideTwo.GetComponent<Slider>().value = maxSliderValue;
-            explorerToolThreeIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(explorerToolThreeIcon.GetComponent<Image>());
         }
 
         // third level don't exist?
         if (adventureExperience > maxSliderValue * 2 && adventureExperience < maxSliderValue * 3)
         {
             adventureSlideThree.GetComponent<Slider>().value = (adventureExperience - maxSliderValue * 2) % maxSliderValue;
-            adventureToolThreeIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(adventureToolThreeIcon.GetComponent<Image>());
         }
         else if (adventureExperience >= maxSliderValue * 3)
         {
             adventureSlideThree.GetComponent<Slider>().value = maxSliderValue;
-            adventureToolThreeIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(adventureToolThreeIcon.GetComponent<Image>());
         }
 
         // level 4 btn
         if (adventureExperience >= maxSliderValue * 3)
         {
-            adventureToolFourIcon.GetComponent<Image>().fillCenter = true;
+            UpdateIconAlphaToOne(adventureToolFourIcon.GetComponent<Image>());
         }
+    }
+
+    private void UpdateIconAlphaToOne(Image iconImage)
+    {
+        var tempColor = iconImage.color;
+        tempColor.a = 1f;
+        iconImage.color = tempColor;
     }
 
     private void GetPlayerStats(Action<string> callback)
