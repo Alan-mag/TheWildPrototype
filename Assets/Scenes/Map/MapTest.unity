@@ -2540,7 +2540,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 473982981}
+      - m_Target: {fileID: 1599540639}
         m_TargetAssemblyTypeName: SceneChangeHandler, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 1
