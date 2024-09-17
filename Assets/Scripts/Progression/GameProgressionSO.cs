@@ -15,15 +15,15 @@ public class GameProgressionSO : ScriptableObject
     }
     [Space(10)]
 
-    [SerializeField] public static double explorerExperienceVerySmall = 0.25f;
-    [SerializeField] public static double explorerExperienceSmall = 1f;
-    [SerializeField] public static double explorerExperienceMedium = 5f;
-    [SerializeField] public static double explorerExperienceLarge = 10f;
+    [SerializeField] public double explorerExperienceVerySmall = 0.25f;
+    [SerializeField] public double explorerExperienceSmall = 1f;
+    [SerializeField] public double explorerExperienceMedium = 5f;
+    [SerializeField] public double explorerExperienceLarge = 10f;
 
     [Header("Progression")]
-    [SerializeField] private double explorerFirstTier = 5f;
-    [SerializeField] private double explorerSecondTier = 25f;
-    [SerializeField] private double explorerThirdTier = 100f;
+    [SerializeField] public double explorerFirstTier = 5f;
+    [SerializeField] public double explorerSecondTier = 25f;
+    [SerializeField] public double explorerThirdTier = 100f;
 
     [Space(30)]
 
@@ -37,15 +37,16 @@ public class GameProgressionSO : ScriptableObject
     }
     [Space(10)]
 
-    [SerializeField] public static double adventurerExperienceVerySmall = 0.25f;
-    [SerializeField] public static double adventurerExperienceSmall = 1f;
-    [SerializeField] public static double adventurerExperienceMedium = 5f;
-    [SerializeField] public static double adventurerExperienceLarge = 10f;
+    [SerializeField] public double adventurerExperienceVerySmall = 0.25f;
+    [SerializeField] public double adventurerExperienceSmall = 1f;
+    [SerializeField] public double adventurerExperienceMedium = 5f;
+    [SerializeField] public double adventurerExperienceLarge = 10f;
 
     [Header("Progression")]
-    [SerializeField] private static double adventurerFirstTier = 5f;
-    [SerializeField] private static double adventurerSecondTier = 25f;
-    [SerializeField] private static double adventurerThirdTier = 100f;
+    [SerializeField] public double adventurerFirstTier = 5f;
+    [SerializeField] public double adventurerSecondTier = 25f;
+    [SerializeField] public double adventurerThirdTier = 100f;
+    [SerializeField] public double adventurerFourthTier = 150f;
 
     [Space(30)]
 
@@ -59,14 +60,13 @@ public class GameProgressionSO : ScriptableObject
     }
     [Space(10)]
 
-    [SerializeField] private double creatorExperienceVerySmall = 0.25f;
-    [SerializeField] private double creatorExperienceSmall = 1f;
-    [SerializeField] private double creatorExperienceMedium = 5f;
-    [SerializeField] private double creatorExperienceLarge = 10f;
+    [SerializeField] public double creatorExperienceVerySmall = 0.25f;
+    [SerializeField] public double creatorExperienceSmall = 1f;
+    [SerializeField] public double creatorExperienceMedium = 5f;
+    [SerializeField] public double creatorExperienceLarge = 10f;
 
     [Header("Progression")]
-    [SerializeField] private static double creatorFirstTier = 5f;
-    [SerializeField] private static double creatorSecondTier = 25f;
-    [SerializeField] private static double creatorThirdTier = 100f;
-    [SerializeField] private static double creatorFourthTier = 150f;
+    [SerializeField] public double creatorFirstTier = 5f;
+    [SerializeField] public double creatorSecondTier = 25f;
+    [SerializeField] public double creatorThirdTier = 100f;
 }

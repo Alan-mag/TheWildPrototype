@@ -432,6 +432,7 @@ MonoBehaviour:
   signalMapExperienceSO: {fileID: 11400000, guid: 03aeb2e126e35e24db920034f9aceffa,
     type: 2}
   expeditionSceneHandler: {fileID: 0}
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
 --- !u!114 &273401029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3484,6 +3485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userId: 
+  gameProgressionSO: {fileID: 0}
 --- !u!4 &1972651475
 Transform:
   m_ObjectHideFlags: 0

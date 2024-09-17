@@ -35,7 +35,7 @@ public class TutorialPointAtPuck : MonoBehaviour
     {
         if (!_incrementedExp)
         {
-            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f);
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 10f);
             _incrementedExp = true;
         }
     }

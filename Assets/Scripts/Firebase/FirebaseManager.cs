@@ -22,14 +22,6 @@ public enum EXPERIENCE_TYPE
     Creator,
 }
 
-// TODO:
-// This file is a mess, need to clean
-// should have persistent firebase api
-// call api with type and value to increment, and have it save to db
-// should have local saved db in PlayerPrefs
-// and firebase db updates
-// when pulling for stats page, eventually pull from PlayerPrefs (not necessary for prototype but it would limit db calls)
-
 public class FirebaseManager : MonoBehaviour
 {
     [SerializeField] string userId;
@@ -50,7 +42,6 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (userId == null)
@@ -344,6 +335,18 @@ public class FirebaseManager : MonoBehaviour
     {
 
         userStatsDbReference.Child(expType.ToString()).SetValueAsync(incrementValue);
+        switch (expType)
+        {
+            case EXPERIENCE_TYPE.Adventurer:
+                gameProgressionSO.PlayerAdventurerExperience += incrementValue;
+                break;
+            case EXPERIENCE_TYPE.Explorer:
+                gameProgressionSO.PlayerExplorerExperience += incrementValue;
+                break;
+            case EXPERIENCE_TYPE.Creator:
+                gameProgressionSO.PlayerCreatorExperience += incrementValue;
+                break;
+        }
     }
 
     public void AddFirstExperience(EXPERIENCE_TYPE expType, float intValue)

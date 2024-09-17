@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationRate: 0.3
-  targetItem: {fileID: 47815077}
+  objectToRotate: {fileID: 0}
 --- !u!114 &47815080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2697,7 +2697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationRate: 0.3
-  targetItem: {fileID: 1143224074}
+  objectToRotate: {fileID: 0}
 --- !u!114 &1143224078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3027,6 +3027,7 @@ MonoBehaviour:
   targets: []
   targetData: []
   tunnelLimit: 5
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
 --- !u!1 &1201745388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,9 +4736,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 0}
-  puck: {fileID: 0}
+  targetObjectTransform: {fileID: 0}
   pointingAtThreshold: 10
   canvasText: {fileID: 0}
+  gameProgressionSO: {fileID: 0}
 --- !u!1 &1577796457
 GameObject:
   m_ObjectHideFlags: 0
@@ -5301,6 +5303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userId: 
+  gameProgressionSO: {fileID: 0}
 --- !u!1 &1802640493
 GameObject:
   m_ObjectHideFlags: 0

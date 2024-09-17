@@ -431,12 +431,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121841797}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e737c1e366e1d5d44abaf8f0001bcadb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameDisplay: {fileID: 0}
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
+  scannerIcon: {fileID: 780852711}
 --- !u!114 &121841800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,7 +2107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userId: 
-  gameProgressionSO: {fileID: 0}
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
 --- !u!4 &541970331
 Transform:
   m_ObjectHideFlags: 0
@@ -2335,6 +2336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377cca3bb3dbc494ebce2081105d8e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
   playerObject: {fileID: 1736672386901606271}
   tutorialMapSpawner: {fileID: 3441350900800665462, guid: 3f90aafd98bcb2b4d9f86c1c14f4f52e,
     type: 3}
@@ -2472,7 +2474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &780852712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2573,7 +2575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2a51ce8dff1d94aabb9c7bc790860d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d751ada326e2f0441a579feccc735107, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3495,7 +3497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e737c1e366e1d5d44abaf8f0001bcadb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameDisplay: {fileID: 496729676}
+  gameProgressionSO: {fileID: 0}
+  scannerIcon: {fileID: 0}
 --- !u!1 &1054179402
 GameObject:
   m_ObjectHideFlags: 0
@@ -5264,6 +5267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4c23e4aaf3bd04eaaaa09f08d8062d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
   puzzleSphereTargets: []
   sphereMapExperiencesManagerSO: {fileID: 11400000, guid: 2c293a6266abefc41be3fa6bf787aa28,
     type: 2}

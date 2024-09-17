@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class ExplorationMapManager : MonoBehaviour
 {
+    // Game Progression SO
+    [Header("Character Progression")]
+    [SerializeField] private GameProgressionSO gameProgressionSO;
 
     [SerializeField] private GameObject playerObject;
     [SerializeField] private GameObject tutorialMapSpawner;
@@ -63,13 +66,15 @@ public class ExplorationMapManager : MonoBehaviour
                     // Get community audio logs (curated)
                     StartCoroutine(ExecuteAfterTime(3, RetrieveAudioLogs)); // delaying to account for map reposition // todo: fix map reposition
 
-                    // Get player created audio logs
-                    StartCoroutine(ExecuteAfterTime(3, RetrievePlayerCreatedAudioLogs));
-
                     // test expedition stuff:
                     StartCoroutine(ExecuteAfterTime(3, TestSpawnExpedition));
 
                     // StartCoroutine(ExecuteAfterTime(3, InitializeMapPOIExperiences));
+                    if (gameProgressionSO.PlayerExplorerExperience >= gameProgressionSO.explorerThirdTier)
+                    {
+                        // Get player created audio logs tier 3?
+                        StartCoroutine(ExecuteAfterTime(3, RetrievePlayerCreatedAudioLogs));
+                    }
                 }
             }
         });

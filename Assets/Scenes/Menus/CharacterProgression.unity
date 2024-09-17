@@ -4380,7 +4380,7 @@ GameObject:
   - component: {fileID: 1234286423}
   - component: {fileID: 1234286421}
   m_Layer: 0
-  m_Name: FirebaseHandler
+  m_Name: ProgressionSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4400,9 +4400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userId: 
   gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
-  adventureExperience: 0
-  creatorExperience: 0
-  explorerExperience: 0
   maxSliderValue: 10
   adventureSlideOne: {fileID: 775682821}
   adventureSlideTwo: {fileID: 880658742}

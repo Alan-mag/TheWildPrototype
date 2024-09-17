@@ -48,8 +48,8 @@ public class ScannerExpdManager : MonoBehaviour
     {
         if (!_incrementedExp && GameObject.Find("FirebaseSaveTest") != null)
         {
-            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, 1);
-            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f); // todo: clean up [progression manager, no need to ref twice, etc.]
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, 5);
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 5f); // todo: clean up [progression manager, no need to ref twice, etc.]
             _incrementedExp = true;
         }
     }
