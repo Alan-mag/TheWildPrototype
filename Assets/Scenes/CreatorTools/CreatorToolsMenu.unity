@@ -494,12 +494,12 @@ GameObject:
   - component: {fileID: 295542123}
   - component: {fileID: 295542122}
   m_Layer: 5
-  m_Name: MySpherePuzzlesButton
+  m_Name: SpherePuzzlesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &295542121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 415723375}
   - component: {fileID: 415723374}
   m_Layer: 5
-  m_Name: MySignalPuzzlesButton
+  m_Name: SignalPuzzlesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,6 +1446,7 @@ GameObject:
   - component: {fileID: 1898744556}
   - component: {fileID: 1898744555}
   - component: {fileID: 1898744554}
+  - component: {fileID: 1898744558}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1541,6 +1542,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1898744558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898744553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45cc91629f1b29b4f9652fcce6ee6d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalCreatorButton: {fileID: 415723372}
+  sphereCreatorButton: {fileID: 295542120}
+  audioLogCreatorButton: {fileID: 1911652172}
+  gameProgressionSO: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e, type: 2}
 --- !u!1 &1911652172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,12 +1571,12 @@ GameObject:
   - component: {fileID: 1911652175}
   - component: {fileID: 1911652174}
   m_Layer: 5
-  m_Name: MyAudioLogsButton
+  m_Name: AudioLogsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1911652173
 RectTransform:
   m_ObjectHideFlags: 0
