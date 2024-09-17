@@ -11,6 +11,10 @@ using UnityEngine;
 
 public class SphereExperiencesMapManager : MonoBehaviour
 {
+    // Game Progression SO
+    [Header("Character Progression")]
+    [SerializeField] private GameProgressionSO gameProgressionSO;
+
     [SerializeField]
     List<PuzzleSphereInformation> puzzleSphereTargets;
 
@@ -44,7 +48,14 @@ public class SphereExperiencesMapManager : MonoBehaviour
 
         // todo: add check if collection is not empty, then run fb call
         // execution block (can have multiple)
+
+
+
         Debug.Log("SphereExperiencesMapManager Start");
+        
+        // If player hasn't progressed to sphere puzzles, return
+        if (gameProgressionSO.PlayerExplorerExperience < gameProgressionSO.explorerSecondTier) return;
+
         _databaseReference.GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)

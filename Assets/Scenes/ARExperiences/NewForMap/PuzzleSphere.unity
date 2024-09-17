@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userId: 
+  gameProgressionSO: {fileID: 0}
 --- !u!4 &724214376
 Transform:
   m_ObjectHideFlags: 0
@@ -1329,6 +1330,12 @@ PrefabInstance:
       propertyPath: indicator
       value: 
       objectReference: {fileID: 1469663239}
+    - target: {fileID: 7616825267306328542, guid: ee8999de075820a4ab23a40b46df5552,
+        type: 3}
+      propertyPath: gameProgressionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

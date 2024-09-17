@@ -25,6 +25,9 @@ public class AudioLog : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _messageText = null;
 
+    [Header("Progression")]
+    [SerializeField] GameProgressionSO gameProgressionSO;
+
     private void Awake()
     {
         if (sceneChangeHandler == null)
@@ -48,8 +51,8 @@ public class AudioLog : MonoBehaviour
         // handlefmodAudioEVent(sourceRef)
 
         FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
-        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, 1f);
-        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f);
+        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, (float)gameProgressionSO.explorerExperienceMedium);
+        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, (float)gameProgressionSO.adventurerExperienceMedium);
     }
 
     public void StopAudioFromAudioLog()

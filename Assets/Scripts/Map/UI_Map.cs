@@ -5,19 +5,18 @@ using UnityEngine;
 
 public class UI_Map : MonoBehaviour
 {
-    [SerializeField] TMP_Text usernameDisplay;
+    // Game Progression SO
+    [Header("Character Progression")]
+    [SerializeField] private GameProgressionSO gameProgressionSO;
+    [SerializeField] GameObject scannerIcon;
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetString("user_id") != null)
-            usernameDisplay.text = PlayerPrefs.GetString("user_id");
+        if (gameProgressionSO.PlayerAdventurerExperience >= gameProgressionSO.adventurerSecondTier)
+        {
+            scannerIcon.SetActive(true);
+        }
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

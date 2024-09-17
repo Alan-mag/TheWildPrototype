@@ -18,12 +18,16 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private GameObject completeButton;
     [SerializeField] private FirebaseManager firebaseManager;
+    [SerializeField] GameProgressionSO gameProgressionSO;
+
 
     public delegate void AudioCallback();
 
     public void HandleAddingTutorialExperience()
     {
         // completeButton.SetActive(true);
-        firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Adventurer, 1);
+        firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Adventurer, (float)gameProgressionSO.adventurerFirstTier);
+        firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Explorer, (float)gameProgressionSO.explorerFirstTier);
+        firebaseManager.AddFirstExperience(EXPERIENCE_TYPE.Creator, (float)gameProgressionSO.creatorFirstTier);
     }
 }

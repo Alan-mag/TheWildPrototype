@@ -17,6 +17,9 @@ public class PuzzleCreationManager : MonoBehaviour
 
     [SerializeField] int tunnelLimit = 5;
 
+    [Header("Progression")]
+    [SerializeField] GameProgressionSO gameProgressionSO;
+
     private int currentTunnelCount = 0;
 
     private void Start()
@@ -156,6 +159,6 @@ public class PuzzleCreationManager : MonoBehaviour
         // call to save:
         FirebaseManager firebaseManager = GameObject.FindObjectOfType<FirebaseManager>();
         firebaseManager.AddPlayerCreatedPuzzle(JsonConvert.SerializeObject(targetData));
-        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Creator, 2);
+        firebaseManager.UpdatePlayerExperience(EXPERIENCE_TYPE.Creator, (float)gameProgressionSO.creatorExperienceLarge);
     }
 }

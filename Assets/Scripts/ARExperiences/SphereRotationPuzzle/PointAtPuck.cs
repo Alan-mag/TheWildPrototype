@@ -10,6 +10,9 @@ public class PointAtPuck : MonoBehaviour
     public float pointingAtThreshold = 10.0f;
     public TMP_Text canvasText;
 
+    [Header("Progression")]
+    [SerializeField] GameProgressionSO gameProgressionSO;
+
     private bool _isPointingAtPuck;
     private bool _incrementedExp;
 
@@ -36,7 +39,8 @@ public class PointAtPuck : MonoBehaviour
     {
         if (!_incrementedExp)
         {
-            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f);
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, (float)gameProgressionSO.adventurerExperienceSmall);
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, (float)gameProgressionSO.explorerExperienceMedium);
             _incrementedExp = true;
         }
     }

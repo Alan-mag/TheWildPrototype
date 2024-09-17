@@ -43,6 +43,9 @@ public class SignalSceneManager : MonoBehaviour
     
     [SerializeField] ExpeditionLevelHandler expeditionSceneHandler;
 
+    [Header("Progression")]
+    [SerializeField] GameProgressionSO gameProgressionSO;
+
     public delegate void OnSequenceGenerated();
     public static OnSequenceGenerated onSequenceGenerated;
     private bool _incrementedExp;
@@ -216,7 +219,8 @@ public class SignalSceneManager : MonoBehaviour
     {
         if (!_incrementedExp)
         {
-            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, 0.5f);
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Adventurer, (float)gameProgressionSO.adventurerExperienceSmall);
+            GameObject.Find("FirebaseSaveTest").GetComponent<FirebaseManager>().UpdatePlayerExperience(EXPERIENCE_TYPE.Explorer, (float)gameProgressionSO.adventurerExperienceMedium);
             _incrementedExp = true;
         }
     }
