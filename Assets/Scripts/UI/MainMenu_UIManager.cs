@@ -29,6 +29,7 @@ public class MainMenu_UIManager : MonoBehaviour
         loginUI.SetActive(true);
         registerUI.SetActive(false);
     }
+
     public void RegisterScreen() // register button
     {
         loginUI.SetActive(false);
