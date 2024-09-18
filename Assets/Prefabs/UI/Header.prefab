@@ -196,6 +196,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7551352631656074025, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0c11ac0854af1548840b446b7128e85,
+        type: 3}
+    - target: {fileID: 7551352631656074025, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551352631656074025, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551352631656074025, guid: 5799f53f63cfd3d43ae7eb4a088ad8d3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -220,6 +241,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back Button
       objectReference: {fileID: 0}
+    - target: {fileID: 4609118525543937889, guid: 237bc27840c6b864184c077db974d14e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0936508029b18cc4db490572631ab737,
+        type: 3}
     - target: {fileID: 8930769876838613582, guid: 237bc27840c6b864184c077db974d14e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -253,12 +280,12 @@ PrefabInstance:
     - target: {fileID: 8930769876838613582, guid: 237bc27840c6b864184c077db974d14e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 128
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 8930769876838613582, guid: 237bc27840c6b864184c077db974d14e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 128
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 8930769876838613582, guid: 237bc27840c6b864184c077db974d14e,
         type: 3}
@@ -444,6 +471,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6744710431246230436, guid: b5634add39ef61648b8d28dedf365a16,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24b63ad3e1432be4f9cbe20abcb08d02,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

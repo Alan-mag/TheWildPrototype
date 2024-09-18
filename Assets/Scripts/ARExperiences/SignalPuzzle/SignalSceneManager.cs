@@ -16,6 +16,7 @@ public class SignalSceneManager : MonoBehaviour
     [Header("Canvas References")]
     [SerializeField] GameObject gameplayCanvas;
     [SerializeField] TextMeshProUGUI creatorNameText;
+    [SerializeField] GameObject creatorNameTitle;
 
     [Header("Sequence information")]
     [SerializeField] List<int> guessedTones;
@@ -73,6 +74,7 @@ public class SignalSceneManager : MonoBehaviour
         {
             signalSequence.AddRange(chosenSignalExperienceSO.chosenSignal.sequence);
             creatorNameText.text = chosenSignalExperienceSO.chosenSignal.creatorName;
+            creatorNameTitle.SetActive(true);
 
             UpdateGuessIndicatorsActive();
             audioManager.PopulateAudioClips();
@@ -95,6 +97,7 @@ public class SignalSceneManager : MonoBehaviour
                 {
                     signalSequence.AddRange(signalMapExperienceSO.signalCollection[i].sequence);
                     creatorNameText.text = signalMapExperienceSO.signalCollection[i].creatorName;
+                    creatorNameTitle.SetActive(true);
                 }
             }
             UpdateGuessIndicatorsActive();

@@ -206,10 +206,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 282929076255734699, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fdbbac0a1021cad4c9e2f0391612be5c,
+        type: 2}
+    - target: {fileID: 282929076255734699, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 282929076255734699, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2568674386746942679, guid: fdbbac0a1021cad4c9e2f0391612be5c,
+        type: 2}
+    - target: {fileID: 282929076255734699, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3823751186582779856, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503781979459468717, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503781979459468717, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503781979459468717, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4764794591187440975, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
@@ -312,10 +349,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: AR_Interactive_Template
       objectReference: {fileID: 0}
+    - target: {fileID: 8113919371940770043, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fa4c59a92c96ce6429dd4f6438ecd6b2,
+        type: 3}
+    - target: {fileID: 8605703848712505665, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605703848712505665, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f4a500f261fdaf34b887e51baa6606d5,
+        type: 3}
     - target: {fileID: 8634857542761322602, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062989567462850119, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146704262382900484, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -953
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -364,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a6a90dfa9cefa41ac7864763c08364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chosenAudioLogExperienceSO: {fileID: 0}
 --- !u!4 &805318293
 Transform:
   m_ObjectHideFlags: 0
