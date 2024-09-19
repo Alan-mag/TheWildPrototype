@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SocialScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject friendListItem;
+    [SerializeField] private VerticalLayoutGroup vertLayoutGroup;
     [SerializeField] private FirebaseManager firebaseManager;
     [SerializeField] private Canvas screenCanvas;
 
@@ -23,17 +24,18 @@ public class SocialScreenManager : MonoBehaviour
 
         for (int i = 0; i < playerNames.Count; i++) 
         {
+            Debug.Log(playerNames[i]);
             GameObject friendItemObject = Instantiate(friendListItem);
-            friendItemObject.transform.SetParent(screenCanvas.transform);
+            friendItemObject.transform.SetParent(vertLayoutGroup.transform);
             friendItemObject.GetComponent<RectTransform>().anchoredPosition = canvasPos;
 
             // todo: figure out position
             // RectTransform uitransform = friendItemObject.GetComponent<RectTransform>();
             friendItemObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(
                 friendItemObject.GetComponent<RectTransform>().anchoredPosition.x,
-                i * 160 + 1600 // todo: actually figure out this spacing
+                i * 160 + 1800 // todo: actually figure out this spacing
             );
-            friendItemObject.GetComponentInChildren<TMP_Text>().text = playerNames.ToArray()[i];
+            friendItemObject.GetComponentInChildren<Text>().text = playerNames.ToArray()[i];
         }
 
     }

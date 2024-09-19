@@ -14,6 +14,7 @@ public class PuzzleSceneManager : MonoBehaviour
 
     [Header("Canvas References")]
     [SerializeField] TextMeshProUGUI creatorNameText;
+    [SerializeField] GameObject creatorNameTitle;
 
     [Header("Rotation Text References")]
     [SerializeField] TextMeshProUGUI xRotationText;
@@ -40,7 +41,9 @@ public class PuzzleSceneManager : MonoBehaviour
         if (sphereMapExperiencesManagerSO.sphereInformationCollection.Count > 0)
         {
             var s = Resources.Load<SphereMapExperiencesManagerSO>("ScriptableObjects/Sphere Map Experiences Manager SO");
+            creatorNameText.gameObject.SetActive(true);
             creatorNameText.text = s.sphereInformationCollection.First().creatorName.ToString();
+            creatorNameTitle.SetActive(true);
             PuzzleSphereInformation chosenPuzzle = s.sphereInformationCollection.First();
             foreach (PuzzleSphereTarget target in chosenPuzzle.puzzleSphereTarget) // Todo: get random puzzleinfo
             {
@@ -62,7 +65,9 @@ public class PuzzleSceneManager : MonoBehaviour
         if (sphereMapExperiencesManagerSO.sphereInformationCollection.Count > 0)
         {
             var s = Resources.Load<SphereMapExperiencesManagerSO>("ScriptableObjects/Sphere Map Experiences Manager SO");
+            creatorNameText.gameObject.SetActive(true);
             creatorNameText.text = s.sphereInformationCollection.First().creatorName.ToString();
+            creatorNameTitle.SetActive(true);
             PuzzleSphereInformation chosenPuzzle = s.sphereInformationCollection.First();
             foreach (PuzzleSphereTarget target in chosenPuzzle.puzzleSphereTarget) // Todo: get random puzzleinfo
             {
@@ -111,7 +116,9 @@ public class PuzzleSceneManager : MonoBehaviour
     private void HandleChosenSphereExperience()
     {
         PuzzleSphereInformation chosenPuzzle = chosenSphereExperienceSO.chosenSpherePuzzle;
+        creatorNameText.gameObject.SetActive(true);
         creatorNameText.text = chosenPuzzle.creatorName;
+        creatorNameTitle.SetActive(true);
         foreach (PuzzleSphereTarget target in chosenPuzzle.puzzleSphereTarget) // Todo: get random puzzleinfo
         {
             CreateTargetObject
