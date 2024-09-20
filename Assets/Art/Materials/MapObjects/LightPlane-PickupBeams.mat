@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wanderer-LightPlane-PickupBeams
+  m_Name: LightPlane-PickupBeams
   m_Shader: {fileID: 4800000, guid: de78d2ec04e9f4735a68f342480140f6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -125,8 +125,8 @@ Material:
     - _UnityShadowMode: 1
     - _UnityShadowPower: 0.383
     - _UnityShadowSharpness: 1
-    - _UvFadeX: 3.16
-    - _UvFadeY: 0.28
+    - _UvFadeX: 4.54
+    - _UvFadeY: 0.95
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.2784314, g: 0.9450981, b: 0.8313726, a: 1}
