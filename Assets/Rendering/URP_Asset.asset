@@ -18,6 +18,15 @@ MonoBehaviour:
   m_RendererData: {fileID: 0}
   m_RendererDataList:
   - {fileID: 11400000, guid: 5431b7b17cb5fb4479341ce9f18671ab, type: 2}
+  - {fileID: 11400000, guid: d13a4da84d83546d28d2fdc102b67eb7, type: 2}
+  - {fileID: 11400000, guid: 66262d1f16cc64540bd7d3c33a5ed88c, type: 2}
+  - {fileID: 11400000, guid: d2f5fe9a531b5624ebf7e21d8711ceba, type: 2}
+  - {fileID: 11400000, guid: 20e76e31c70d0b94bbaf75270b572f9e, type: 2}
+  - {fileID: 11400000, guid: 4cbdadf2d11484d7aab34b901b5d9c52, type: 2}
+  - {fileID: 11400000, guid: 93c1abb83c5ea4a1e84d8475a0d245db, type: 2}
+  - {fileID: 11400000, guid: 8f6e84df0785d4fb4893c311e7702e84, type: 2}
+  - {fileID: 11400000, guid: 639d1aa1c95cd443c831165564f4a19b, type: 2}
+  - {fileID: 11400000, guid: 638c962cf47c9084fa06cc2f1a5d33ff, type: 2}
   m_DefaultRendererIndex: 0
   m_RequireDepthTexture: 1
   m_RequireOpaqueTexture: 1
@@ -88,19 +97,19 @@ MonoBehaviour:
   m_PrefilterXRKeywords: 0
   m_PrefilteringModeForwardPlus: 0
   m_PrefilteringModeDeferredRendering: 0
-  m_PrefilteringModeScreenSpaceOcclusion: 0
+  m_PrefilteringModeScreenSpaceOcclusion: 1
   m_PrefilterDebugKeywords: 1
   m_PrefilterWriteRenderingLayers: 1
   m_PrefilterHDROutput: 1
-  m_PrefilterSSAODepthNormals: 1
+  m_PrefilterSSAODepthNormals: 0
   m_PrefilterSSAOSourceDepthLow: 1
   m_PrefilterSSAOSourceDepthMedium: 1
-  m_PrefilterSSAOSourceDepthHigh: 1
-  m_PrefilterSSAOInterleaved: 1
-  m_PrefilterSSAOBlueNoise: 1
+  m_PrefilterSSAOSourceDepthHigh: 0
+  m_PrefilterSSAOInterleaved: 0
+  m_PrefilterSSAOBlueNoise: 0
   m_PrefilterSSAOSampleCountLow: 1
-  m_PrefilterSSAOSampleCountMedium: 1
-  m_PrefilterSSAOSampleCountHigh: 1
+  m_PrefilterSSAOSampleCountMedium: 0
+  m_PrefilterSSAOSampleCountHigh: 0
   m_PrefilterDBufferMRT1: 1
   m_PrefilterDBufferMRT2: 1
   m_PrefilterDBufferMRT3: 1
