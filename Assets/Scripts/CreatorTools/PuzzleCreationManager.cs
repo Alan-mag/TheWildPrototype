@@ -53,6 +53,8 @@ public class PuzzleCreationManager : MonoBehaviour
         // make new tunnel child of sphere - so rotation works
         newTunnel.transform.LookAt(puzzleSphere.transform);
         newTunnel.transform.parent = puzzleSphere.transform;
+        newTunnel.transform.Rotate(180f, 0f, 0f);
+        newTunnel.transform.position = new Vector3(0f, 0f, 1f);
         tunnels.Add(newTunnel);
         currentTunnelCount++;
     }

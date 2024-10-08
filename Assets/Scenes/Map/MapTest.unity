@@ -6351,6 +6351,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3941831708472719646, guid: a841dfb35e8712b449def648163abc7c,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4695583505134938043, guid: a841dfb35e8712b449def648163abc7c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -6447,7 +6452,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7719116391045839326, guid: a841dfb35e8712b449def648163abc7c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a841dfb35e8712b449def648163abc7c, type: 3}
