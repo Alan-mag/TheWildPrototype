@@ -2164,7 +2164,7 @@ GameObject:
   - component: {fileID: 439248374}
   - component: {fileID: 439248373}
   m_Layer: 0
-  m_Name: DebugButton
+  m_Name: Playground Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,13 +2234,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1216474010}
+        m_TargetAssemblyTypeName: SceneChangeHandler, Assembly-CSharp
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6308,7 +6308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Debug Menu
+  m_text: AR Playground
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdbbac0a1021cad4c9e2f0391612be5c, type: 2}
   m_sharedMaterial: {fileID: -2568674386746942679, guid: fdbbac0a1021cad4c9e2f0391612be5c,
