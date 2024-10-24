@@ -2205,7 +2205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mCamera: {fileID: 1676585621}
   puzzleSphere: {fileID: 1143224074}
-  tunnelPrefab: {fileID: 4896903554425615981, guid: dfc179b689532ba479c3a2a43e733c83,
+  tunnelPrefab: {fileID: 1428761690871974531, guid: ee8999de075820a4ab23a40b46df5552,
     type: 3}
   targetPrefab: {fileID: 7632522014030180180, guid: 16e0c98850813e645bf085957a2085a1,
     type: 3}
