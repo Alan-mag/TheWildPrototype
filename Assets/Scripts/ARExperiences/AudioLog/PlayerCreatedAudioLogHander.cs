@@ -24,6 +24,7 @@ public class PlayerCreatedAudioLogHander : MonoBehaviour
     {
         GetAudioFileFromFirebase();
     }
+
     private void GetAudioFileFromFirebase()
     {
         // Get a reference to the storage service, using the default Firebase App
@@ -49,7 +50,7 @@ public class PlayerCreatedAudioLogHander : MonoBehaviour
             }
             else
             {
-                Debug.Log("PlayerCreatedAudioLogHander:: fetch audio log didn't work");
+                Debug.Log("PlayerCreatedAudioLogHander:: fetch audio log didn't work.");
             }
         });
     }

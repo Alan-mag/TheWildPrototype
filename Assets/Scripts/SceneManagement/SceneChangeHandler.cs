@@ -9,12 +9,19 @@ public class SceneChangeHandler : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(sceneName);
-        Debug.Log(gameObject.name);
+        /*SceneManager.LoadScene(sceneName);
+        Debug.Log(gameObject.name);*/
         if (gameObject.name == "TestSceneAudio_map(Clone)")
         {
-            AudioLogInfo.Title = gameObject.GetComponent<AudioLogMapHandler>().GetAudioLogMessage();
+            // todo: just commented this out? not sure
+            // AudioLogInfo.Title = gameObject.GetComponent<AudioLogMapHandler>().GetAudioLogMessage();
+
+            AudioLogInfo.Title = gameObject.GetComponent<AudioLogMapObject>().title;
+            AudioLogInfo.FmodAudioSourceReference = gameObject.GetComponent<AudioLogMapObject>().fmodAudioSourceReference;
+            AudioLogInfo.Description = gameObject.GetComponent<AudioLogMapObject>().description;
         }
+        SceneManager.LoadScene(sceneName);
+        Debug.Log(gameObject.name);
         // todo:
         // check if going to audio log scene
         // if so, use static class to set current audio log text
@@ -22,6 +29,9 @@ public class SceneChangeHandler : MonoBehaviour
         // something like:
         // <AudioLogMapScript>.setMessage() <-- then this sets in static class
         // fix this implementation with scriptable objects
+
+
+
     }
 
     public void RotateInteractiveObject()                                                                    
