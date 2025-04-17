@@ -16,6 +16,7 @@ public class AudioLog : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] GameObject AudioLogUI;
     [SerializeField] private GameObject tutorialManager;
+    [SerializeField] private ChosenAudioLogExperienceSO chosenAudioLogExperienceSO;
 
     [SerializeField] private string accessKey;
     [SerializeField] private string secretKey;
@@ -36,7 +37,12 @@ public class AudioLog : MonoBehaviour
 
     private void Start()
     {
-
+        /*Debug.Log("Audio Log Info:");
+        Debug.Log(AudioLogInfo.Title);
+        Debug.Log(AudioLogInfo.Description);
+        Debug.Log(AudioLogInfo.FmodAudioSourceReference);
+        Debug.Log("ChosenAudioLogSO Info:");
+        Debug.Log(chosenAudioLogExperienceSO.chosenAudioLog.filename);*/
     }
 
     public void CollectAudioLog()

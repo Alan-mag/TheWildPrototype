@@ -4879,11 +4879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11424330, guid: 26c10cac93cf841b591d777b9a1d0c83, type: 3}
       propertyPath: _defaultLocation._latitude
-      value: 47.64915277574054
+      value: 47.6495
       objectReference: {fileID: 0}
     - target: {fileID: 11424330, guid: 26c10cac93cf841b591d777b9a1d0c83, type: 3}
       propertyPath: _defaultLocation._longitude
-      value: -122.34787428753876
+      value: -122.35
       objectReference: {fileID: 0}
     - target: {fileID: 11424330, guid: 26c10cac93cf841b591d777b9a1d0c83, type: 3}
       propertyPath: _defaultLocation._mapRadius

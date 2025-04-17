@@ -792,6 +792,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 712f6c4cb8debbd49b0d4a642416041e,
         type: 2}
+    - target: {fileID: 8008719833474589908, guid: fab9a077c4cec344fa6d9568dfaf75aa,
+        type: 3}
+      propertyPath: chosenAudioLogExperienceSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0227886a5978b08428011b6ef8ca5bb2,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -860,7 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a6a90dfa9cefa41ac7864763c08364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenAudioLogExperienceSO: {fileID: 0}
+  chosenAudioLogExperienceSO: {fileID: 11400000, guid: 0227886a5978b08428011b6ef8ca5bb2,
+    type: 2}
 --- !u!1 &760511394
 GameObject:
   m_ObjectHideFlags: 0

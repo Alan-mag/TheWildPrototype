@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
 
     AudioSource audioSource;
 
+    [SerializeField] GameObject replayButton;
+
     // public bool playSignalLoop = true;
     public int audioLoopRepeat = 1;
 
@@ -102,5 +104,26 @@ public class AudioManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public IEnumerator ReplayAudioSequence()
+    {
+        yield return new WaitForSeconds(1);
+
+        for (int i = 0; i < audioClipArray.Length; i++)
+        {
+            audioSource.clip = audioClipArray[i];
+            audioSource.Play();
+            while (audioSource.isPlaying)
+            {
+                yield return null;
+            }
+        }
+    }
+
+    public void ReplayButtonPress()
+    {
+        Debug.Log("ReplayButtonPress");
+        StartCoroutine(ReplayAudioSequence());
     }
 }
