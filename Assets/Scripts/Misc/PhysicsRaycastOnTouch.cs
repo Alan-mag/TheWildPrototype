@@ -34,15 +34,21 @@ public class PhysicsRaycastOnTouch : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             pos = Input.mousePosition;
+            Touch t = new Touch();
+            t.phase = TouchPhase.Stationary;
+            if (pos != new Vector3(0, 0, 0))
+                OnTouchScreen(pos, t);
         }
 #else
 if (Input.touches.Length > 0)
         {
             pos = Input.touches[0].position;
+            if (pos != new Vector3(0, 0, 0))
+                OnTouchScreen(pos, Input.touches[0]);
         }
 #endif
-        if (pos != new Vector3(0, 0, 0))
-            OnTouchScreen(pos);
+        /*if (pos != new Vector3(0, 0, 0))
+            OnTouchScreen(pos);*/
     }
     
     public void ToggleDebug() // Todo: save and pull from playerprefs
@@ -110,7 +116,7 @@ if (Input.touches.Length > 0)
     }
 
     // TODO: This needs big overhaul
-    void OnTouchScreen(Vector3 position)
+    void OnTouchScreen(Vector3 position, Touch touch)
     {
         Ray ray = m_Camera.ScreenPointToRay(position);
         
@@ -126,7 +132,7 @@ if (Input.touches.Length > 0)
 
                 if (g.tag == "MapSpawnObject")
                 {
-                    if (debugMode)
+                    if (debugMode && touch.phase == TouchPhase.Stationary)
                     {
                         // no distance requirement from experience
                         HandleHistoricalImageSetInfo(g);
@@ -138,7 +144,7 @@ if (Input.touches.Length > 0)
                     else
                     {
                         float dist = Vector3.Distance(g.transform.position, playerTransform.position);
-                        if (dist <= interactionDistance)
+                        if (dist <= interactionDistance && touch.phase == TouchPhase.Stationary)
                         {
                             // historical image data check:
                             HandleHistoricalImageSetInfo(g);
@@ -161,7 +167,7 @@ if (Input.touches.Length > 0)
                 }
 
                 // handle audio log test
-                if (g.name == "AudioLogTest2") // todo: this isn't going to scale well!
+                if (g.name == "AudioLogTest2" && touch.phase == TouchPhase.Stationary) // todo: this isn't going to scale well!
                 {
                     var audioScript = g.GetComponent<AudioLog_To_AudioPlayer>();
                     audioScript.ToAudioPlayer();
@@ -188,13 +194,13 @@ if (Input.touches.Length > 0)
                     float distanceToObject = Vector3.Distance(g.transform.position, playerTransform.position);
                     Debug.Log(g.name + " is " + distanceToObject + " meters away.");
 
-                    if (g.name == "TestExpeditionMapCube(Clone)")
+                    if (g.name == "TestExpeditionMapCube(Clone)" && touch.phase == TouchPhase.Stationary)
                     {
                         SceneManager.LoadScene("ExpeditionScene"); // could just call scene change handler from object component
                     }
 
                     // todo update: for now Expd_ map objects are all expedition
-                    if (g.name.Contains("Expd_"))
+                    if (g.name.Contains("Expd_") && touch.phase == TouchPhase.Stationary)
                     {
                         if (g.name == "Expd_MapObj_Signal(Clone)" && distanceToObject <= interactionDistanceExpedition)
                         {
