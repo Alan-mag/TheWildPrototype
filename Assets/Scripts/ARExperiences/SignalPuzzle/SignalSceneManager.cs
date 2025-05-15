@@ -96,8 +96,11 @@ public class SignalSceneManager : MonoBehaviour
                 else
                 {
                     signalSequence.AddRange(signalMapExperienceSO.signalCollection[i].sequence);
-                    creatorNameText.text = signalMapExperienceSO.signalCollection[i].creatorName;
-                    creatorNameTitle.SetActive(true);
+                    if (creatorNameText && creatorNameTitle)
+                    {
+                        creatorNameText.text = signalMapExperienceSO.signalCollection[i].creatorName;
+                        creatorNameTitle.SetActive(true);
+                    }
                 }
             }
             UpdateGuessIndicatorsActive();
@@ -123,7 +126,7 @@ public class SignalSceneManager : MonoBehaviour
 
     private void GenerateRandomSequence()
     {
-        var numOfTones = UnityEngine.Random.Range(2, 5);
+        var numOfTones = 2;
         for (int i = 0; i < numOfTones; i++)
         {
             signalSequence.Add(UnityEngine.Random.Range(0, 3));

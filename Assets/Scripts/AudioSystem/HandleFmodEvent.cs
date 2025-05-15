@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using System.Threading;
 
 public class HandleFmodEvent : MonoBehaviour
 {
@@ -42,5 +43,11 @@ public class HandleFmodEvent : MonoBehaviour
         var audioEvent = RuntimeManager.CreateInstance("event:" + fmodEventName);
         audioEvent.start();
         audioEvent.release();
+    }
+
+    // Todo: stop fmod event
+    private void OnDestroy()
+    {
+        FMODUnity.RuntimeManager.MuteAllEvents(true);
     }
 }
