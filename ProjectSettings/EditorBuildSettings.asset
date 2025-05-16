@@ -143,6 +143,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Collection/ToSolve/ToSolveSpherePuzzlesCollection.unity
     guid: 5f19d0258095225419f5f293cc34622b
+  - enabled: 1
+    path: Assets/Scenes/Expedition/Expedition_VC.unity
+    guid: e5d3e0f91667a6b4f944a8841c372ade
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 3b8ce09bf1c0f204ca6f480e0f521d96,
       type: 2}
