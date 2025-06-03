@@ -14,14 +14,14 @@ public class ExpeditionManager : MonoBehaviour
     // make expedition location object, create array of that -- for now has lat lng, maybe name later or something? idk
     private ExpeditionLocationData[] locationArray = new ExpeditionLocationData[] 
     {
-        new ExpeditionLocationData(47.64911685880216, -122.34881377439586), // intro - plaza
+        new ExpeditionLocationData(47.64885666377061, -122.34796990881757), // intro - plaza
         new ExpeditionLocationData(47.64832220549204, -122.34775536723672), // tree
         new ExpeditionLocationData(47.648420416023555, -122.3505378046487), // bridge
         new ExpeditionLocationData(47.65044935402641, -122.35477596465509), // dinos
         new ExpeditionLocationData(47.651284456009485, -122.35439674340027), // rocket
         new ExpeditionLocationData(47.6494718243353, -122.34948059350657), // interurban people
-        new ExpeditionLocationData(47.64911685880216, -122.34881377439586) // back at plaza
-        // new ExpeditionLocationData(47.64885666377061, -122.34796990881757) // final hq old - in building was inconsistent
+        new ExpeditionLocationData(47.64911685880216, -122.34881377439586), // back at plaza
+        new ExpeditionLocationData(47.64885666377061, -122.34796990881757) // final hq old - in building was inconsistent
     };
 
     [Header("Map Scene Objects")]
@@ -32,10 +32,14 @@ public class ExpeditionManager : MonoBehaviour
     [SerializeField] GameObject levelThreeMapObject;
     [SerializeField] GameObject levelFourMapObject;
     [SerializeField] GameObject levelFiveMapObject;
+    [SerializeField] GameObject levelSixMapObject;
 
     [SerializeField] LightshipMap lightshipMap;
 
     [SerializeField] private IntEventChannelSO _onCompletedStage = default;
+
+    [Header("Intro UI")]
+    [SerializeField] GameObject introUi;
 
     // actions
     // public static event Action OnCompleteExpedition;
@@ -53,8 +57,8 @@ public class ExpeditionManager : MonoBehaviour
 
     // events channels for handling data and events across scenes
 
-    // stage one: 47.64911685880216, -122.34881377439586 [intro]
-    // stage two: 47.64832220549204, -122.34775536723672 [tree]
+    // stage one: 47.64911685880216, -122.34881377439586 [intro - plaza]
+    // stage two: 47.64832220549204, -122.34775536723672 [tree - adobe]
     // stage 2.5: 47.647537223315595, -122.34783112331242 [statue?] // not now?
     // stage three: 47.648420416023555, -122.3505378046487 [bridge]
 
@@ -63,6 +67,7 @@ public class ExpeditionManager : MonoBehaviour
     // open stage 4: 47.6494718243353, -122.34948059350657 [interurban people]
 
     // final: hq rounghly? 47.64885666377061, -122.34796990881757
+    // Todo: need HQ visitor center precise
 
     private void OnEnable()
     {
@@ -94,6 +99,14 @@ public class ExpeditionManager : MonoBehaviour
         // todo for rendering path
         // RenderPathForExpedition();
         LoadExperienceLocations();
+
+        if (expeditionData.CurrentLevel == 0)
+        {
+            if (introUi != null)
+            {
+                introUi.SetActive(true);
+            }
+        }
 
         /*if (expeditionData.CurrentLevel == expeditionData.TotalLevels)
         {
@@ -136,6 +149,8 @@ public class ExpeditionManager : MonoBehaviour
                 Instantiate(levelFiveMapObject, lightshipMap.LatLngToScene(in latLng), Quaternion.identity);
                 break;
             case 5:
+                LatLng latLng_vc = new LatLng(locationArray[7].Latitude, locationArray[7].Longitude);
+                Instantiate(levelSixMapObject, lightshipMap.LatLngToScene(in latLng_vc), Quaternion.identity);
                 break;
             default: 
                 break;
