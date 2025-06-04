@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: sceneName
       value: ExpeditionScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1909751973948104666, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 3823751186582779856, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_IsActive

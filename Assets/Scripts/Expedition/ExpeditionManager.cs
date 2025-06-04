@@ -41,34 +41,6 @@ public class ExpeditionManager : MonoBehaviour
     [Header("Intro UI")]
     [SerializeField] GameObject introUi;
 
-    // actions
-    // public static event Action OnCompleteExpedition;
-
-
-    // look at quests in uop
-    // todo will probably add:
-    // event channels
-    // some type of expedition manager or scriptable object
-
-    // for now, expeditions will launch new map scene
-    // we will then load in each experience at correct locations,
-    // there will be some type of manager to handle linear parts
-    // and open ended 'choose your own path' parts
-
-    // events channels for handling data and events across scenes
-
-    // stage one: 47.64911685880216, -122.34881377439586 [intro - plaza]
-    // stage two: 47.64832220549204, -122.34775536723672 [tree - adobe]
-    // stage 2.5: 47.647537223315595, -122.34783112331242 [statue?] // not now?
-    // stage three: 47.648420416023555, -122.3505378046487 [bridge]
-
-    // open stage 4: 47.65044935402641, -122.35477596465509 [dinos]
-    // open stage 4: 47.651284456009485, -122.35439674340027 rocket
-    // open stage 4: 47.6494718243353, -122.34948059350657 [interurban people]
-
-    // final: hq rounghly? 47.64885666377061, -122.34796990881757
-    // Todo: need HQ visitor center precise
-
     private void OnEnable()
     {
         if (_onCompletedStage != null) {

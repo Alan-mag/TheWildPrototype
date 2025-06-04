@@ -16,7 +16,9 @@ public class ExpeditionLevelHandler : MonoBehaviour
         {
             expeditionData.CurrentLevel = 0;
             expeditionData.SetPathTaken(0);
-            SceneManager.LoadScene("MapTest");
+            // Todo: for VC Test, just go back to first ExpeditionScene
+            SceneManager.LoadScene("ExpeditionScene");
+            // SceneManager.LoadScene("MapTest");
         } else
         {
             SceneManager.LoadScene("ExpeditionScene");

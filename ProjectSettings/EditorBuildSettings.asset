@@ -44,7 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Expedition/ExpeditionScene.unity
     guid: 3df8ead3b91cc0a4dbcdb4c65fd34129
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Expedition/Expd_AudioLog.unity
     guid: 54440d6f8d79ba74cade9517b3710e11
   - enabled: 1

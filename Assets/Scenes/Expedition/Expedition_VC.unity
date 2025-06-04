@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 917388027077970583, guid: c6868887738b73741a0d6f457bbd79de,
+        type: 3}
+      propertyPath: sceneName
+      value: ExpeditionScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1370220281581202757, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_IsActive
@@ -144,7 +149,7 @@ PrefabInstance:
     - target: {fileID: 1909751973948104666, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 715
+      value: 154
       objectReference: {fileID: 0}
     - target: {fileID: 3680120604418706233, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
@@ -219,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 6436901257528449976, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6436901257528449976, guid: c6868887738b73741a0d6f457bbd79de,
         type: 3}
